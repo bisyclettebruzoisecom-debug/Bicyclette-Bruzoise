@@ -348,12 +348,16 @@ img {
   opacity: 0.6;
   cursor: not-allowed;
 }
+
 .site-header {
-  background-color: transparent; /* on laisse voir le fond */
-  backdrop-filter: none;
-  border-bottom: none;
-  position: relative;
+  background-color: rgba(255, 255, 255, 0.94); /* fond quasi blanc */
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
+
 .site-footer {
   border-top: 1px solid #e5e5e5;
   padding: 1.25rem 0;
