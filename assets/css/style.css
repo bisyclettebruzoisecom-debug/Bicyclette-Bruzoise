@@ -32,7 +32,6 @@ body {
   background-position: center top;
   background-size: cover;
 }
-
 a {
   color: var(--primary);
   text-decoration: none;
