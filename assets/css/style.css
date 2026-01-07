@@ -131,6 +131,16 @@ img {
   padding: 2.5rem 0 3rem;
 }
 
+.hero-accueil {
+  padding-top: 3rem;
+}
+
+.hero-inner-overlay {
+  background: rgba(255, 255, 255, 0.72);
+  border-radius: var(--radius);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow);
+}
 .hero-inner {
   display: grid;
   grid-template-columns: minmax(0, 2fr) minmax(0, 1.2fr);
@@ -339,7 +349,12 @@ img {
   opacity: 0.6;
   cursor: not-allowed;
 }
-
+.site-header {
+  background-color: transparent; /* on laisse voir le fond */
+  backdrop-filter: none;
+  border-bottom: none;
+  position: relative;
+}
 .site-footer {
   border-top: 1px solid #e5e5e5;
   padding: 1.25rem 0;
@@ -350,20 +365,54 @@ img {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 0.75rem;
   font-size: 0.85rem;
   color: var(--muted);
+  align-items: center;
 }
+
+.footer-left p {
+  margin: 0.15rem 0;
+}
+
+.social-links a {
+  font-weight: 600;
+}
+
+.social-links a:hover,
+.social-links a:focus {
+  text-decoration: underline;
+}
+
+.partner-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.partner-logos img {
+  max-height: 48px;
+  width: auto;
+  display: block;
+}
+
 
 .hidden {
   display: none;
 }
 
-@media (max-width: 800px) {
-  .hero-inner,
-  .two-columns {
-    grid-template-columns: 1fr;
+@media (max-width: 720px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
   }
+
+  .club-logo img {
+    height: 56px;
+  }
+}
+
 
   .hero {
     padding-top: 1.75rem;
