@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace adhérents – La Bicyclette Bruzoise</title>
+  <meta name="description" content="Espace réservé aux adhérents de la Bicyclette Bruzoise (circuits, documents internes, calendriers détaillés).">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="site-branding">
+        <a href="index.html" class="logo">La Bicyclette Bruzoise</a>
+        <p class="tagline">Club de cyclotourisme affilié FFVélo – Bruz (Ille-et-Vilaine)</p>
+      </div>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
+          ☰
+        </button>
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html">Le club</a></li>
+          <li><a href="historique.html">Historique</a></li>
+          <li><a href="groupes.html">Groupes</a></li>
+          <li><a href="calendrier.html">Calendrier</a></li>
+          <li><a href="annonces.html">Annonces</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="circuits.html">Circuits (adhérents)</a></li>
+          <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    
+<section class="page-header">
+  <div class="container">
+    <h1>Espace adhérents</h1>
+    <p>Accès réservé aux licenciés du club.</p>
+  </div>
+</section>
+
+<section class="container" id="login-section">
+  <h2>Connexion</h2>
+  <p>Pour accéder aux documents internes (circuits, calendriers détaillés, comptes rendus…), merci de saisir le mot de passe communiqué par le club.</p>
+
+  <form class="login-form" onsubmit="return checkPassword(event)">
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" name="password" required>
+    <p id="password-error" class="error-message" aria-live="polite"></p>
+    <button type="submit" class="btn primary">Entrer</button>
+  </form>
+  <p class="form-note">Cette protection par mot de passe repose sur du JavaScript et convient pour des informations internes non sensibles. Pour des contenus confidentiels, utilisez la protection par identifiant/mot de passe de votre hébergeur.</p>
+</section>
+
+<section class="container hidden" id="private-content">
+  <h2>Circuits du club</h2>
+  <p>Les circuits sont classés par groupes et par périodes (semestres). Vous pouvez mettre ici les liens vers les documents PDF ou les pages détaillant les circuits.</p>
+  <ul class="private-list">
+    <li><a href="#">Calendrier annuel des circuits &lt;année&gt; (PDF)</a></li>
+    <li><a href="#">Calendrier 1er semestre &lt;année&gt; (PDF)</a></li>
+    <li><a href="#">Calendrier 2e semestre &lt;année&gt; (PDF)</a></li>
+    <li><a href="#">Liste des circuits A, B, C… avec distances et dénivelés (PDF ou page dédiée)</a></li>
+  </ul>
+
+  <h2>Documents internes</h2>
+  <ul class="private-list">
+    <li><a href="#">Compte-rendu de l’AG &lt;année&gt; (PDF)</a></li>
+    <li><a href="#">Règlement intérieur du club (PDF)</a></li>
+    <li><a href="#">Dossier d’inscription &lt;année&gt; (PDF)</a></li>
+  </ul>
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+      <p class="footer-meta">
+        Bruz (35170) – Bretagne | Site réalisé par le club.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
