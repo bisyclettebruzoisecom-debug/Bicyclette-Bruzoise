@@ -62,14 +62,13 @@ img {
 }
 
 .site-header {
-  background: linear-gradient(to right, #ffffff, #f4f4ff); /* bandeau clair opaque */
+  background-color: rgba(255, 255, 255, 0.94); /* fond quasi blanc */
+  backdrop-filter: blur(8px);
   position: sticky;
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
 }
-
 .header-inner {
   display: flex;
   align-items: center;
@@ -363,14 +362,7 @@ img {
   cursor: not-allowed;
 }
 
-.site-header {
-  background-color: rgba(255, 255, 255, 0.94); /* fond quasi blanc */
-  backdrop-filter: blur(8px);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-}
+
 
 .site-footer {
   border-top: 1px solid #e5e5e5;
@@ -416,12 +408,12 @@ img {
 
 .club-logo {
   position: absolute;
-  top: 10px;
+  top: 5px;
   left: 1rem;
 }
 
 .club-logo img {
-  height: 60px;
+  height: 100px;
   width: auto;
 }
 
