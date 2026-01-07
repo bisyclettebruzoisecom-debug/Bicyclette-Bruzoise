@@ -127,7 +127,7 @@ img {
 }
 
 .hero {
-  background: radial-gradient(circle at top left, #e1f0ff, #f6f7fb 55%, #fdfdfd 100%);
+  background: transparent; /* on laisse l'image de fond apparente */
   padding: 2.5rem 0 3rem;
 }
 
