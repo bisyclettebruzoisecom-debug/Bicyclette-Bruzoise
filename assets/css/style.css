@@ -62,31 +62,60 @@ img {
 }
 
 .site-header {
-  background-color: rgba(255, 255, 255, 0.94); /* fond quasi blanc */
+  background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px);
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 10px solid rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
+
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 0;
+  padding: 0.65rem 0;
   gap: 1rem;
 }
 
-.site-branding .logo {
-  font-weight: 700;
-  font-size: 1.05rem;
+/* Marque (logo + intitulé) */
+.site-branding {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 220px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-branding:hover,
+.site-branding:focus {
+  text-decoration: none;
+}
+
+.brand-logo {
+  height: 56px;
+  width: auto;
+}
+
+.brand-text {
+  display: inline-block;
+  line-height: 1.1;
+}
+
+.brand-title {
+  display: block;
+  font-weight: 800;
+  font-size: 1.02rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
 }
 
-.site-branding .tagline {
-  margin: 0.15rem 0 0;
-  font-size: 0.8rem;
+.brand-subtitle {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.82rem;
   color: var(--muted);
 }
 
@@ -96,29 +125,42 @@ img {
 
 .nav-toggle {
   display: none;
+  align-items: center;
+  gap: 0.5rem;
   background: none;
   border: 1px solid var(--border);
   border-radius: 999px;
-  padding: 0.35rem 0.75rem;
+  padding: 0.45rem 0.75rem;
   cursor: pointer;
-  font-size: 1rem;
+  font: inherit;
+  color: var(--text);
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid rgba(20, 99, 165, 0.35);
+  outline-offset: 2px;
 }
 
 .nav-list {
   list-style: none;
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  row-gap: 0.35rem;
   padding: 0;
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.92rem;
 }
 
 .nav-list a {
-  color: #222222;          /* texte bien foncé */
-  font-weight: 600;        /* un peu plus gras */
-  padding: 0.35rem 0.55rem;
+  color: var(--text);
+  font-weight: 650;
+  padding: 0.4rem 0.65rem;
   border-radius: 999px;
+  white-space: nowrap;
+  text-decoration: none;
 }
 
 .nav-list a:hover,
@@ -127,10 +169,51 @@ img {
   text-decoration: none;
 }
 
+.nav-list a[aria-current="page"] {
+  background-color: rgba(20, 99, 165, 0.16);
+  color: var(--primary-dark);
+}
+
 .nav-list .nav-private {
-  border: 1px solid #1463a5;
-  background-color: #1463a5;
+  border: 1px solid var(--primary);
+  background-color: var(--primary);
   color: #ffffff;
+}
+
+.nav-list .nav-private:hover,
+.nav-list .nav-private:focus {
+  background-color: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+
+/* Menu responsive */
+@media (max-width: 980px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-list {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 0.6rem);
+    flex-direction: column;
+    align-items: stretch;
+    background-color: #ffffff;
+    padding: 0.5rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    min-width: 270px;
+    display: none;
+  }
+
+  .main-nav.is-open .nav-list {
+    display: flex;
+  }
+
+  .nav-list a {
+    width: 100%;
+  }
 }
 .site-main {
   padding-bottom: 3rem;
@@ -406,16 +489,6 @@ img {
   display: block;
 }
 
-.club-logo {
-  position: absolute;
-  top: 5px;
-  left: 1rem;
-}
-
-.club-logo img {
-  height: 100px;
-  width: auto;
-}
 
 
 .hidden {
@@ -428,29 +501,12 @@ img {
     align-items: flex-start;
   }
 
-  .club-logo img {
-    height: 56px;
+  .brand-logo {
+    height: 48px;
   }
-}
 
-
-  .hero {
-    padding-top: 1.75rem;
-  }
-}
-
-@media (max-width: 720px) {
-  .nav-list {
-    position: absolute;
-    right: 0;
-    top: calc(100% + 0.5rem);
-    flex-direction: column;
-    align-items: flex-start;
-    background-color: #ffffff;
-    padding: 0.5rem;
-    border-radius: 0.75rem;
-    box-shadow: var(--shadow);
-    min-width: 230px;
+  .brand-subtitle {
     display: none;
   }
 }
+
