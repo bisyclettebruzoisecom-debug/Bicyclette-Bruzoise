@@ -510,3 +510,73 @@ img {
   }
 }
 
+
+
+/* =========================
+   Accueil : bloc "Bienvenue"
+   ========================= */
+.home-hero{
+  padding: 2.25rem 0 0;
+}
+
+.card.hero-card{
+  padding: 1.5rem;
+}
+
+.hero-grid{
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+.hero-logo{
+  width: 84px;
+  height: auto;
+  display: block;
+}
+
+.hero-content h1{
+  margin: 0.75rem 0 0.75rem;
+  line-height: 1.15;
+}
+
+.hero-note{
+  margin-top: 1rem;
+  color: var(--muted);
+}
+
+.hero-media{
+  width: 100%;
+}
+
+.hero-image{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: var(--shadow);
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.card-image{
+  width: 100%;
+  display: block;
+  border-radius: calc(var(--radius) - 2px);
+  margin: 0.75rem 0 1rem;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+@media (max-width: 900px){
+  .hero-grid{
+    grid-template-columns: 1fr;
+  }
+  .hero-media{
+    order: -1;
+  }
+  .hero-image{
+    max-height: 320px;
+  }
+}
