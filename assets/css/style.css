@@ -561,11 +561,9 @@ img {
 }
 
 .card-image{
-  width: 100%;
   display: block;
   border-radius: calc(var(--radius) - 2px);
   margin: 0.75rem 0 1rem;
-  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 
