@@ -8,16 +8,24 @@
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="club-logo"> 
-      <img src="assets/img/BBlogo.jpg" alt="Logo de la Bicyclette Bruzoise"> <!-- Logo du club en haut à gauche -->
-      
+    <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-branding" href="index.html" aria-label="La Bicyclette Bruzoise — Accueil">
+        <img class="brand-logo" src="assets/img/BBlogo.jpg" alt="Logo de la Bicyclette Bruzoise">
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+        </span>
+      </a>
+
       <nav class="main-nav" aria-label="Navigation principale">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
-          ☰
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+          <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+          <span class="nav-toggle-label">Menu</span>
         </button>
+
         <ul id="primary-menu" class="nav-list">
-          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html" aria-current="page">Accueil</a></li>
           <li><a href="club.html">Le club</a></li>
           <li><a href="sorties.html">Les sorties hebdomadaires</a></li>
           <li><a href="sejours.html">Les séjours clubs</a></li>
@@ -46,11 +54,11 @@
               <p>Pour quelques bouts d'essai sans engagement, rendez-vous tous les mercredi et samedi à 13h30, place de la mairie.</p>
         </article>
         <article class="card">
-          <h1>Actualité 2026</h1>
+          <h2>Actualité 2026</h2>
           <p>La Bicyclette Bruzoise est heureuse de vous proposer son Brevet Randonneurs Mondiaux (BRM) de 300 kilomètres le 25 avril 2026.</p>
-          <img src="assets/img/parcoursbrm300.jpg" alt="" heigt="100">
+          <img src="assets/img/parcoursbrm300.jpg" alt="" height="100">
           <div class="hero-actions">
-            <a href="https://www.openrunner.com/route-search?startCityName=Bruz&start_lat=48.024&start_lng=-1.7439&name=22631402&start_radius=20000&is_loop=true class="btn secondary">Numéro Openrunner : 22631402</a>
+            <a href="https://www.openrunner.com/route-search?startCityName=Bruz&start_lat=48.024&start_lng=-1.7439&name=22631402&start_radius=20000&is_loop=true" class="btn secondary" target="_blank" rel="noopener noreferrer">Numéro Openrunner : 22631402</a>
             <a href="https://www.helloasso.com/associations/la-bicyclette-bruzoise/evenements/brm-300-entre-rivieres-bretonnes-et-foret-legendaire" class="btn secondary">S'inscrire</a>
           </div>
         </article>
