@@ -61,17 +61,22 @@
                 <p>Pour accéder aux contenus internes, saisissez le mot de passe.</p>
 
                 <!-- Formulaire branché sur private-access.js -->
-                <form id="private-access-form" class="login-form">
-                  <label for="password">Mot de passe</label>
-                  <input type="password" id="password" name="password" autocomplete="current-password" required>
-                  <p id="password-error" class="error-message" aria-live="polite"></p>
-                  <div class="hero-actions">
-                    <button type="submit" class="btn primary">Entrer</button>
-                    <button type="button" class="btn secondary" id="lock-btn" disabled>
-                      Verrouiller
-                    </button>
-                  </div>
-                </form>
+<form class="login-form" id="password-form">
+  <label for="password">Mot de passe</label>
+  <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+  <p class="form-note" id="password-error" aria-live="polite"></p>
+
+  <div class="form-actions">
+    <button type="submit" class="btn primary">Entrer</button>
+    <button type="button" id="lock-btn" class="btn ghost">Verrouiller</button>
+  </div>
+
+  <p class="form-help">
+    Astuce : si vous utilisez toujours le même ordinateur, vous pouvez laisser votre navigateur mémoriser le mot de passe.
+  </p>
+</form>
+
               </article>
             </div>
           </div>
