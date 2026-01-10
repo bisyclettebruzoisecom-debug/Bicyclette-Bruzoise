@@ -41,7 +41,7 @@
   <main class="site-main">
     <section class="home-hero">
       <div class="container two-columns">
-        <article class="card hero-card">
+        <article class="card card">
           <div class="hero-grid">
             <div class="hero-content">
               <img class="hero-logo" src="assets/img/logo1b3a.gif" alt="Logo de la Bicyclette Bruzoise">
@@ -60,11 +60,10 @@
                 <h2>Connexion</h2>
                 <p>Pour accéder aux contenus internes, saisissez le mot de passe.</p>
 
-                <!-- Formulaire connecté à private-access.js -->
+                <!-- Formulaire branché sur private-access.js -->
                 <form id="private-access-form" class="login-form">
-                  <label for="private-password">Mot de passe</label>
-                  <input type="password" id="private-password" name="password"
-                         autocomplete="current-password" required>
+                  <label for="password">Mot de passe</label>
+                  <input type="password" id="password" name="password" autocomplete="current-password" required>
                   <p id="password-error" class="error-message" aria-live="polite"></p>
                   <div class="hero-actions">
                     <button type="submit" class="btn primary">Entrer</button>
@@ -88,7 +87,6 @@
               <li><a href="circuits2026.html">Planning des circuits 2026</a></li>
               <li><a href="assets/pdf/Calendrier_2026_annuel.pdf">Planning des circuits 2026 (pdf)</a></li>
               <li><a href="assets/pdf/Calendrier_2026_1er_semestre.pdf">Planning du 1er semestre (pdf)</a></li>
-              <!-- Adapter le nom du fichier du second semestre si besoin -->
               <li><a href="assets/pdf/Calendrier_2026_2nd_semestre.pdf">Planning du 2nd semestre (pdf)</a></li>
             </ul>
 
@@ -124,7 +122,7 @@
 
     <section class="home-sections">
       <div class="container two-columns">
-        <!-- espace pour d'autres blocs si besoin -->
+        <!-- Autres contenus possibles -->
       </div>
     </section>
   </main>
@@ -173,9 +171,10 @@
     </div>
   </footer>
 
-  <!-- Script d’accès privé commun -->
+  <!-- Script d’accès privé commun à circuits2026 + espace adhérents -->
   <script src="assets/js/private-access.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 
 </html>
+
