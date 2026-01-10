@@ -1,594 +1,210 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Circuits 2026 – La Bicyclette Bruzoise</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <style>
-    :root {
-      --bb-purple: #2f3b8f;
-      --bb-gold: #f1c44f;
-      --bb-bg: #f4f4f8;
-      --bb-card: #ffffff;
-      --bb-text: #222222;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bb-bg);
-      color: var(--bb-text);
-    }
-
-    main {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 20px 12px 40px;
-    }
-
-    h1, h2, h3 {
-      margin-top: 0;
-      font-weight: 600;
-    }
-
-    .page-title {
-      text-align: center;
-      margin-bottom: 18px;
-    }
-
-    .page-title small {
-      display: block;
-      font-size: 0.9rem;
-      color: #555;
-      margin-top: 4px;
-    }
-
-    .card {
-      background: var(--bb-card);
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      padding: 18px 20px 16px;
-      margin-bottom: 18px;
-    }
-
-    .login-card {
-      max-width: 420px;
-      margin: 26px auto;
-      text-align: center;
-    }
-
-    label {
-      display: block;
-      text-align: left;
-      font-size: 0.9rem;
-      margin-bottom: 4px;
-    }
-
-    input[type="password"] {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    button {
-      border: none;
-      border-radius: 999px;
-      padding: 7px 16px;
-      font-size: 0.95rem;
-      cursor: pointer;
-      background: var(--bb-purple);
-      color: #fff;
-      font-weight: 600;
-    }
-
-    button:hover {
-      filter: brightness(1.05);
-    }
-
-    .error-msg {
-      color: #b00020;
-      font-size: 0.9rem;
-      margin-top: 6px;
-      min-height: 1.2em;
-    }
-
-    .notice {
-      font-size: 0.8rem;
-      color: #666;
-      margin-top: 8px;
-    }
-
-    .layout {
-      display: grid;
-      grid-template-columns: 2.2fr 1.2fr;
-      gap: 16px;
-    }
-
-    @media (max-width: 900px) {
-      .layout {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .month-switcher {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 12px;
-      justify-content: center;
-    }
-
-    .month-btn {
-      background: #e4e4f5;
-      color: #333;
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      border: none;
-      white-space: nowrap;
-    }
-
-    .month-btn.active {
-      background: linear-gradient(135deg, var(--bb-purple), var(--bb-gold));
-      color: #fff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    }
-
-    .calendar-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-
-    .calendar-header h2 {
-      font-size: 1.05rem;
-    }
-
-    .legend {
-      font-size: 0.8rem;
-      color: #555;
-    }
-
-    .legend span {
-      display: inline-flex;
-      align-items: center;
-      margin-right: 10px;
-    }
-
-    .legend-dot {
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-right: 4px;
-      border: 1px solid rgba(0,0,0,0.25);
-    }
-
-    .dot-wed { background: #fff7d1; }
-    .dot-sat { background: #d2f6ff; }
-    .dot-sun { background: #ffd9d9; }
-
-    .calendar-grid {
-      display: grid;
-      grid-template-columns: repeat(7, 1fr);
-      gap: 3px;
-      font-size: 0.85rem;
-    }
-
-    .weekday-header {
-      font-weight: 600;
-      text-align: center;
-      padding-bottom: 2px;
-      color: #555;
-    }
-
-    .day-cell {
-      min-height: 70px;
-      background: #fafafa;
-      border-radius: 6px;
-      padding: 4px 5px;
-      border: 1px solid transparent;
-    }
-
-    .day-cell.empty {
-      background: transparent;
-      border: none;
-    }
-
-    .day-cell.has-ride {
-      cursor: pointer;
-      background: #ffffff;
-      border-color: rgba(47,59,143,0.25);
-    }
-
-    .day-cell.has-ride:hover {
-      box-shadow: 0 0 0 2px rgba(47,59,143,0.25);
-    }
-
-    .day-number {
-      font-weight: 600;
-      font-size: 0.85rem;
-    }
-
-    .day-circuits {
-      margin-top: 2px;
-      font-size: 0.75rem;
-      line-height: 1.2;
-    }
-
-    .badge {
-      display: inline-block;
-      border-radius: 999px;
-      padding: 1px 6px;
-      font-size: 0.7rem;
-      margin-right: 3px;
-      margin-bottom: 2px;
-    }
-
-    .badge-wed { background: #fff7d1; }
-    .badge-sat { background: #d2f6ff; }
-    .badge-sun { background: #ffd9d9; }
-
-    .details-card h3 {
-      font-size: 1rem;
-      margin-bottom: 6px;
-    }
-
-    .details-card h4 {
-      font-size: 0.95rem;
-      margin: 10px 0 4px;
-    }
-
-    .details-card p,
-    .details-card li {
-      font-size: 0.85rem;
-    }
-
-    .details-empty {
-      font-size: 0.9rem;
-      color: #666;
-      font-style: italic;
-    }
-
-    .details-meta {
-      font-size: 0.8rem;
-      color: #555;
-      margin-bottom: 4px;
-    }
-
-    .details-footer {
-      margin-top: 8px;
-      font-size: 0.8rem;
-    }
-
-    .details-footer a {
-      color: var(--bb-purple);
-      text-decoration: none;
-    }
-
-    .details-footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <meta name="description" content="Calendrier des circuits 2026 – espace adhérents de la Bicyclette Bruzoise.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/circuits2026.css">
 </head>
+
 <body>
-  <main>
-    <div class="page-title">
-      <h1>Calendrier des circuits 2026</h1>
-      <small>Espace adhérents – accès protégé par mot de passe</small>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-branding" href="index.html" aria-label="La Bicyclette Bruzoise — Accueil">
+        <img class="brand-logo" src="assets/img/BBlogo.jpg" alt="Logo de la Bicyclette Bruzoise">
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+          <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html">Le club</a></li>
+          <li><a href="sorties.html">Les sorties</a></li>
+          <li><a href="sejours.html">Les séjours</a></li>
+          <li><a href="randopedestres.html">Les randonnées pédestres</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="espace-adherents.html" class="nav-private" aria-current="page">Espace adhérents</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <!-- Connexion -->
-    <section id="login-section" class="card login-card">
-      <h2>Connexion</h2>
-      <p>Merci de saisir le mot de passe communiqué par le club.</p>
-      <form id="login-form">
-        <label for="password-input">Mot de passe</label>
-        <input id="password-input" type="password" autocomplete="off">
-        <div style="margin-top:10px;">
-          <button type="submit">Entrer</button>
-        </div>
-        <div id="login-error" class="error-msg"></div>
-        <p class="notice">
-          Attention : cette protection est uniquement côté navigateur (JavaScript).<br>
-          Pour un vrai espace privé, il faudra une protection côté serveur.
-        </p>
-      </form>
-    </section>
+  <main class="site-main">
+    <section class="home-hero">
+      <div class="container">
+        <article class="card hero-card">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <img class="hero-logo" src="assets/img/logo1b3a.gif" alt="Logo de la Bicyclette Bruzoise">
+              <h1>Circuits 2026</h1>
+              <p>Calendrier des sorties route et accès aux documents circuits. Cette page appartient à l’espace adhérents.</p>
 
-    <!-- Calendrier + détails -->
-    <section id="calendar-section" class="card" style="display:none;">
-      <div class="layout">
-        <div>
-          <div class="calendar-header">
-            <h2 id="month-title"></h2>
-            <div class="legend">
-              <span><span class="legend-dot dot-wed"></span>Mercredi</span>
-              <span><span class="legend-dot dot-sat"></span>Samedi</span>
-              <span><span class="legend-dot dot-sun"></span>Dimanche</span>
+              <div class="hero-actions">
+                <a href="club.html" class="btn secondary">Retour au club</a>
+                <a href="espace-adherents.html" class="btn primary">Espace adhérents</a>
+              </div>
+
+              <p class="hero-note">Rappel : les départs hebdomadaires ont lieu les mercredis et samedis à 13h30, place de la mairie de Bruz.</p>
+            </div>
+
+            <div class="hero-media">
+              <img class="hero-image" src="assets/img/BB.jpg" alt="Sortie club de la Bicyclette Bruzoise">
             </div>
           </div>
+        </article>
+      </div>
+    </section>
 
-          <div class="month-switcher" id="month-switcher"></div>
-          <div id="calendar-grid"></div>
+    <section class="home-sections">
+      <div class="container">
+
+        <!-- Bloc verrouillé -->
+        <article id="private-locked-hint" class="card">
+          <h2>Accès adhérents</h2>
+          <p class="private-hint">Saisissez le mot de passe communiqué par le club pour afficher le calendrier et les documents.</p>
+
+          <form id="private-access-form" class="login-form">
+            <div>
+              <label for="private-password">Mot de passe</label>
+              <input id="private-password" type="password" autocomplete="off" inputmode="text">
+            </div>
+
+            <div>
+              <button class="btn primary" type="submit">Entrer</button>
+              <div id="private-message" aria-live="polite"></div>
+            </div>
+
+            <p class="private-hint">
+              Remarque : pour une confidentialité réelle, privilégier une protection côté serveur (htaccess/PHP).
+            </p>
+          </form>
+        </article>
+
+        <!-- Contenu privé -->
+        <div id="private-content" class="hidden">
+
+          <article class="card">
+            <div class="private-header">
+              <h2>Documents & accès rapide</h2>
+              <button id="private-logout" class="btn secondary" type="button">Verrouiller</button>
+            </div>
+
+            <div class="docs-grid">
+  <section class="docs-col">
+    <h3>Documents &amp; accès rapide</h3>
+    <ul class="private-list">
+      <li><a href="#calendar">Aller au calendrier interactif</a></li>
+      <li><a href="assets/pdf/Calendrier_2026_annuel.pdf" target="_blank" rel="noopener">Planning annuel (PDF)</a></li>
+      <li><a href="assets/pdf/circuitsA.pdf" target="_blank" rel="noopener">Circuits A (PDF)</a></li>
+      <li><a href="assets/pdf/circuitsB.pdf" target="_blank" rel="noopener">Circuits B (PDF)</a></li>
+    </ul>
+  </section>
+
+  <section class="docs-col">
+    <h3>Planning</h3>
+    <ul class="private-list">
+      <li><a href="assets/pdf/Calendrier_2026_annuel.pdf" target="_blank" rel="noopener">Planning des circuits 2026 (PDF annuel)</a></li>
+      <li><a href="assets/pdf/Calendrier_2026_1er_semestre.pdf" target="_blank" rel="noopener">Planning des circuits 2026 (PDF 1er semestre)</a></li>
+      <li><a href="assets/pdf/Calendrier_2026_2eme_semestre.pdf" target="_blank" rel="noopener">Planning des circuits 2026 (PDF 2nd semestre)</a></li>
+    </ul>
+  </section>
+
+  <section class="docs-col">
+    <h3>Circuits</h3>
+    <ul class="private-list">
+      <li><a href="circuitsA.html">Circuits A (page)</a> — <a href="assets/pdf/circuitsA.pdf" target="_blank" rel="noopener">PDF imprimable</a></li>
+      <li><a href="circuitsB.html">Circuits B (page)</a> — <a href="assets/pdf/circuitsB.pdf" target="_blank" rel="noopener">PDF imprimable</a></li>
+      <li><a href="circuitsbonus.html">Circuit bonus</a></li>
+    </ul>
+  </section>
+</div>
+          </article>
+
+          <article class="card" id="calendar">
+            <div class="calendar-topbar">
+              <h2>Calendrier des circuits</h2>
+              <div class="calendar-legend" aria-label="Légende">
+                <span class="legend-item"><span class="legend-dot dot-wed"></span>Mercredi</span>
+                <span class="legend-item"><span class="legend-dot dot-sat"></span>Samedi</span>
+                <span class="legend-item"><span class="legend-dot dot-sun"></span>Dimanche</span>
+              </div>
+            </div>
+
+            <div class="calendar-layout">
+              <div>
+                <div class="calendar-topbar" style="margin-bottom:0;">
+                  <h3 id="month-title"></h3>
+                </div>
+
+                <div class="month-switcher" id="month-switcher"></div>
+                <div id="calendar-grid"></div>
+              </div>
+
+              <aside class="details-panel">
+                <h3>Détail du circuit</h3>
+                <div id="details-content" class="details-empty">
+                  Cliquez sur un jour avec circuit pour afficher les parcours.
+                </div>
+              </aside>
+            </div>
+          </article>
+
         </div>
-
-        <aside class="details-card">
-          <h3>Détail du circuit</h3>
-          <div id="details-content" class="details-empty">
-            Cliquez sur un jour avec circuit pour afficher les parcours.
-          </div>
-        </aside>
       </div>
     </section>
   </main>
 
-  <script>
-    // Mot de passe simple côté client
-    const PASSWORD = "Telgruc24";
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>&copy; 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p class="footer-meta">
+          Bruz (35170) – Bretagne | Site réalisé par le club.
+        </p>
+<p class="social-links">
+  Suivez-nous :
+  <a class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <span class="sr-only">Instagram</span>
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
+    </svg>
+  </a>
 
-    // -----------------------------
-    // 1. Données du calendrier 2026
-    // -----------------------------
-    // Clé = "AAAA-MM-JJ"
-    // Valeur = tableau de sorties (mercredi / samedi / dimanche)
-    //
-    // Les exemples ci-dessous sont À REMPLACER par les données
-    // du fichier Calendrier_2026_annuel.pdf.
-    const calendarData = {
-      // Exemple : samedi 3 janvier 2026, circuit 1A
-      "2026-01-03": [
-        { jour: "samedi", code: "1A" }
-      ],
-      // Exemple : dimanche 4 janvier 2026, circuit 1A
-      "2026-01-04": [
-        { jour: "dimanche", code: "1A" }
-      ],
-      // Exemple : mercredi 7 janvier 2026, circuit 2A
-      "2026-01-07": [
-        { jour: "mercredi", code: "2A" }
-      ]
+  <a class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+    <span class="sr-only">Facebook</span>
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z"/>
+    </svg>
+  </a>
+</p>
+      </div>
 
-      // TODO :
-      // compléter ici toutes les autres dates de l'année :
-      // "2026-01-10": [{ jour:"samedi", code:"3A" }],
-      // "2026-01-11": [{ jour:"dimanche", code:"3A" }],
-      // ...
-    };
+      <div class="partner-logos">
+        <a href="https://www.ffct-codep35.org/" target="_blank" rel="noopener noreferrer" title="Codep 35 – FFCT">
+          <img src="assets/img/codep3.gif" alt="Codep 35 – FFCT">
+        </a>
+        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer" title="Fédération Française de Cyclotourisme – FFVélo">
+          <img src="assets/img/ffvelo2.gif" alt="FFVélo">
+        </a>
+        <a href="https://www.ville-bruz.fr/" target="_blank" rel="noopener noreferrer" title="Ville de Bruz">
+          <img src="assets/img/logobruz1.gif" alt="Ville de Bruz">
+        </a>
+      </div>
+    </div>
+  </footer>
 
-    // -----------------------------
-    // 2. Liens OpenRunner par circuit
-    // -----------------------------
-    // Exemples basés sur votre tableau CircuitsA.
-    //  - indice 0 : circuit 1 (groupe rapide)
-    //  - indice 1 : circuit 2
-    //  - indice 2 : circuit 3
-    //
-    // À compléter avec tous les circuits de CircuitsA.html / circuitsA.pdf.
-    const circuitsLinks = {
-      // Ligne 1A (exemple)
-      "1A": [
-        "https://www.openrunner.com/r/18254878", // parcours 1
-        "https://www.openrunner.com/r/14507189", // parcours 2
-        "https://www.openrunner.com/r/14511770"  // parcours 3
-      ],
-
-      // Ligne 2A (exemple)
-      "2A": [
-        "https://www.openrunner.com/r/18079947",
-        "https://www.openrunner.com/r/14507203",
-        "https://www.openrunner.com/r/14511799"
-      ]
-
-      // TODO :
-      // "3A": ["url_parcours1", "url_parcours2", "url_parcours3"],
-      // ...
-      // "89A": [...]
-    };
-
-    // -----------------------------
-    // 3. Initialisation interface
-    // -----------------------------
-    const monthNames = [
-      "Janvier","Février","Mars","Avril","Mai","Juin",
-      "Juillet","Août","Septembre","Octobre","Novembre","Décembre"
-    ];
-    const weekdayLabels = ["Lun","Mar","Mer","Jeu","Ven","Sam","Dim"];
-
-    const loginSection    = document.getElementById("login-section");
-    const calendarSection = document.getElementById("calendar-section");
-    const loginForm       = document.getElementById("login-form");
-    const passwordInput   = document.getElementById("password-input");
-    const loginError      = document.getElementById("login-error");
-
-    const monthTitleEl    = document.getElementById("month-title");
-    const monthSwitcherEl = document.getElementById("month-switcher");
-    const calendarGridEl  = document.getElementById("calendar-grid");
-    const detailsContent  = document.getElementById("details-content");
-
-    let currentYear  = 2026;
-    let currentMonth = 0; // 0 = janvier
-
-    // Gestion du mot de passe
-    loginForm.addEventListener("submit", function (e) {
-      e.preventDefault();
-      const value = passwordInput.value.trim();
-      if (value === PASSWORD) {
-        loginSection.style.display = "none";
-        calendarSection.style.display = "block";
-        renderMonthSelector();
-        renderCalendar(currentYear, currentMonth);
-      } else {
-        loginError.textContent = "Mot de passe incorrect.";
-      }
-    });
-
-    // -----------------------------
-    // 4. Rendu du calendrier
-    // -----------------------------
-    function renderMonthSelector() {
-      monthSwitcherEl.innerHTML = "";
-      monthNames.forEach((name, index) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.textContent = name;
-        btn.className = "month-btn" + (index === currentMonth ? " active" : "");
-        btn.addEventListener("click", () => {
-          currentMonth = index;
-          document.querySelectorAll(".month-btn").forEach(b => b.classList.remove("active"));
-          btn.classList.add("active");
-          renderCalendar(currentYear, currentMonth);
-        });
-        monthSwitcherEl.appendChild(btn);
-      });
-    }
-
-    function renderCalendar(year, month) {
-      const firstDay = new Date(year, month, 1);
-      const lastDay  = new Date(year, month + 1, 0);
-      const daysInMonth = lastDay.getDate();
-
-      const jsWeekday  = firstDay.getDay();          // 0 = dimanche
-      const startOffset = (jsWeekday + 6) % 7;       // 0 = lundi
-
-      monthTitleEl.textContent = monthNames[month] + " " + year;
-
-      let html = "";
-
-      // En-têtes des jours
-      weekdayLabels.forEach(lbl => {
-        html += `<div class="weekday-header">${lbl}</div>`;
-      });
-
-      // Cases vides avant le 1er jour
-      for (let i = 0; i < startOffset; i++) {
-        html += `<div class="day-cell empty"></div>`;
-      }
-
-      // Jours du mois
-      for (let day = 1; day <= daysInMonth; day++) {
-        const dateKey     = toDateKey(year, month + 1, day);
-        const entries     = calendarData[dateKey] || [];
-        const hasRide     = entries.length > 0;
-
-        let classes = "day-cell";
-        if (hasRide) classes += " has-ride";
-
-        let circuitsBadges = "";
-        if (hasRide) {
-          entries.forEach(e => {
-            let badgeClass = "badge";
-            if (e.jour === "mercredi") badgeClass += " badge-wed";
-            else if (e.jour === "samedi") badgeClass += " badge-sat";
-            else if (e.jour === "dimanche") badgeClass += " badge-sun";
-            circuitsBadges += `
-              <div class="day-circuits">
-                <span class="${badgeClass}">${e.jour.substr(0,3)}</span>
-                Circuit ${e.code}
-              </div>`;
-          });
-        }
-
-        html += `
-          <div class="${classes}" data-date="${dateKey}">
-            <div class="day-number">${day}</div>
-            ${circuitsBadges}
-          </div>`;
-      }
-
-      calendarGridEl.innerHTML = `<div class="calendar-grid">${html}</div>`;
-
-      // Gestion du clic sur un jour
-      calendarGridEl.querySelectorAll(".day-cell.has-ride").forEach(cell => {
-        cell.addEventListener("click", () => {
-          const dateKey = cell.getAttribute("data-date");
-          showDetails(dateKey);
-        });
-      });
-    }
-
-    function toDateKey(year, month, day) {
-      const mm = String(month).padStart(2, "0");
-      const dd = String(day).padStart(2, "0");
-      return `${year}-${mm}-${dd}`;
-    }
-
-    function formatDateFr(dateKey) {
-      const [y, m, d] = dateKey.split("-").map(Number);
-      const dateObj = new Date(y, m - 1, d);
-      const options = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
-      return dateObj.toLocaleDateString("fr-FR", options);
-    }
-
-    // -----------------------------
-    // 5. Panneau de détails
-    // -----------------------------
-    function showDetails(dateKey) {
-      const entries = calendarData[dateKey];
-      if (!entries || entries.length === 0) {
-        detailsContent.classList.add("details-empty");
-        detailsContent.textContent = "Aucun circuit prévu ce jour.";
-        return;
-      }
-
-      let html = "";
-      html += `<div class="details-meta">${formatDateFr(dateKey)}</div>`;
-
-      entries.forEach(e => {
-        const base = normalizeBase(e.code);
-        const variantSuffix = getVariantSuffix(e.code);
-        html += `<h4>${e.jour.charAt(0).toUpperCase() + e.jour.slice(1)} – circuit ${base}${variantSuffix}</h4>`;
-
-        const links = circuitsLinks[base];
-        if (!links) {
-          html += `<p>Détail du circuit à compléter.</p>`;
-          return;
-        }
-
-        html += "<ol>";
-        links.forEach((url, idx) => {
-          const label = idx === 0 ? "Parcours 1" : idx === 1 ? "Parcours 2" : "Parcours 3";
-          html += "<li>" + label;
-          if (url) {
-            html += ` – <a href="${url}" target="_blank" rel="noopener">Trace OpenRunner</a>`;
-          } else {
-            html += " – lien à compléter";
-          }
-          html += "</li>";
-        });
-        html += "</ol>";
-      });
-
-      html += `<div class="details-footer">
-        Description détaillée des circuits :
-        <a href="circuitsA.pdf" target="_blank" rel="noopener">
-          ouvrir le document PDF « Circuits A »
-        </a>.
-      </div>`;
-
-      detailsContent.classList.remove("details-empty");
-      detailsContent.innerHTML = html;
-    }
-
-    function normalizeBase(code) {
-      // ex : 01A, 01AC2, 80AC3 -> 1A, 1A, 80A
-      const match = code.match(/^0*(\d{1,2}A)(C[23])?$/);
-      if (!match) return code;
-      return match[1];
-    }
-
-    function getVariantSuffix(code) {
-      const match = code.match(/C([23])$/);
-      if (!match) return "";
-      return " (variante C" + match[1] + ")";
-    }
-  </script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/private-access.js"></script>
+  <script src="assets/js/circuits2026.js"></script>
 </body>
 </html>

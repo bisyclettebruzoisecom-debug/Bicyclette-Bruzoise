@@ -4,29 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Le club – La Bicyclette Bruzoise</title>
-  <meta name="description" content="Présentation générale de la Bicyclette Bruzoise, bureau, fonctionnement du club et adhésion.">
+  <meta name="description" content="Ressources du club : historique, adhésion, assurances, sécurité, annonces et espace adhérents de la Bicyclette Bruzoise (Bruz).">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <header class="site-header">
+<header class="site-header">
     <div class="container header-inner">
-      <div class="site-branding">
-        <a href="index.html" class="logo">La Bicyclette Bruzoise</a>
-        <p class="tagline">Club de cyclotourisme affilié FFVélo – Bruz (Ille-et-Vilaine)</p>
-      </div>
+      <a class="site-branding" href="index.html" aria-label="La Bicyclette Bruzoise — Accueil">
+        <img class="brand-logo" src="assets/img/BBlogo.jpg" alt="Logo de la Bicyclette Bruzoise">
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+        </span>
+      </a>
+
       <nav class="main-nav" aria-label="Navigation principale">
-        <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu">
-          ☰
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+          <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+          <span class="nav-toggle-label">Menu</span>
         </button>
+
         <ul id="primary-menu" class="nav-list">
           <li><a href="index.html">Accueil</a></li>
-          <li><a href="club.html">Le club</a></li>
-          <li><a href="historique.html">Historique</a></li>
-          <li><a href="groupes.html">Groupes</a></li>
-          <li><a href="calendrier.html">Calendrier</a></li>
-          <li><a href="annonces.html">Annonces</a></li>
+          <li><a href="club.html" aria-current="page">Le club</a></li>
+          <li><a href="sorties.html">Les sorties</a></li>
+          <li><a href="sejours.html">Les séjours</a></li>
+          <li><a href="randopedestres.html">Les randonnées pédestres</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="circuits.html">Circuits (adhérents)</a></li>
           <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
         </ul>
       </nav>
@@ -34,56 +38,223 @@
   </header>
 
   <main class="site-main">
-    
-<section class="page-header">
-  <div class="container">
-    <h1>Le club</h1>
-    <p>Présentation générale, bureau et informations pratiques pour rejoindre la Bicyclette Bruzoise.</p>
-  </div>
-</section>
+    <section class="home-hero">
+      <div class="container">
+        <article class="card hero-card">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <img class="hero-logo" src="assets/img/logo1b3a.gif" alt="Logo de la Bicyclette Bruzoise">
+              <h1>Le club</h1>
+              <p>Vous trouverez ici les informations pratiques pour découvrir le club, adhérer, consulter les documents
+                d’assurance et de sécurité, ainsi que les annonces.</p>
+              <p>Un espace réservé aux adhérents permet d’accéder aux circuits, documents administratifs et albums
+                photos.</p>
 
-<section class="container two-columns">
-  <div>
-    <h2>Qui sommes-nous&nbsp;?</h2>
-    <p>La Bicyclette Bruzoise est un club de cyclotourisme basé à Bruz, en Ille-et-Vilaine. Le club regroupe des pratiquants de tous niveaux, du cycliste débutant au randonneur expérimenté.</p>
-    <p>La pratique se fait dans un esprit de loisirs, sans compétition, avec une attention particulière portée à la sécurité, à la bonne humeur et au respect de chacun.</p>
+              <div class="hero-actions">
+                <a href="assets/pdf/licence.pdf" class="btn primary" target="_blank" rel="noopener noreferrer">Adhésion
+                  (licence)</a>
+                <a href="https://ffvelo.fr/app/uploads/2025/11/NOTICE-DINFORMATION-LICENCE-FFVELO-2026-.pdf"
+                  class="btn secondary" target="_blank" rel="noopener noreferrer">Notice d’information assurance</a>
+              </div>
 
-    <h2>Fonctionnement</h2>
-    <ul>
-      <li>Sorties hebdomadaires programmées toute l’année.</li>
-      <li>Cinq groupes le mercredi et le samedi, un groupe le dimanche.</li>
-      <li>Participation aux randonnées organisées par les clubs voisins.</li>
-      <li>Organisation de séjours et week-ends club.</li>
-    </ul>
+              <p class="hero-note">Pour toute question : utilisez la page <a href="contact.html">Contact</a>.</p>
+            </div>
+            <div class="hero-media">
+              <img class="hero-image" src="assets/img/BB.jpg" alt="La Bicyclette Bruzoise - 2012">
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    <h2>Adhésion</h2>
-    <p>Le club est ouvert à toutes et tous. L’adhésion passe par la prise d’une licence FFVélo, qui inclut l’assurance adaptée à la pratique du cyclotourisme.</p>
-  </div>
-  <aside>
-    <h2>Bureau &amp; contacts</h2>
-    <ul class="definition-list">
-      <li><span>Président :</span> &lt;Nom à compléter&gt;</li>
-      <li><span>Secrétaire :</span> &lt;Nom à compléter&gt;</li>
-      <li><span>Trésorier :</span> &lt;Nom à compléter&gt;</li>
-    </ul>
-    <p>Adresse mail du club&nbsp;: <a href="mailto:bisyclette.bruzoise@gmail.com">bisyclette.bruzoise@gmail.com</a></p>
-    <p>Adresse postale&nbsp;:<br>
-    5 rue Brassens<br>
-    35170 Bruz</p>
-  </aside>
-</section>
+    <!-- Rubriques accessibles à tous -->
+    <section class="home-sections">
+      <div class="container">
+        <article class="card">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <img class="hero-logo" src="assets/img/historique.gif" alt="Logo de la Bicyclette Bruzoise">
+              <p>Depuis plus de cinquante ans, la Bicyclette Bruzoise accompagne les cyclotouristes de Bruz et des
+                environs dans un esprit de convivialité, de sécurité et de découverte.</p>
+              <div class="hero-actions">
+                <a href="historique.html" class="btn secondary" target="_blank" rel="noopener noreferrer">Histoire du
+                  club</a>
+              </div>
+            </div>
+            <div class="hero-media">
+              <img class="hero-image" src="assets/img/histoire.jpg" alt="La Bicyclette Bruzoise - 2012">
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="home-sections">
+      <div class="container">
+        <article class="card">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <h2>Les activités</h2>
+              <p>Nos sorties privilégient le plaisir de rouler ensemble, dans un esprit de convivialité, d’échanges et
+                de bien-être.
+                Rejoignez-nous pour partager des moments sportifs et détendus, en groupe, avec une attention constante
+                au rythme et
+                au niveau de chacun.</p>
+              <h3>Sorties route</h3>
+              <ul>
+                <li><strong>Mercredi &amp; samedi</strong> — départ <strong>13h45</strong></li>
+                <li><strong>Rendez-vous :</strong> place de la Mairie de Bruz</li>
+                <li><strong>6 groupes par allure</strong>, dont un groupe <strong>allure douce</strong> (petit
+                  kilométrage)
+                </li>
+              </ul>
+              <div class="hero-actions">
+                <a href="circuits2026.html" class="btn primary">Circuits 2026</a>
+              </div>
+              <h3>Toute l’année, aussi…</h3>
+              <ul>
+                <li><strong>10 sorties / an</strong> chez les clubs voisins (manifestations du département)</li>
+                <li><strong>2 randos à la journée</strong> (130 à 160 km)</li>
+                <li><strong>Séjours sur plusieurs jours</strong> (formule club, souvent avec les épouses)</li>
+                <li><strong>1 à 2 Flèches de l’Ouest</strong> par an</li>
+                <li>Participation régulière aux <strong>Semaines fédérales</strong></li>
+                <li>Randonnées <strong>au long cours</strong> (ex. <em>Mer–Montagne</em>…)</li>
+                <li>
+                  Tous les <strong>2 ans</strong> : <strong>« Entre Seiche et Vilaine »</strong><br>
+                  <strong>4 circuits</strong> de <strong>30 à 100 km</strong> pour découvrir les vallées de la Vilaine
+                  et de
+                  la Seiche
+                </li>
+                <li>Engagement dans la <strong>vie associative locale</strong></li>
+              </ul>
 
+            </div>
+            <div class="hero-media">
+              <img class="hero-image" src="assets/img/activites.jpg" alt="La Bicyclette Bruzoise - 2012">
+            </div>
+          </div>
+        </article>
+        
+        
+
+
+        <section class="home-sections">
+          <div class="container grids-3">
+            <article class="card">
+              <h2>Annonces</h2>
+              <p>Informations et annonces du club : événements, messages, mises à jour.</p>
+              <a href="annonces.html" class="card-link">Voir les annonces</a>
+            </article>
+            
+            <article class="card">
+              <h2>L'assurance</h2>
+              <p>La Fédération française de cyclotourisme a conclu au profit de ses associations des contrats
+                d’assurance
+                <br>
+                Ces contrats couvrent : <br>
+                • Garanties Responsabilité Civile, Individuelle accident et dommages aux vélos <br>
+                • Garanties d’assistance rapatriement <br>
+                • Garanties Protection Juridique des licenciés victimes lors de son activité sportive <br>
+                <a href="http://bicyclette-bruzoise.ffvelo.fr/images/assurance.pdf" class="card-link">En savoir plus</a>
+              <div class="hero-actions">
+                <a href="https://ffvelo.fr/app/uploads/2025/11/NOTICE-DINFORMATION-LICENCE-FFVELO-2026-.pdf"
+                  class="btn secondary" target="_blank" rel="noopener noreferrer">Notice d’information assurance</a>
+              </div>
+            </article>
+
+            <article class="card">
+              <h2>La santé</h2>
+              <p>La pratique régulière du cyclotourisme est bonne pour la santé. Cependant, Chacun doit adapter sa
+                pratique en fonction de ses pathologies et de ses aptitudes et limitation personnelles. </p>
+              <div class="hero-actions">
+                <a href="http://bicyclette-bruzoise.ffvelo.fr/images/sante.pdf" class="btn primary" target="_blank"
+                  rel="noopener noreferrer">Le questionnaire santé</a>
+              </div>
+            </article>
+          </div>
+        </section>
+
+    <!-- Rubriques réservées aux adhérents -->
+    <section class="home-sections">
+      <div class="container two-columns">
+        <article class="card">
+          <h2>Espace adhérents</h2>
+          <p>Accès réservé (mot de passe communiqué aux adhérents) : circuits, albums photos et documents du club.</p>
+
+          <form id="private-access-form" class="login-form" novalidate>
+            <label for="private-password">Mot de passe</label>
+            <input id="private-password" name="password" type="password" autocomplete="current-password" inputmode="text" required>
+            <button class="btn primary" type="submit">Déverrouiller</button>
+            <button id="private-logout" class="btn secondary hidden" type="button">Verrouiller</button>
+            <p id="private-message" class="form-note" aria-live="polite"></p>
+          </form>
+
+          <p class="form-note">Conseil : n’enregistrez pas le mot de passe sur un poste partagé.</p>
+        </article>
+
+        <article class="card">
+          <div id="private-content" class="hidden">
+            <h2>Documents et liens réservés</h2>
+            <ul class="private-list">
+              <li><a href="circuits2026.html">Les circuits 2026</a></li>
+              <li><a href="AlbumsPhotos.html">Albums photos</a></li>
+              <li><a href="Bureau.html">Bureau</a></li>
+              <li><a href="assets/pdf/ag2025-11-21.pdf" target="_blank" rel="noopener noreferrer">AG – Compte rendu</a></li>
+              <li><a href="assets/pdf/reunionca.pdf" target="_blank" rel="noopener noreferrer">CA – Dernier compte rendu</a></li>
+              <li><a href="assets/pdf/reglement.pdf" target="_blank" rel="noopener noreferrer">Règlement</a></li>
+              <li><a href="assets/pdf/statuts.pdf" target="_blank" rel="noopener noreferrer">Statuts</a></li>
+            </ul>
+            <p class="form-note">Les fichiers PDF sont supposés être dans <strong>assets/pdf</strong>.</p>
+          </div>
+
+          <div id="private-locked-hint">
+            <h2>Documents et liens réservés</h2>
+            <p class="form-note">Cette section s’affichera après authentification.</p>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <footer class="site-footer">
+<footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
-      <p class="footer-meta">
-        Bruz (35170) – Bretagne | Site réalisé par le club.
-      </p>
+      <div class="footer-left">
+        <p>&copy; 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p class="footer-meta">
+          Bruz (35170) – Bretagne | Site réalisé par le club.
+        </p>
+<p class="social-links">
+  Suivez-nous :
+  <a class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <span class="sr-only">Instagram</span>
+    <!-- Instagram SVG -->
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
+    </svg>
+  </a>
+
+  <a class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+    <span class="sr-only">Facebook</span>
+    <!-- Facebook SVG -->
+    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+      <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z"/>
+    </svg>
+  </a>
+</p>
+      </div>
+
+      <div class="partner-logos">
+        <a href="https://www.ffct-codep35.org/" target="_blank" rel="noopener noreferrer" title="Codep 35 – FFCT">
+          <img src="assets/img/codep3.gif" alt="Codep 35 – FFCT">
+        </a>
+        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer" title="Fédération Française de Cyclotourisme – FFVélo">
+          <img src="assets/img/ffvelo2.gif" alt="FFVélo">
+        </a>
+        <a href="https://www.ville-bruz.fr/" target="_blank" rel="noopener noreferrer" title="Ville de Bruz">
+          <img src="assets/img/logobruz1.gif" alt="Ville de Bruz">
+        </a>
+      </div>
     </div>
   </footer>
-
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/private-access.js"></script>
 </body>
 </html>

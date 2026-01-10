@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Circuits bonus – La Bicyclette Bruzoise</title>
+  <meta name="description" content="Circuits bonus – liens circuits et traces GPS.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  
+<style>
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 1rem; }
+  .table-scroll .table { min-width: 760px; }
+  .table td { vertical-align: top; }
+  .quick-links { margin: 0.75rem 0 0; padding-left: 1.1rem; }
+  .quick-links li { margin: 0.25rem 0; }
+</style>
+
+</head>
+<body>
+  <header class="site-header">
+<div class="container header-inner">
+<a aria-label="La Bicyclette Bruzoise — Accueil" class="site-branding" href="index.html">
+<img alt="Logo de la Bicyclette Bruzoise" class="brand-logo" src="assets/img/BBlogo.jpg"/>
+<span class="brand-text">
+<span class="brand-title">La Bicyclette Bruzoise</span>
+<span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+</span>
+</a>
+<nav aria-label="Navigation principale" class="main-nav">
+<button aria-controls="primary-menu" aria-expanded="false" class="nav-toggle" type="button">
+<span aria-hidden="true" class="nav-toggle-icon">☰</span>
+<span class="nav-toggle-label">Menu</span>
+</button>
+<ul class="nav-list" id="primary-menu">
+<li><a href="index.html">Accueil</a></li>
+<li><a href="club.html">Le club</a></li>
+<li><a href="sorties.html">Les sorties</a></li>
+<li><a href="sejours.html">Les séjours</a></li>
+<li><a href="randopedestres.html">Les randonnées pédestres</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a class="nav-private" href="espace-adherents.html">Espace adhérents</a></li>
+</ul>
+</nav>
+</div>
+</header>
+  
+<main class="site-main">
+  <section class="page-header">
+    <div class="container">
+      <h1>Circuits bonus</h1>
+      <p>Parcours spécifiques et randonnées au long cours.</p>
+    </div>
+  </section>
+
+  <section class="home-sections">
+    <div class="container">
+      
+      <article class="card">
+        <h2>Accès adhérents</h2>
+        <p>Accès réservé : cette page fait partie de l’espace adhérents.</p>
+        <form id="private-access-form" class="login-form" novalidate>
+          <label for="private-password">Mot de passe</label>
+          <input id="private-password" name="password" type="password" autocomplete="current-password" required>
+          <button class="btn primary" type="submit">Déverrouiller</button>
+          <button id="private-logout" class="btn secondary hidden" type="button">Verrouiller</button>
+          <p id="private-message" class="form-note" aria-live="polite"></p>
+        </form>
+        <p id="private-locked-hint" class="form-note">Si vous êtes adhérent, utilisez le mot de passe communiqué par le club.</p>
+      </article>
+
+      <article class="card">
+        <div id="private-content" class="hidden">
+          
+          <p class="form-note">Pour ouvrir le parcours, la carte ou le lien GPS, cliquer sur la case correspondante</p>
+          <div class="table-scroll">
+            <table class="table">
+<tbody><tr>
+<th class="colonne3" scope="col">NUM�RO CIRCUIT</th>
+<th class="colonne3" scope="col">LIEN PARCOURS</th>
+<th class="colonne3" scope="col">LIEN CARTE</th>
+<th class="colonne3" scope="col">LIEN GPS</th>
+</tr>
+<tr>
+<td class="colonne1">Circuit 101 / SO / 98Km / 1030 D+ <br/> Brevet federal 100 km 2019</td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit101roadbook.jpg" rel="noopener noreferrer" target="_blank">parcours 101</a></td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit101carto.jpg" rel="noopener noreferrer" target="_blank">carte 101 </a></td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10917847" rel="noopener noreferrer" target="_blank">GPS 101</a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 102 / NNO / 62km / 415 D+ <br/> Rando FORTUNEO 2018</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit102carto.jpg" rel="noopener noreferrer" target="_blank">carte 102</a></td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10917853" rel="noopener noreferrer" target="_blank">GPS 102 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 103 / SOO / 202km <br/> 2080.D+ / BRM PBP 2019</td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit103roadbook.jpg" rel="noopener noreferrer" target="_blank">parcours 103 </a></td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit103carto.jpg" rel="noopener noreferrer" target="_blank">carte 103</a></td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10917860" rel="noopener noreferrer" target="_blank">GPS 103 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 104 / SE / 56km <br/> 540.D+ / T�l�thon 2017</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit104carto.jpg" rel="noopener noreferrer" target="_blank">carte 104</a></td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10917865" rel="noopener noreferrer" target="_blank">GPS 104</a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 105 / O / 120km <br/> 1200.D+ / Tour de Broc�liande</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit105carto.jpg" rel="noopener noreferrer" target="_blank">carte 105</a></td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10917867" rel="noopener noreferrer" target="_blank">GPS 105 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 106 / N / 116km <br/> 980.D+ / Tour de Rennes</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit106carto.jpg" rel="noopener noreferrer" target="_blank">carte 106 </a></td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10917871" rel="noopener noreferrer" target="_blank">GPS 106 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 107 / NE / 79km <br/>730.D+ / Rando club 2019</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit107carto.jpg" rel="noopener noreferrer" target="_blank">carte 107 </a></td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10917876" rel="noopener noreferrer" target="_blank">GPS 107 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 108 / NE / 58km <br/> 530.D+ / Rando club 2019</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit108carto.jpg" rel="noopener noreferrer" target="_blank">carte 108 </a></td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10917885" rel="noopener noreferrer" target="_blank">GPS 108 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 109 / SO / 130km / 1380.D+ <br/> Rando Printemps 130km La Gacilly 2019</td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit109roadbook.jpg" rel="noopener noreferrer" target="_blank">parcours 109 </a></td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit109carto.jpg" rel="noopener noreferrer" target="_blank">carte 109 </a></td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10917890" rel="noopener noreferrer" target="_blank">GPS 109 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 110 / NON / 150km / 1340.D+ <br/> Rando Printemps 160km Dinan 2019</td>
+<td class="colonne"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit110roadbook.jpg" rel="noopener noreferrer" target="_blank">parcours 110 </a></td>
+<td class="colonne"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit110carto.jpg" rel="noopener noreferrer" target="_blank">carte 110 </a></td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10917903" rel="noopener noreferrer" target="_blank">GPS 110 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 111 / S / 89km <br/> 1300 D+ / Ailes de papillon</td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit111roadbook.jpg" rel="noopener noreferrer" target="_blank">parcours 111 </a></td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsa/circuit111carto.jpg" rel="noopener noreferrer" target="_blank">carte 111 </a></td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10917907" rel="noopener noreferrer" target="_blank">GPS 111 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 150 / Fl�che Rennes-Alen�on <br/> 162km / 1520.D+ 162km / 1520.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10917911" rel="noopener noreferrer" target="_blank">GPS 150 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 151 / Fl�che Le Mans-Rennes <br/> 174km / 1480.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10917932" rel="noopener noreferrer" target="_blank">GPS 151 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 152 / Fl�che Perros-Guirec <br/> - Rennes / 220km / 2510.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10917975" rel="noopener noreferrer" target="_blank">GPS 152 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 153 / Fl�che Rennes-Caen <br/> 192km / 2400.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10917988" rel="noopener noreferrer" target="_blank">GPS 153 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 154-1 / Fl�che Rennes-Roscoff <br/> Etape 1 / 116km / 1330.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10918011" rel="noopener noreferrer" target="_blank">GPS 154-1 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 154-2 / Fl�che Rennes-Roscoff <br/> Etape 2 / 140km / 1440.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10918019" rel="noopener noreferrer" target="_blank">GPS 154-2 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 154-3 / Fl�che Roscoff-Rennes <br/> Etape 3 / 102km / 1365.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10918024" rel="noopener noreferrer" target="_blank">GPS 154-3 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 154-4 / Fl�che Rennes-Roscoff <br/> Etape 4 / 131km / 1260.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10918030" rel="noopener noreferrer" target="_blank">GPS 154-4 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 155 / Fl�che Rennes-Angers <br/> 132km / 1070.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10918041" rel="noopener noreferrer" target="_blank">GPS 155 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 156-1 / Fl�che Rennes-Granville <br/> 134km / 1060.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10918051" rel="noopener noreferrer" target="_blank">GPS 156-1 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 157 / Fl�che Rennes-La Baule <br/>/ 142km / 1310.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10918058" rel="noopener noreferrer" target="_blank">GPS 157 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 158 / Fl�che Rennes-Lorient <br/> 158km / 1720.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10918063" rel="noopener noreferrer" target="_blank">GPS 158 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 159 / Fl�che Rennes-Nantes <br/> 130km / 1240.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10918071" rel="noopener noreferrer" target="_blank">GPS 159 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 160 / Fl�che Rennes-St Brieuc <br/> 130km / 1240.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10918078" rel="noopener noreferrer" target="_blank">GPS 160 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 161 / Fl�che Rennes-St Malo <br/> 91km / 890.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10918099" rel="noopener noreferrer" target="_blank">GPS 161 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 162 / Fl�che Rennes-Vannes <br/> 120km / 1250.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10918104" rel="noopener noreferrer" target="_blank">GPS 162 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 163 / Fl�che Rennes-Vimontiers <br/> 215km / 2600.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10918116" rel="noopener noreferrer" target="_blank">GPS 163 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 164-1 / Fl�che Rennes-Brest <br/> Etape 1  120km / 1320.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10918160" rel="noopener noreferrer" target="_blank">GPS 164-1 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 164-2 / Fl�che Rennes-Brest <br/> Etape 2  100km / 1310.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10918165" rel="noopener noreferrer" target="_blank">GPS 164-2 </a></td>
+</tr>
+<tr>
+<td class="colonne1">Circuit 164-3 / Fl�che Rennes-Brest <br/> Etape 3 / 114km / 1760.D+</td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="https://www.openrunner.com/r/10918171" rel="noopener noreferrer" target="_blank">GPS 164-3 </a></td>
+</tr>
+<tr>
+<td class="colonne">Circuit 164-4 / Fl�che Rennes-Brest <br/> Etape 4 / 82km / 1240.D+</td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="https://www.openrunner.com/r/10918176" rel="noopener noreferrer" target="_blank">GPS 164-4 </a></td>
+</tr>
+<tr>
+<td class="colonne1"></td>
+<td class="colonne1">/</td>
+<td class="colonne1">/</td>
+<td class="colonne1"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsbonus.html" rel="noopener noreferrer" target="_blank">/</a></td>
+</tr>
+<tr>
+<td class="colonne"></td>
+<td class="colonne">/</td>
+<td class="colonne">/</td>
+<td class="colonne"><a href="http://bicyclette-bruzoise.ffvelo.fr/circuitsbonus.html" rel="noopener noreferrer" target="_blank">/</a></td>
+</tr>
+</tbody></table>
+          </div>
+        </div>
+
+        <h2>Accès rapide</h2>
+        <ul class="quick-links">
+          <li><a href="circuits2026.html">Circuits 2026 (planning)</a></li>
+          <li><a href="circuitsA.html">Circuits A</a></li>
+          <li><a href="circuitsB.html">Circuits B</a></li>
+          <li><a href="circuitsbonus.html">Circuits bonus</a></li>
+        </ul>
+        <p class="form-note">Déverrouillez pour afficher le contenu.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+  <footer class="site-footer">
+<div class="container footer-inner">
+<div class="footer-left">
+<p>© 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+<p class="footer-meta">
+          Bruz (35170) – Bretagne | Site réalisé par le club.
+        </p>
+<p class="social-links">
+  Suivez-nous :
+  <a aria-label="Instagram" class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" rel="noopener noreferrer" target="_blank">
+<span class="sr-only">Instagram</span>
+<!-- Instagram SVG -->
+<svg aria-hidden="true" role="img" viewbox="0 0 24 24">
+<path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"></path>
+</svg>
+</a>
+<a aria-label="Facebook" class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" rel="noopener noreferrer" target="_blank">
+<span class="sr-only">Facebook</span>
+<!-- Facebook SVG -->
+<svg aria-hidden="true" role="img" viewbox="0 0 24 24">
+<path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z"></path>
+</svg>
+</a>
+</p>
+</div>
+<div class="partner-logos">
+<a href="https://www.ffct-codep35.org/" rel="noopener noreferrer" target="_blank" title="Codep 35 – FFCT">
+<img alt="Codep 35 – FFCT" src="assets/img/codep3.gif"/>
+</a>
+<a href="https://ffvelo.fr/" rel="noopener noreferrer" target="_blank" title="Fédération Française de Cyclotourisme – FFVélo">
+<img alt="FFVélo" src="assets/img/ffvelo2.gif"/>
+</a>
+<a href="https://www.ville-bruz.fr/" rel="noopener noreferrer" target="_blank" title="Ville de Bruz">
+<img alt="Ville de Bruz" src="assets/img/logobruz1.gif"/>
+</a>
+</div>
+</div>
+</footer>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/private-access.js"></script>
+</body>
+</html>

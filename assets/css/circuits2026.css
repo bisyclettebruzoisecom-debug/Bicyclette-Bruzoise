@@ -1,0 +1,231 @@
+/* Circuits 2026 – styles additionnels (s'appuie sur assets/css/style.css) */
+
+.private-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.private-header h2 {
+  margin: 0;
+}
+
+.private-hint {
+  margin: 0.25rem 0 0;
+  color: var(--muted);
+}
+
+.private-list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.1rem;
+}
+
+.private-list li { margin: 0.25rem 0; }
+
+.private-list a {
+  color: var(--primary);
+  text-decoration: none;
+}
+.private-list a:hover { text-decoration: underline; }
+
+.login-form {
+  display: grid;
+  gap: 0.75rem;
+  max-width: 420px;
+}
+
+.login-form label {
+  font-weight: 600;
+}
+
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+}
+
+#private-message {
+  min-height: 1.2em;
+  color: #b00020;
+}
+
+/* ------------------------------
+   Documents / Planning / Circuits
+   en 3 colonnes (zone privée)
+-------------------------------- */
+.docs-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0,1fr));
+  gap:1rem;
+  margin-top:0.75rem;
+  align-items:start;
+}
+.docs-col h3{ margin-top:0; }
+
+@media (max-width: 1100px){
+  .docs-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+}
+@media (max-width: 740px){
+  .docs-grid{ grid-template-columns:1fr; }
+}
+
+/* Calendar layout */
+.calendar-layout {
+  display: grid;
+  grid-template-columns: 2.2fr 1.2fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  .calendar-layout { grid-template-columns: 1fr; }
+}
+
+.calendar-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.calendar-topbar h3 { margin: 0; }
+
+.calendar-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+.dot-wed { background: rgba(242, 169, 0, 0.25); }
+.dot-sat { background: rgba(20, 99, 165, 0.18); }
+.dot-sun { background: rgba(176, 0, 32, 0.18); }
+
+.month-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.month-btn {
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.month-btn:hover {
+  border-color: rgba(20, 99, 165, 0.6);
+}
+
+.month-btn.active {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-color: transparent;
+  color: #fff;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.35rem;
+}
+
+.weekday-header {
+  text-align: center;
+  font-weight: 700;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 0.15rem 0;
+}
+
+.day-cell {
+  min-height: 78px;
+  background: var(--bg);
+  border-radius: 0.6rem;
+  padding: 0.4rem 0.45rem;
+  border: 1px solid transparent;
+}
+
+.day-cell.empty {
+  background: transparent;
+  border: none;
+}
+
+.day-cell.has-ride {
+  background: var(--bg-alt);
+  border-color: rgba(20, 99, 165, 0.25);
+  cursor: pointer;
+}
+
+.day-cell.has-ride:hover {
+  box-shadow: 0 0 0 2px rgba(20, 99, 165, 0.18);
+}
+
+.day-number {
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.day-circuits {
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 0.05rem 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin-right: 0.35rem;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.badge-wed { background: rgba(242, 169, 0, 0.22); }
+.badge-sat { background: rgba(20, 99, 165, 0.16); }
+.badge-sun { background: rgba(176, 0, 32, 0.14); }
+
+.details-panel h3 { margin-top: 0; }
+.details-empty { color: var(--muted); font-style: italic; }
+
+.details-meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+}
+
+.details-panel ol { margin-top: 0.25rem; }
+
+.details-footer {
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+.details-footer a { color: var(--primary); text-decoration: none; }
+.details-footer a:hover { text-decoration: underline; }
