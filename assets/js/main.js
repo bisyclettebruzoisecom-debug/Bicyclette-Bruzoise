@@ -1,8 +1,9 @@
-
+// Mot de passe simple pour les pages qui utilisent #login-section / #private-content
 const PASSWORD = "Telgruc24";
 
 function checkPassword(event) {
   if (event) event.preventDefault();
+
   const input = document.getElementById("password");
   const error = document.getElementById("password-error");
   const loginSection = document.getElementById("login-section");
@@ -16,9 +17,9 @@ function checkPassword(event) {
     localStorage.setItem("bb_isLoggedIn", "true");
     loginSection.classList.add("hidden");
     privateContent.classList.remove("hidden");
-    error.textContent = "";
+    if (error) error.textContent = "";
   } else {
-    error.textContent = "Mot de passe incorrect.";
+    if (error) error.textContent = "Mot de passe incorrect.";
     input.value = "";
     input.focus();
   }
@@ -38,17 +39,20 @@ function restorePrivateAccess() {
   }
 }
 
+// Gestion du menu responsive
 function setupNavToggle() {
   const toggle = document.querySelector(".nav-toggle");
-  const menu = document.getElementById("primary-menu");
-  if (!toggle || !menu) return;
+  const nav = document.querySelector(".main-nav"); // <nav class="main-nav">…</nav>
+
+  if (!toggle || !nav) return;
 
   toggle.addEventListener("click", () => {
-    const isOpen = menu.classList.toggle("is-open");
+    const isOpen = nav.classList.toggle("is-open");
     toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
   });
 }
 
+// Un seul DOMContentLoaded qui initialise tout
 document.addEventListener("DOMContentLoaded", () => {
   restorePrivateAccess();
   setupNavToggle();
