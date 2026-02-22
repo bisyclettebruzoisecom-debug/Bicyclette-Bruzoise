@@ -33,7 +33,7 @@
           <!-- <li><a href="sorties.html">Les sorties</a></li>  Page en construction -->
           <!-- <li><a href="sejours.html">Les séjours</a></li> Page en construction -->
           <!-- <li><a href="randopedestres.html">Les randonnées pédestres</a></li> Page en construction -->
-          <li><a href="circuits2026.html" class="nav-private">Circuit 2026</a></li>
+          <li><a href="circuits2026.html" class="nav-private">Circuits 2026</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
         </ul>
@@ -74,30 +74,42 @@
 
     </section>
 
+    
     <section class="home-sections">
       <div class="container">
-      <!-- Contenu privé -->
-        <div id="private-content" hidden>
+        <!-- Accès réservé (déverrouillage) -->
+        <div id="private-locked-hint">
           <article class="card">
+            <h2>Accès réservé aux adhérents</h2>
+            <p>Cette page est réservée aux adhérents. Saisissez le mot de passe pour afficher les informations.</p>
+
+            <form id="private-access-form" class="login-form" autocomplete="off">
+              <label for="private-password" class="sr-only">Mot de passe</label>
+              <input id="private-password" name="password" type="password" placeholder="Mot de passe" required autocomplete="current-password">
+              <button type="submit" class="btn primary">Déverrouiller</button>
+              <p id="private-message" class="error-message" role="alert"></p>
+            </form>
+
+            <p class="form-help">
+              Astuce : sur ordinateur personnel, vous pouvez laisser le navigateur mémoriser le mot de passe.
+            </p>
+          </article>
+        </div>
+
+        <!-- Contenu privé -->
+        <div id="private-content" class="hidden">
+          <article class="card">
+            <div class="hero-actions" style="justify-content:flex-end;">
+              <button type="button" id="private-logout" class="btn secondary">Verrouiller</button>
+            </div>
+
             <h2>Membres du bureau</h2>
             <div id="bureau-grid" class="grids-3" aria-label="Membres du bureau"></div>
           </article>
-
-           <article class="card">
-          <h2>Accès réservé aux adhérents</h2>
-          <p>Cette page est réservée aux adhérents. Saisissez le mot de passe pour afficher les informations.</p>
-
-          <form id="private-access-form" class="login-form" autocomplete="off">
-            <label for="private-password" class="sr-only">Mot de passe</label>
-            <input id="private-password" type="password" inputmode="text" placeholder="Mot de passe" required>
-            <button type="submit" class="btn primary">Déverrouiller</button>
-            <button type="button" id="private-lock" class="btn secondary" hidden>Verrouiller</button>
-            <p id="private-error" class="error-message" role="alert" hidden>Mot de passe incorrect.</p>
-          </form>
-        </article>
         </div>
       </div>
     </section>
+
   </main>
 
   <!-- =========================
@@ -106,7 +118,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-left">
-        <p>&copy; 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p>&copy; 2026 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
         <p class="footer-meta">
           Bruz (35170) – Bretagne | Site réalisé par le club.
         </p>
@@ -132,6 +144,8 @@
   </footer>
 
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/private-access.js"></script>
+  <script src="assets/js/bureau.js"></script>
 
   <!-- =========================
        Page logic: mot de passe + génération bureau
