@@ -1,161 +1,111 @@
-/*!
- * Bicyclette Bruzoise – Private access (client-side)
- * Script commun pour pages "membres" (club / espace adhérents / circuits 2026).
- *
- * Important : ceci n'est pas une protection "sécurité" au sens strict.
- * Pour une vraie confidentialité, utilisez une protection côté serveur (htaccess/PHP).
- */
+/* Accès adhérents (verrouillage côté client)
+   IMPORTANT : ce mécanisme ne constitue PAS une vraie sécurité (le code est visible).
+   Usage : changez PRIVATE_PASSWORD ci-dessous, puis commit/push sur GitHub Pages. */
+
 (function () {
   "use strict";
 
-  // Obfuscation (hash) – évite d'avoir le mot de passe en clair dans le code.
-  // Hash = SHA-256( SALT + mot_de_passe )
-  const SALT = "BB2026:";
-  const REQUIRED_HASH = "91703d2b56a14797a5edb02ff4938e985d60505ef559717af8de9840b0413004";
+  // Doit correspondre au STORAGE_KEY utilisé par circuits2026.js
   const STORAGE_KEY = "bb_private_access";
 
-  function qs(sel, root) {
-    return (root || document).querySelector(sel);
-  }
+  // Option: persistance entre onglets et après fermeture du navigateur
+  // (localStorage). Fallback sessionStorage si localStorage indisponible.
+  const storage = (function () {
+    try {
+      const k = "__bb_test__";
+      localStorage.setItem(k, "1");
+      localStorage.removeItem(k);
+      return localStorage;
+    } catch (e) {
+      return sessionStorage;
+    }
+  })();
+
+  function storageGet(key) { return storage.getItem(key); }
+  function storageSet(key, val) { storage.setItem(key, val); }
+  function storageRemove(key) { storage.removeItem(key); }
+
+  // >>> Mot de passe du club (à modifier ici) <<<
+  const PRIVATE_PASSWORD = "Obernai25";
 
   function byId(id) {
     return document.getElementById(id);
   }
 
-  function dispatch(name) {
-    try {
-      document.dispatchEvent(new CustomEvent(name));
-    } catch (e) {
-      // IE fallback (peu probable)
-    }
+  function show(el) {
+    if (el) el.classList.remove("hidden");
   }
 
-  function getElements() {
-    const form =
-      byId("private-access-form") ||
-      byId("password-form") ||
-      qs("form.login-form");
-
-    const input =
-      byId("private-password") ||
-      byId("password") ||
-      (form ? qs('input[type="password"]', form) : null);
-
-    const message =
-      byId("private-message") ||
-      byId("password-error") ||
-      (form ? qs("[aria-live]", form) : null);
-
-    const privateContent = byId("private-content");
-    const lockedHint =
-      byId("private-locked-hint") ||
-      byId("private-locked");
-
-    const lockBtn =
-      byId("private-logout") ||
-      byId("lock-btn") ||
-      null;
-
-    const submitBtn = (form ? qs('button[type="submit"]', form) : null);
-
-    return { form, input, message, privateContent, lockedHint, lockBtn, submitBtn };
+  function hide(el) {
+    if (el) el.classList.add("hidden");
   }
 
-  function setMessage(el, text, isError) {
+  function setMessage(text) {
+    const el = byId("private-message");
     if (!el) return;
     el.textContent = text || "";
-    if (isError) {
-      el.style.color = "#b00020";
-    } else {
-      el.style.color = "";
-    }
   }
 
   function isUnlocked() {
-    return sessionStorage.getItem(STORAGE_KEY) === "1";
+    return storageGet(STORAGE_KEY) === "1";
   }
 
-  function setUnlockedState(unlocked, els) {
-    if (!els.privateContent) return;
+  function unlock() {
+    storageSet(STORAGE_KEY, "1");
+    hide(byId("private-locked-hint"));
+    show(byId("private-content"));
+    setMessage("");
+    // Notifie les pages (ex: circuits2026.js) pour initialiser le calendrier après déverrouillage
+    document.dispatchEvent(new CustomEvent("bb:privateUnlocked"));
+  }
 
-    if (unlocked) {
-      els.privateContent.classList.remove("hidden");
-      if (els.lockedHint) els.lockedHint.classList.add("hidden");
-      sessionStorage.setItem(STORAGE_KEY, "1");
-      dispatch("bb:privateUnlocked");
+  function lock() {
+    storageRemove(STORAGE_KEY);
+    try { sessionStorage.removeItem(STORAGE_KEY); } catch (e) {}
+    show(byId("private-locked-hint"));
+    hide(byId("private-content"));
+    setMessage("Accès verrouillé.");
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = byId("private-access-form");
+    const pwd = byId("private-password");
+    const logout = byId("private-logout");
+
+    // État initial
+    if (isUnlocked()) {
+      hide(byId("private-locked-hint"));
+      show(byId("private-content"));
     } else {
-      els.privateContent.classList.add("hidden");
-      if (els.lockedHint) els.lockedHint.classList.remove("hidden");
-      sessionStorage.removeItem(STORAGE_KEY);
-      if (els.input) els.input.value = "";
-      dispatch("bb:privateLocked");
+      show(byId("private-locked-hint"));
+      hide(byId("private-content"));
     }
-  }
 
-  async function sha256Hex(str) {
-    const enc = new TextEncoder().encode(str);
-    const buf = await crypto.subtle.digest("SHA-256", enc);
-    const arr = Array.from(new Uint8Array(buf));
-    return arr.map(b => b.toString(16).padStart(2, "0")).join("");
-  }
+    // Login
+    if (form) {
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const value = (pwd && pwd.value ? pwd.value : "").trim();
 
-  function init() {
-    const els = getElements();
-    if (!els.form || !els.privateContent) return;
+        if (!value) {
+          setMessage("Veuillez saisir le mot de passe.");
+          return;
+        }
 
-    // état initial
-    setUnlockedState(isUnlocked(), els);
-
-    els.form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      setMessage(els.message, "", false);
-
-      const pwd = (els.input && els.input.value || "").trim();
-      if (!pwd) {
-        setMessage(els.message, "Veuillez saisir le mot de passe.", true);
-        return;
-      }
-
-      if (!window.crypto || !window.crypto.subtle) {
-        // Fallback : si SubtleCrypto indisponible, on bascule sur un contrôle minimal
-        // (dans la pratique, tous les navigateurs modernes le supportent).
-        setMessage(els.message, "Navigateur non compatible. Merci d'utiliser un navigateur récent.", true);
-        return;
-      }
-
-      const oldText = els.submitBtn ? els.submitBtn.textContent : "";
-      if (els.submitBtn) {
-        els.submitBtn.disabled = true;
-        els.submitBtn.textContent = "Vérification…";
-      }
-
-      try {
-        const h = await sha256Hex(SALT + pwd);
-        if (h === REQUIRED_HASH) {
-          setUnlockedState(true, els);
+        if (value === PRIVATE_PASSWORD) {
+          if (pwd) pwd.value = "";
+          unlock();
         } else {
-          setMessage(els.message, "Mot de passe incorrect.", true);
+          setMessage("Mot de passe incorrect.");
         }
-      } catch (err) {
-        setMessage(els.message, "Erreur lors de la vérification.", true);
-      } finally {
-        if (els.submitBtn) {
-          els.submitBtn.disabled = false;
-          els.submitBtn.textContent = oldText || "Entrer";
-        }
-      }
-    });
-
-    if (els.lockBtn) {
-      els.lockBtn.addEventListener("click", function () {
-        setUnlockedState(false, els);
       });
     }
-  }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
-  } else {
-    init();
-  }
+    // Logout
+    if (logout) {
+      logout.addEventListener("click", function () {
+        lock();
+      });
+    }
+  });
 })();
