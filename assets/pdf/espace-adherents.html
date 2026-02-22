@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Espace adhérents – La Bicyclette Bruzoise</title>
+  <meta name="description"
+    content="Espace réservé aux adhérents de la Bicyclette Bruzoise (circuits, documents internes, comptes rendus).">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a aria-label="La Bicyclette Bruzoise — Accueil" class="site-branding" href="index.html">
+        <img alt="Logo de la Bicyclette Bruzoise" class="brand-logo" src="assets/img/BBlogo.jpg" />
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+        </span>
+      </a>
+      <nav aria-label="Navigation principale" class="main-nav">
+        <button aria-controls="primary-menu" aria-expanded="false" class="nav-toggle" type="button">
+          <span aria-hidden="true" class="nav-toggle-icon">☰</span>
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <ul class="nav-list" id="primary-menu">
+          <li><a href="index.html" >Accueil</a></li>
+          <li><a href="club.html">Le club</a></li>
+          <!-- <li><a href="sorties.html">Les sorties</a></li>  Page en construction -->
+          <!-- <li><a href="sejours.html">Les séjours</a></li> Page en construction -->
+          <!-- <li><a href="randopedestres.html">Les randonnées pédestres</a></li> Page en construction -->
+          <li><a href="circuits2026.html" class="nav-private">Circuit 2026</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="espace-adherents.html" aria-current="page" class="nav-private">Espace adhérents</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="home-hero">
+      <div class="container two-columns">
+        <article class="card card">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <img class="hero-logo" src="assets/img/logo1b3a.gif" alt="Logo de la Bicyclette Bruzoise">
+              <h1>Espace adhérents</h1>
+              <p>Accès réservé aux licenciés du club. Vous y trouverez les circuits, les documents internes et les
+                comptes rendus.</p>
+
+              <div class="hero-actions">
+                <a href="club.html" class="btn secondary">Revenir au club</a>
+              </div>
+
+              <p class="hero-note">Mot de passe communiqué par le bureau. En cas de doute, utilisez le formulaire de
+                contact.</p>
+
+              <article class="card" id="login">
+                <h2>Connexion</h2>
+                <p>Pour accéder aux contenus internes, saisissez le mot de passe.</p>
+
+                <!-- Formulaire branché sur private-access.js -->
+                <form class="login-form" id="password-form">
+                  <label for="password">Mot de passe</label>
+                  <input type="password" id="password" name="password" autocomplete="current-password" required>
+
+                  <p class="form-note" id="password-error" aria-live="polite"></p>
+
+                  <div class="form-actions">
+                    <button type="submit" class="btn primary">Entrer</button>
+                    <button type="button" id="lock-btn" class="btn ghost">Verrouiller</button>
+                  </div>
+
+                  <p class="form-help">
+                    Astuce : si vous utilisez toujours le même ordinateur, vous pouvez laisser votre navigateur
+                    mémoriser le mot de passe.
+                  </p>
+                </form>
+
+              </article>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Accès rapide</h2>
+          <p>Après connexion, les liens ci-dessous s’affichent automatiquement.</p>
+
+          <div id="private-content" class="hidden">
+            <h3>Calendrier 2026</h3>
+            <ul class="private-list">
+              <li><a href="circuits2026.html">Planning des circuits 2026</a></li>
+              <li><a href="assets/pdf/Calendrier_2026_annuel.pdf">Planning des circuits 2026 (pdf)</a></li>
+              <li><a href="assets/pdf/Calendrier_2026_1er_semestre.pdf">Planning du 1er semestre (pdf)</a></li>
+              <li><a href="assets/pdf/Calendrier_2026_2eme_semestre.pdf">Planning du 2nd semestre (pdf)</a></li>
+            </ul>
+
+            <h3>Circuits 2026</h3>
+            <ul class="private-list">
+              <li><a href="circuitsA.html">Circuits A</a></li>
+              <li><a href="circuitsB.html">Circuits B</a></li>
+              <li><a href="circuitsbonus.html">Circuits bonus</a></li>
+            </ul>
+
+            <h3>Vie du club</h3>
+            <ul class="private-list">
+              <!-- <li><a href="AlbumsPhotos.html">Albums photos</a></li> -->
+              <li><a href="Bureau.html">Bureau</a></li>
+            </ul>
+
+            <h3>Documents</h3>
+            <ul class="private-list">
+              <li><a href="assets/pdf/2025.12.26%20-%20AG%202025.pdf">Compte rendu AG</a></li>
+              <li><a href="assets\pdf\2026.01.10%20-%20CR%20réunion%20de%20bureau.pdf">Compte rendu CA</a></li>
+              <li><a href="assets/pdf/reglement.pdf">Règlement intérieur</a></li>
+              <li><a href="assets/pdf/statuts.pdf">Statuts</a></li>
+            </ul>
+          </div>
+
+          <div id="private-locked">
+            <p class="form-note">Vous n’êtes pas connecté. Les liens internes sont masqués.</p>
+            <p><a class="card-link" href="contact.html">Nous contacter →</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-sections">
+      <div class="container two-columns">
+        <!-- Autres contenus possibles -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>&copy; La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p class="footer-meta">
+          Bruz (35170) – Bretagne | Site réalisé par le club.
+        </p>
+        <p class="social-links">
+          Suivez-nous :
+          <a class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram">
+            <span class="sr-only">Instagram</span>
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z" />
+            </svg>
+          </a>
+
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook">
+            <span class="sr-only">Facebook</span>
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z" />
+            </svg>
+          </a>
+        </p>
+      </div>
+
+      <div class="partner-logos">
+        <a href="https://www.ffct-codep35.org/" target="_blank" rel="noopener noreferrer" title="Codep 35 – FFCT">
+          <img src="assets/img/codep3.gif" alt="Codep 35 – FFCT">
+        </a>
+        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer"
+          title="Fédération Française de Cyclotourisme – FFVélo">
+          <img src="assets/img/ffvelo2.gif" alt="FFVélo">
+        </a>
+        <a href="https://www.ville-bruz.fr/" target="_blank" rel="noopener noreferrer" title="Ville de Bruz">
+          <img src="assets/img/logobruz1.gif" alt="Ville de Bruz">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script d’accès privé commun à circuits2026 + espace adhérents -->
+  <script src="assets/js/private-access.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
