@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Le club – La Bicyclette Bruzoise</title>
-  <meta name="description" content="Ressources du club : historique, adhésion, assurances, sécurité, annonces et espace adhérents de la Bicyclette Bruzoise (Bruz).">
+  <meta name="description"
+    content="Ressources du club : historique, adhésion, assurances, sécurité, annonces et espace adhérents de la Bicyclette Bruzoise (Bruz).">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
-<header class="site-header">
+  <header class="site-header">
     <div class="container header-inner">
       <a class="site-branding" href="index.html" aria-label="La Bicyclette Bruzoise — Accueil">
         <img class="brand-logo" src="assets/img/BBlogo.jpg" alt="Logo de la Bicyclette Bruzoise">
@@ -27,9 +30,10 @@
         <ul id="primary-menu" class="nav-list">
           <li><a href="index.html">Accueil</a></li>
           <li><a href="club.html" aria-current="page">Le club</a></li>
-          <li><a href="sorties.html">Les sorties</a></li>
-          <li><a href="sejours.html">Les séjours</a></li>
-          <li><a href="randopedestres.html">Les randonnées pédestres</a></li>
+          <!-- <li><a href="sorties.html">Les sorties</a></li>  Page en construction -->
+          <!-- <li><a href="sejours.html">Les séjours</a></li> Page en construction -->
+          <!-- <li><a href="randopedestres.html">Les randonnées pédestres</a></li> Page en construction -->
+          <li><a href="circuits2026.html" class="nav-private">Circuit 2026</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
         </ul>
@@ -133,56 +137,66 @@
             </div>
           </div>
         </article>
-        
-        
+      </div>
+    </section>
 
 
-        <section class="home-sections">
-          <div class="container grids-3">
-            <article class="card">
-              <h2>Annonces</h2>
-              <p>Informations et annonces du club : événements, messages, mises à jour.</p>
-              <a href="annonces.html" class="card-link">Voir les annonces</a>
-            </article>
-            
-            <article class="card">
-              <h2>L'assurance</h2>
-              <p>La Fédération française de cyclotourisme a conclu au profit de ses associations des contrats
-                d’assurance
-                <br>
-                Ces contrats couvrent : <br>
-                • Garanties Responsabilité Civile, Individuelle accident et dommages aux vélos <br>
-                • Garanties d’assistance rapatriement <br>
-                • Garanties Protection Juridique des licenciés victimes lors de son activité sportive <br>
-                <a href="http://bicyclette-bruzoise.ffvelo.fr/images/assurance.pdf" class="card-link">En savoir plus</a>
-              <div class="hero-actions">
-                <a href="https://ffvelo.fr/app/uploads/2025/11/NOTICE-DINFORMATION-LICENCE-FFVELO-2026-.pdf"
-                  class="btn secondary" target="_blank" rel="noopener noreferrer">Notice d’information assurance</a>
-              </div>
-            </article>
+    <section class="home-sections">
+      <div class="container grids-3">
+        <article class="card">
+          <h2>Annonces</h2>
+          <p>Informations et annonces du club : événements, messages, mises à jour.</p>
+          <!-- <a href="annonces.html" class="card-link">Voir les annonces</a> -->
+        </article> 
 
-            <article class="card">
-              <h2>La santé</h2>
-              <p>La pratique régulière du cyclotourisme est bonne pour la santé. Cependant, Chacun doit adapter sa
-                pratique en fonction de ses pathologies et de ses aptitudes et limitation personnelles. </p>
-              <div class="hero-actions">
-                <a href="http://bicyclette-bruzoise.ffvelo.fr/images/sante.pdf" class="btn primary" target="_blank"
-                  rel="noopener noreferrer">Le questionnaire santé</a>
-              </div>
-            </article>
+        <article class="card">
+          <h2>L’assurance</h2>
+
+          <p>La FFVélo propose des contrats d’assurance adaptés aux clubs et licenciés.</p>
+
+          <ul>
+            <li>Responsabilité civile</li>
+            <li>Accidents corporels (selon option)</li>
+            <li>Assistance / rapatriement (selon option)</li>
+            <li>Dommages au matériel (selon option)</li>
+          </ul>
+
+          <a href="https://ffvelo.fr/assurances/" class="card-link" target="_blank" rel="noopener noreferrer">
+            Détails des assurances FFVélo
+          </a>
+
+          <div class="hero-actions">
+            <a href="https://ffvelo.fr/app/uploads/2025/11/NOTICE-DINFORMATION-LICENCE-FFVELO-2026-.pdf"
+              class="btn secondary" target="_blank" rel="noopener noreferrer">
+              Notice d’information assurance (2026)
+            </a>
           </div>
-        </section>
+        </article>
+
+        <article class="card">
+          <h2>La santé</h2>
+          <p>La pratique régulière du cyclotourisme est bonne pour la santé. Cependant, chacun doit adapter sa
+            pratique en fonction de ses pathologies et de ses aptitudes et limitations personnelles. </p>
+          <div class="hero-actions">
+            <a href="https://ffvelo.fr/app/uploads/2025/11/QUESTIONNAIRE-SANTE-VERSION-COMPLETE-MAJ20012024.pdf" class="btn primary" target="_blank"
+              rel="noopener noreferrer">Le questionnaire santé</a>
+          </div>
+        </article>
+      </div>
+    </section>
 
     <!-- Rubriques réservées aux adhérents -->
     <section class="home-sections">
       <div class="container two-columns">
         <article class="card">
           <h2>Espace adhérents</h2>
-          <p>Accès réservé (mot de passe communiqué aux adhérents) : circuits, albums photos et documents du club.</p>
+          <p>Accès réservé (mot de passe communiqué aux adhérents) : circuits, albums photos et documents du club.
+          </p>
 
           <form id="private-access-form" class="login-form" novalidate>
             <label for="private-password">Mot de passe</label>
-            <input id="private-password" name="password" type="password" autocomplete="current-password" inputmode="text" required>
+            <input id="private-password" name="password" type="password" autocomplete="current-password"
+              inputmode="text" required>
             <button class="btn primary" type="submit">Entrer</button>
             <button id="private-logout" class="btn secondary" type="button">Verrouiller</button>
             <p id="private-message" class="form-note" aria-live="polite"></p>
@@ -196,14 +210,16 @@
             <h2>Documents et liens réservés</h2>
             <ul class="private-list">
               <li><a href="circuits2026.html">Les circuits 2026</a></li>
-              <li><a href="AlbumsPhotos.html">Albums photos</a></li>
+              <!-- <li><a href="AlbumsPhotos.html">Albums photos</a></li> -->
               <li><a href="Bureau.html">Bureau</a></li>
-              <li><a href="assets/pdf/ag2025-11-21.pdf" target="_blank" rel="noopener noreferrer">AG – Compte rendu</a></li>
-              <li><a href="assets/pdf/reunionca2025-11-22.pdf" target="_blank" rel="noopener noreferrer">CA – Dernier compte rendu</a></li>
+              <li><a href="assets/pdf/2025.12.26%20-%20AG%202025.pdf" target="_blank" rel="noopener noreferrer">AG – Compte
+                  rendu</a></li>
+              <li><a href="assets/pdf/2026.01.10%20-%20CR%20réunion%20de%20bureau.pdf" target="_blank" rel="noopener noreferrer">CA – Dernier compte
+                  rendu</a></li>
               <li><a href="assets/pdf/reglement.pdf" target="_blank" rel="noopener noreferrer">Règlement</a></li>
               <li><a href="assets/pdf/statuts.pdf" target="_blank" rel="noopener noreferrer">Statuts</a></li>
             </ul>
-            <p class="form-note">Les fichiers PDF sont supposés être dans <strong>assets/pdf</strong>.</p>
+            <!-- Les fichiers PDF sont supposés être dans <strong>assets/pdf</strong> -->
           </div>
 
           <div id="private-locked-hint">
@@ -215,38 +231,43 @@
     </section>
   </main>
 
-<footer class="site-footer">
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-left">
-        <p>&copy; 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p>&copy; La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
         <p class="footer-meta">
           Bruz (35170) – Bretagne | Site réalisé par le club.
         </p>
-<p class="social-links">
-  Suivez-nous :
-  <a class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-    <span class="sr-only">Instagram</span>
-    <!-- Instagram SVG -->
-    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-      <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
-    </svg>
-  </a>
+        <p class="social-links">
+          Suivez-nous :
+          <a class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram">
+            <span class="sr-only">Instagram</span>
+            <!-- Instagram SVG -->
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z" />
+            </svg>
+          </a>
 
-  <a class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-    <span class="sr-only">Facebook</span>
-    <!-- Facebook SVG -->
-    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-      <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z"/>
-    </svg>
-  </a>
-</p>
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook">
+            <span class="sr-only">Facebook</span>
+            <!-- Facebook SVG -->
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z" />
+            </svg>
+          </a>
+        </p>
       </div>
 
       <div class="partner-logos">
         <a href="https://www.ffct-codep35.org/" target="_blank" rel="noopener noreferrer" title="Codep 35 – FFCT">
           <img src="assets/img/codep3.gif" alt="Codep 35 – FFCT">
         </a>
-        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer" title="Fédération Française de Cyclotourisme – FFVélo">
+        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer"
+          title="Fédération Française de Cyclotourisme – FFVélo">
           <img src="assets/img/ffvelo2.gif" alt="FFVélo">
         </a>
         <a href="https://www.ville-bruz.fr/" target="_blank" rel="noopener noreferrer" title="Ville de Bruz">
@@ -257,4 +278,5 @@
   </footer>
   <script src="assets/js/private-access.js"></script>
 </body>
+
 </html>
