@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,13 +28,14 @@
         </button>
 
         <ul id="primary-menu" class="nav-list">
-          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html" >Accueil</a></li>
           <li><a href="club.html">Le club</a></li>
-          <li><a href="sorties.html">Les sorties</a></li>
-          <li><a href="sejours.html">Les séjours</a></li>
-          <li><a href="randopedestres.html">Les randonnées pédestres</a></li>
+          <!-- <li><a href="sorties.html">Les sorties</a></li>  Page en construction -->
+          <!-- <li><a href="sejours.html">Les séjours</a></li> Page en construction -->
+          <!-- <li><a href="randopedestres.html">Les randonnées pédestres</a></li> Page en construction -->
+          <li><a href="circuits2026.html" aria-current="page" class="nav-private">Circuit 2026</a></li>
           <li><a href="contact.html">Contact</a></li>
-          <li><a href="espace-adherents.html" class="nav-private" aria-current="page">Espace adhérents</a></li>
+          <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
         </ul>
       </nav>
     </div>
@@ -47,14 +49,16 @@
             <div class="hero-content">
               <img class="hero-logo" src="assets/img/logo1b3a.gif" alt="Logo de la Bicyclette Bruzoise">
               <h1>Circuits 2026</h1>
-              <p>Calendrier des sorties route et accès aux documents circuits. Cette page appartient à l’espace adhérents.</p>
+              <p>Calendrier des sorties route et accès aux documents circuits. Cette page appartient à l’espace
+                adhérents.</p>
 
               <div class="hero-actions">
                 <a href="club.html" class="btn secondary">Retour au club</a>
                 <a href="espace-adherents.html" class="btn primary">Espace adhérents</a>
               </div>
 
-              <p class="hero-note">Rappel : les départs hebdomadaires ont lieu les mercredis et samedis à 13h30, place de la mairie de Bruz.</p>
+              <p class="hero-note">Rappel : les départs hebdomadaires ont lieu les mercredis et samedis à 13h30, place
+                de la mairie de Bruz.</p>
             </div>
 
             <div class="hero-media">
@@ -71,22 +75,19 @@
         <!-- Bloc verrouillé -->
         <article id="private-locked-hint" class="card">
           <h2>Accès adhérents</h2>
-          <p class="private-hint">Saisissez le mot de passe communiqué par le club pour afficher le calendrier et les documents.</p>
+          <p class="private-hint">Saisissez le mot de passe communiqué par le club pour afficher le calendrier et les
+            documents.</p>
 
           <form id="private-access-form" class="login-form">
             <div>
               <label for="private-password">Mot de passe</label>
-              <input id="private-password" type="password" autocomplete="off" inputmode="text">
+              <input id="private-password" name="password" type="password" required autocomplete="current-password">
             </div>
 
             <div>
               <button class="btn primary" type="submit">Entrer</button>
               <div id="private-message" aria-live="polite"></div>
             </div>
-
-            <p class="private-hint">
-              Remarque : pour une confidentialité réelle, privilégier une protection côté serveur (htaccess/PHP).
-            </p>
           </form>
         </article>
 
@@ -100,34 +101,40 @@
             </div>
 
             <div class="docs-grid">
-  <section class="docs-col">
-    <h3>Documents &amp; accès rapide</h3>
-    <ul class="private-list">
-      <li><a href="#calendar">Aller au calendrier interactif</a></li>
-      <li><a href="assets/pdf/Calendrier_2026_annuel.pdf" target="_blank" rel="noopener">Planning annuel (PDF)</a></li>
-      <li><a href="assets/pdf/circuitsA.pdf" target="_blank" rel="noopener">Circuits A (PDF)</a></li>
-      <li><a href="assets/pdf/circuitsB.pdf" target="_blank" rel="noopener">Circuits B (PDF)</a></li>
-    </ul>
-  </section>
+              <section class="docs-col">
+                <h3>Documents &amp; accès rapide</h3>
+                <ul class="private-list">
+                  <li><a href="#calendar">Aller au calendrier interactif</a></li>
+                  <li><a href="assets/pdf/Calendrier_2026_annuel.pdf" target="_blank" rel="noopener">Planning annuel
+                      (PDF)</a></li>
+                  <li><a href="assets/pdf/circuitsA.pdf" target="_blank" rel="noopener">Circuits A (PDF)</a></li>
+                  <li><a href="assets/pdf/circuitsB.pdf" target="_blank" rel="noopener">Circuits B (PDF)</a></li>
+                </ul>
+              </section>
 
-  <section class="docs-col">
-    <h3>Planning</h3>
-    <ul class="private-list">
-      <li><a href="assets/pdf/Calendrier_2026_annuel.pdf" target="_blank" rel="noopener">Planning des circuits 2026 (PDF annuel)</a></li>
-      <li><a href="assets/pdf/Calendrier_2026_1er_semestre.pdf" target="_blank" rel="noopener">Planning des circuits 2026 (PDF 1er semestre)</a></li>
-      <li><a href="assets/pdf/Calendrier_2026_2eme_semestre.pdf" target="_blank" rel="noopener">Planning des circuits 2026 (PDF 2nd semestre)</a></li>
-    </ul>
-  </section>
+              <section class="docs-col">
+                <h3>Planning</h3>
+                <ul class="private-list">
+                  <li><a href="assets/pdf/Calendrier_2026_annuel.pdf" target="_blank" rel="noopener">Planning des
+                      circuits 2026 (PDF annuel)</a></li>
+                  <li><a href="assets/pdf/Calendrier_2026_1er_semestre.pdf" target="_blank" rel="noopener">Planning des
+                      circuits 2026 (PDF 1er semestre)</a></li>
+                  <li><a href="assets/pdf/Calendrier_2026_2eme_semestre.pdf" target="_blank" rel="noopener">Planning des
+                      circuits 2026 (PDF 2nd semestre)</a></li>
+                </ul>
+              </section>
 
-  <section class="docs-col">
-    <h3>Circuits</h3>
-    <ul class="private-list">
-      <li><a href="circuitsA.html">Circuits A (page)</a> — <a href="assets/pdf/circuitsA.pdf" target="_blank" rel="noopener">PDF imprimable</a></li>
-      <li><a href="circuitsB.html">Circuits B (page)</a> — <a href="assets/pdf/circuitsB.pdf" target="_blank" rel="noopener">PDF imprimable</a></li>
-      <li><a href="circuitsbonus.html">Circuit bonus</a></li>
-    </ul>
-  </section>
-</div>
+              <section class="docs-col">
+                <h3>Circuits</h3>
+                <ul class="private-list">
+                  <li><a href="circuitsA.html">Circuits A (page)</a> — <a href="assets/pdf/circuitsA.pdf"
+                      target="_blank" rel="noopener">PDF imprimable</a></li>
+                  <li><a href="circuitsB.html">Circuits B (page)</a> — <a href="assets/pdf/circuitsB.pdf"
+                      target="_blank" rel="noopener">PDF imprimable</a></li>
+                  <li><a href="circuitsbonus.html">Circuit bonus</a></li>
+                </ul>
+              </section>
+            </div>
           </article>
 
           <article class="card" id="calendar">
@@ -167,33 +174,38 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-left">
-        <p>&copy; 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p>&copy; La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
         <p class="footer-meta">
           Bruz (35170) – Bretagne | Site réalisé par le club.
         </p>
-<p class="social-links">
-  Suivez-nous :
-  <a class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-    <span class="sr-only">Instagram</span>
-    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-      <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z"/>
-    </svg>
-  </a>
+        <p class="social-links">
+          Suivez-nous :
+          <a class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram">
+            <span class="sr-only">Instagram</span>
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z" />
+            </svg>
+          </a>
 
-  <a class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-    <span class="sr-only">Facebook</span>
-    <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
-      <path d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z"/>
-    </svg>
-  </a>
-</p>
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook">
+            <span class="sr-only">Facebook</span>
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z" />
+            </svg>
+          </a>
+        </p>
       </div>
 
       <div class="partner-logos">
         <a href="https://www.ffct-codep35.org/" target="_blank" rel="noopener noreferrer" title="Codep 35 – FFCT">
           <img src="assets/img/codep3.gif" alt="Codep 35 – FFCT">
         </a>
-        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer" title="Fédération Française de Cyclotourisme – FFVélo">
+        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer"
+          title="Fédération Française de Cyclotourisme – FFVélo">
           <img src="assets/img/ffvelo2.gif" alt="FFVélo">
         </a>
         <a href="https://www.ville-bruz.fr/" target="_blank" rel="noopener noreferrer" title="Ville de Bruz">
@@ -205,6 +217,7 @@
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/private-access.js"></script>
-  <script src="assets/js/circuits2026.js"></script>
+  <script src="assets\js\circuits2026_UPDATED.js"></script>
 </body>
+
 </html>

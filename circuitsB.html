@@ -2,823 +2,1039 @@
 <html lang="fr">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Circuits B – La Bicyclette Bruzoise</title>
-  <meta name="description" content="Circuits B – liens circuits et traces GPS.">
-  <link rel="stylesheet" href="assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circuits B – La Bicyclette Bruzoise</title>
+    <meta name="description" content="Circuits B – liens circuits et traces GPS.">
+    <link rel="stylesheet" href="assets/css/style.css">
 
-  <style>
-    .table-scroll {
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      margin-top: 1rem;
-    }
+    <style>
+        .table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 1rem;
+        }
 
-    .table-scroll .table {
-      min-width: 760px;
-    }
+        .table-scroll .table {
+            min-width: 760px;
+        }
 
-    .table td {
-      vertical-align: top;
-    }
+        .table td {
+            vertical-align: top;
+        }
 
-    .quick-links {
-      margin: 0.75rem 0 0;
-      padding-left: 1.1rem;
-    }
+        .quick-links {
+            margin: 0.75rem 0 0;
+            padding-left: 1.1rem;
+        }
 
-    .quick-links li {
-      margin: 0.25rem 0;
-    }
-  </style>
+        .quick-links li {
+            margin: 0.25rem 0;
+        }
+    </style>
 
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a aria-label="La Bicyclette Bruzoise — Accueil" class="site-branding" href="index.html">
-        <img alt="Logo de la Bicyclette Bruzoise" class="brand-logo" src="assets/img/BBlogo.jpg" />
-        <span class="brand-text">
-          <span class="brand-title">La Bicyclette Bruzoise</span>
-          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
-        </span>
-      </a>
-      <nav aria-label="Navigation principale" class="main-nav">
-        <button aria-controls="primary-menu" aria-expanded="false" class="nav-toggle" type="button">
-          <span aria-hidden="true" class="nav-toggle-icon">☰</span>
-          <span class="nav-toggle-label">Menu</span>
-        </button>
-        <ul class="nav-list" id="primary-menu">
-          <li><a href="index.html">Accueil</a></li>
-          <li><a href="club.html">Le club</a></li>
-          <li><a href="sorties.html">Les sorties</a></li>
-          <li><a href="sejours.html">Les séjours</a></li>
-          <li><a href="randopedestres.html">Les randonnées pédestres</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a class="nav-private" href="espace-adherents.html">Espace adhérents</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a aria-label="La Bicyclette Bruzoise — Accueil" class="site-branding" href="index.html">
+                <img alt="Logo de la Bicyclette Bruzoise" class="brand-logo" src="assets/img/BBlogo.jpg" />
+                <span class="brand-text">
+                    <span class="brand-title">La Bicyclette Bruzoise</span>
+                    <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+                </span>
+            </a>
+            <nav aria-label="Navigation principale" class="main-nav">
+                <button aria-controls="primary-menu" aria-expanded="false" class="nav-toggle" type="button">
+                    <span aria-hidden="true" class="nav-toggle-icon">☰</span>
+                    <span class="nav-toggle-label">Menu</span>
+                </button>
+                <ul class="nav-list" id="primary-menu">
+                    <li><a href="index.html" aria-current="page">Accueil</a></li>
+                    <li><a href="club.html">Le club</a></li>
+                    <!-- <li><a href="sorties.html">Les sorties</a></li>  Page en construction -->
+                    <!-- <li><a href="sejours.html">Les séjours</a></li> Page en construction -->
+                    <!-- <li><a href="randopedestres.html">Les randonnées pédestres</a></li> Page en construction -->
+                    <li><a href="circuits2026.html" class="nav-private">Circuit 2026</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main class="site-main">
-    <section class="page-header">
-      <div class="container">
-        <h1>Circuits B</h1>
-        <p>Parcours et liens GPS (Openrunner).</p>
-      </div>
-    </section>
-
-    <section class="home-sections">
-      <div class="container">
-
-        <article class="card">
-          <h2>Accès adhérents</h2>
-          <p>Accès réservé : cette page fait partie de l’espace adhérents.</p>
-          <form id="private-access-form" class="login-form" novalidate>
-            <label for="private-password">Mot de passe</label>
-            <input id="private-password" name="password" type="password" autocomplete="current-password" required>
-            <button class="btn primary" type="submit">Entrer</button>
-            <button id="private-logout" class="btn secondary" type="button">Verrouiller</button>
-            <p id="private-message" class="form-note" aria-live="polite"></p>
-          </form>
-          <p id="private-locked-hint" class="form-note">Si vous êtes adhérent, utilisez le mot de passe communiqué par
-            le club.</p>
-        </article>
-
-        <article class="card">
-          <div id="private-content" class="hidden">
-
-            <div class="hero-actions">
-              <a class="btn secondary" href="http://bicyclette-bruzoise.ffvelo.fr/images/circuitsB.pdf" target="_blank"
-                rel="noopener noreferrer">Télécharger le PDF imprimable</a>
+    <main class="site-main">
+        <section class="page-header">
+            <div class="container">
+                <h1>Circuits B</h1>
+                <p>Parcours et liens GPS (Openrunner).</p>
             </div>
-            <p class="form-note">Pour ouvrir le lien GPS, cliquer sur la case correspondante</p>
-            <div class="table-scroll">
-              <table class="table">
-                <tbody>
-                  <tr>
-                    <th class="colonne3" scope="col"></th>
-                    <th class="colonne3" scope="col">CIRCUIT 1</th>
-                    <th class="colonne3" scope="col">CIRCUIT 2</th>
-                    <th class="colonne3" scope="col">CIRCUIT 3</th>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">1B</td>
-                    <td class="colonne1">E / 71km / 600D+ / <a href="https://www.openrunner.com/r/18257292"
-                        rel="noopener noreferrer" target="_blank">GPS 1B </a></td>
-                    <td class="colonne1">65km / 563D+ / <a href="https://www.openrunner.com/r/14516508"
-                        rel="noopener noreferrer" target="_blank">GPS 1B-C2 </a></td>
-                    <td class="colonne1">49km / 396D+ / <a href="https://www.openrunner.com/r/14516556"
-                        rel="noopener noreferrer" target="_blank">GPS 1B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">2B</td>
-                    <td class="colonne">SO / 71km / 700D+ / <a href="https://www.openrunner.com/r/18080616"
-                        rel="noopener noreferrer" target="_blank">GPS 2B </a></td>
-                    <td class="colonne">61Km / 482D+ / <a href="https://www.openrunner.com/r/14516522"
-                        rel="noopener noreferrer" target="_blank">GPS 2B-C2 </a></td>
-                    <td class="colonne">51km / 400D+ / <a href="https://www.openrunner.com/r/14516564"
-                        rel="noopener noreferrer" target="_blank">GPS 2B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">3B</td>
-                    <td class="colonne1">NO / 74km / 595D+ / <a href="https://www.openrunner.com/r/18087005"
-                        rel="noopener noreferrer" target="_blank">GPS 3B </a></td>
-                    <td class="colonne1">63km / 423D+ / <a href="https://www.openrunner.com/r/18087064"
-                        rel="noopener noreferrer" target="_blank">GPS 3B-C2 </a></td>
-                    <td class="colonne1">51km / 277D+ / <a href="https://www.openrunner.com/r/18087107"
-                        rel="noopener noreferrer" target="_blank">GPS 3B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">4B</td>
-                    <td class="colonne">SE / 71km / 528D+ / <a href="https://www.openrunner.com/r/15922258"
-                        rel="noopener noreferrer" target="_blank">GPS 4B </a></td>
-                    <td class="colonne">59km / 484D+ / <a href="https://www.openrunner.com/r/14525043"
-                        rel="noopener noreferrer" target="_blank">GPS 4B-C2 </a></td>
-                    <td class="colonne">54km / 447D+ / <a href="https://www.openrunner.com/r/14529057"
-                        rel="noopener noreferrer" target="_blank">GPS 4B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">5B</td>
-                    <td class="colonne1">NE / 70km / 399D+ / <a href="https://www.openrunner.com/r/18257414"
-                        rel="noopener noreferrer" target="_blank">GPS 5B </a></td>
-                    <td class="colonne1">60km / 325D+ / <a href="https://www.openrunner.com/r/14525056"
-                        rel="noopener noreferrer" target="_blank">GPS 5B-C2 </a></td>
-                    <td class="colonne1">55km / 319D+ / <a href="https://www.openrunner.com/r/14529059"
-                        rel="noopener noreferrer" target="_blank">GPS 5B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">6B</td>
-                    <td class="colonne">NO / 69km / 511D+ / <a href="https://www.openrunner.com/r/18083269"
-                        rel="noopener noreferrer" target="_blank">GPS 6B </a></td>
-                    <td class="colonne">60km / 461D+ / <a href="https://www.openrunner.com/r/14525062"
-                        rel="noopener noreferrer" target="_blank">GPS 6B-C2 </a></td>
-                    <td class="colonne">53km / 395D+ / <a href="https://www.openrunner.com/r/14529062"
-                        rel="noopener noreferrer" target="_blank">GPS 6B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">7B</td>
-                    <td class="colonne1">E / 72km / 614D+ / <a href="https://www.openrunner.com/r/18257513"
-                        rel="noopener noreferrer" target="_blank">GPS 7B </a></td>
-                    <td class="colonne1">67km / 584D+ / <a href="https://www.openrunner.com/r/14525070"
-                        rel="noopener noreferrer" target="_blank">GPS 7B-C2 </a></td>
-                    <td class="colonne1">53km / 444D+ / <a href="https://www.openrunner.com/r/14529064"
-                        rel="noopener noreferrer" target="_blank">GPS 7B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">8B</td>
-                    <td class="colonne">NE / 68km / 402D+ / <a href="https://www.openrunner.com/r/18257640"
-                        rel="noopener noreferrer" target="_blank">GPS 8B </a></td>
-                    <td class="colonne">61km / 427D+ / <a href="https://www.openrunner.com/r/14525078"
-                        rel="noopener noreferrer" target="_blank">GPS 8B-C2 </a></td>
-                    <td class="colonne">54km / 376D+ / <a href="https://www.openrunner.com/r/14529069"
-                        rel="noopener noreferrer" target="_blank">GPS 8B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">9B</td>
-                    <td class="colonne1">NO / 77km / 540D+ / <a href="https://www.openrunner.com/r/18123240"
-                        rel="noopener noreferrer" target="_blank">GPS 9B </a></td>
-                    <td class="colonne1">57km / 370D+ / <a href="https://www.openrunner.com/r/14525084"
-                        rel="noopener noreferrer" target="_blank">GPS 9B-C2 </a></td>
-                    <td class="colonne1">52km / 410D+ / <a href="https://www.openrunner.com/r/14529072"
-                        rel="noopener noreferrer" target="_blank">GPS 9B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">10B</td>
-                    <td class="colonne">O / 62km / 524D+ / <a href="https://www.openrunner.com/r/18257803"
-                        rel="noopener noreferrer" target="_blank">GPS 10B </a></td>
-                    <td class="colonne">59km / 507D+ / <a href="https://www.openrunner.com/r/14525094"
-                        rel="noopener noreferrer" target="_blank">GPS 10B-C2 </a></td>
-                    <td class="colonne">45km / 338D+ / <a href="https://www.openrunner.com/r/14529074"
-                        rel="noopener noreferrer" target="_blank">GPS 10B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">11B</td>
-                    <td class="colonne1">E / 64km / 435D+ / <a href="https://www.openrunner.com/r/15911900"
-                        rel="noopener noreferrer" target="_blank">GPS 11B </a></td>
-                    <td class="colonne1">49km / 276D+ / <a href="https://www.openrunner.com/r/14525103"
-                        rel="noopener noreferrer" target="_blank">GPS 11B-C2 </a></td>
-                    <td class="colonne1"> </td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">12B</td>
-                    <td class="colonne">SE / 77km / 570D+ / <a href="https://www.openrunner.com/r/18260551"
-                        rel="noopener noreferrer" target="_blank">GPS 12B </a></td>
-                    <td class="colonne">65km / 560D+ / <a href="https://www.openrunner.com/r/14525113"
-                        rel="noopener noreferrer" target="_blank">GPS 12B-C2 </a></td>
-                    <td class="colonne">60km / 509D+ / <a href="https://www.openrunner.com/r/14529078"
-                        rel="noopener noreferrer" target="_blank">GPS 12B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">13B</td>
-                    <td class="colonne1">E / 72km / 550D+ / <a href="https://www.openrunner.com/r/18260696"
-                        rel="noopener noreferrer" target="_blank">GPS 13B </a></td>
-                    <td class="colonne1">55km / 370D+ / <a href="https://www.openrunner.com/r/14525121"
-                        rel="noopener noreferrer" target="_blank">GPS 13B-C2 </a></td>
-                    <td class="colonne1">50km / 405D+ / <a href="https://www.openrunner.com/r/14529081"
-                        rel="noopener noreferrer" target="_blank">GPS 13B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">14B</td>
-                    <td class="colonne">SE / 69km / 591D+ / <a href="https://www.openrunner.com/r/15912050"
-                        rel="noopener noreferrer" target="_blank">GPS 14B </a></td>
-                    <td class="colonne">46Km / 410D+ / <a href="https://www.openrunner.com/r/14525129"
-                        rel="noopener noreferrer" target="_blank">GPS 14B-C2 </a></td>
-                    <td class="colonne"> </td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">15B</td>
-                    <td class="colonne1">S / 60km / 615D+ / <a href="https://www.openrunner.com/r/18260194"
-                        rel="noopener noreferrer" target="_blank">GPS 15B </a></td>
-                    <td class="colonne1">47km / 503D+ / <a href="https://www.openrunner.com/r/14525135"
-                        rel="noopener noreferrer" target="_blank">GPS 15B-C2 </a></td>
-                    <td class="colonne1"> </td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">16B</td>
-                    <td class="colonne">E / 63km / 463D+ / <a href="https://www.openrunner.com/r/18260421"
-                        rel="noopener noreferrer" target="_blank">GPS 16B </a></td>
-                    <td class="colonne">52 km / 269D+ / <a href="https://www.openrunner.com/r/14525143"
-                        rel="noopener noreferrer" target="_blank">GPS 16B-C2 </a></td>
-                    <td class="colonne"> </td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">17B</td>
-                    <td class="colonne1">S / 65km / 662D+ / <a href="https://www.openrunner.com/r/18260330"
-                        rel="noopener noreferrer" target="_blank">GPS 17B </a></td>
-                    <td class="colonne1">52km / 601D+ / <a href="https://www.openrunner.com/r/14525149"
-                        rel="noopener noreferrer" target="_blank">GPS 17B-C2 </a></td>
-                    <td class="colonne1">45km / 527D+ / <a href="https://www.openrunner.com/r/14529083"
-                        rel="noopener noreferrer" target="_blank">GPS 17B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">18B</td>
-                    <td class="colonne">S / 88km / 882D+ / <a href="https://www.openrunner.com/r/14518901"
-                        rel="noopener noreferrer" target="_blank">GPS 18B </a></td>
-                    <td class="colonne">74km / 799D+ / <a href="https://www.openrunner.com/r/14525157"
-                        rel="noopener noreferrer" target="_blank">GPS 18B-C2 </a></td>
-                    <td class="colonne">54km / 429D+ / <a href="https://www.openrunner.com/r/14529092"
-                        rel="noopener noreferrer" target="_blank">GPS 18B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">19B</td>
-                    <td class="colonne1">S / 65km / 580D+ / <a href="https://www.openrunner.com/r/15910228"
-                        rel="noopener noreferrer" target="_blank">GPS 19B </a></td>
-                    <td class="colonne1">44km / 457D+ / <a href="https://www.openrunner.com/r/14525168"
-                        rel="noopener noreferrer" target="_blank">GPS 19B-C2 </a></td>
-                    <td class="colonne1"> </td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">20B</td>
-                    <td class="colonne">S / 65km / 786D+ / <a href="https://www.openrunner.com/r/15910039"
-                        rel="noopener noreferrer" target="_blank">GPS 20B </a></td>
-                    <td class="colonne">45km / 557D+ / <a href="https://www.openrunner.com/r/14525173"
-                        rel="noopener noreferrer" target="_blank">GPS 20B-C2 </a></td>
-                    <td class="colonne"> </td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">21B</td>
-                    <td class="colonne1">O / 85km / 700D+ / <a href="https://www.openrunner.com/r/18180683"
-                        rel="noopener noreferrer" target="_blank">GPS 21B </a></td>
-                    <td class="colonne1">73km / 581D+ / <a href="https://www.openrunner.com/r/14525716"
-                        rel="noopener noreferrer" target="_blank">GPS 21B-C2 </a></td>
-                    <td class="colonne1">53km / 440D+ / <a href="https://www.openrunner.com/r/14529096"
-                        rel="noopener noreferrer" target="_blank">GPS 21B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">22B</td>
-                    <td class="colonne">SO / 88km / 837D+ / <a href="https://www.openrunner.com/r/18109421"
-                        rel="noopener noreferrer" target="_blank">GPS 22B </a></td>
-                    <td class="colonne">70km / 641D+ / <a href="https://www.openrunner.com/r/14525723"
-                        rel="noopener noreferrer" target="_blank">GPS 22B-C2 </a></td>
-                    <td class="colonne">61km / 460D+ / <a href="https://www.openrunner.com/r/14529098"
-                        rel="noopener noreferrer" target="_blank">GPS 22B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">23B</td>
-                    <td class="colonne1">N / 81km / 582D+ / <a href="https://www.openrunner.com/r/18176252"
-                        rel="noopener noreferrer" target="_blank">GPS 23B </a></td>
-                    <td class="colonne1">71km / 517D+ / <a href="https://www.openrunner.com/r/14525728"
-                        rel="noopener noreferrer" target="_blank">GPS 23B-C2 </a></td>
-                    <td class="colonne1">62km / 420D+ / <a href="https://www.openrunner.com/r/14529105"
-                        rel="noopener noreferrer" target="_blank">GPS 23B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">24B</td>
-                    <td class="colonne">E / 81km / 614D+ / <a href="https://www.openrunner.com/r/18176207"
-                        rel="noopener noreferrer" target="_blank">GPS 24B </a></td>
-                    <td class="colonne">62km / 357D+ / <a href="https://www.openrunner.com/r/14525738"
-                        rel="noopener noreferrer" target="_blank">GPS 24B-C2 </a></td>
-                    <td class="colonne">53km / 351D+ / <a href="https://www.openrunner.com/r/14529112"
-                        rel="noopener noreferrer" target="_blank">GPS 24B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">25B</td>
-                    <td class="colonne1">E / 88km / 564D+ / <a href="https://www.openrunner.com/r/18174605"
-                        rel="noopener noreferrer" target="_blank">GPS 25B </a></td>
-                    <td class="colonne1">75km / 558D+ / <a href="https://www.openrunner.com/r/14525743"
-                        rel="noopener noreferrer" target="_blank">GPS 25B-C2 </a></td>
-                    <td class="colonne1">60km / 432D+ / <a href="https://www.openrunner.com/r/14529114"
-                        rel="noopener noreferrer" target="_blank">GPS 25B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">26B</td>
-                    <td class="colonne">SO / 89km / 855D+ / <a href="https://www.openrunner.com/r/18174489"
-                        rel="noopener noreferrer" target="_blank">GPS 26B </a></td>
-                    <td class="colonne">72km / 731D+ / <a href="https://www.openrunner.com/r/14525749"
-                        rel="noopener noreferrer" target="_blank">GPS 26B-C2 </a></td>
-                    <td class="colonne">59km / 475D+ / <a href="https://www.openrunner.com/r/14529244"
-                        rel="noopener noreferrer" target="_blank">GPS 26B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">27B</td>
-                    <td class="colonne1">SO / 89km / 868D+ / <a href="https://www.openrunner.com/r/18093865"
-                        rel="noopener noreferrer" target="_blank">GPS 27B </a></td>
-                    <td class="colonne1">70km / 543D+ / <a href="https://www.openrunner.com/r/14525754"
-                        rel="noopener noreferrer" target="_blank">GPS 27B-C2 </a></td>
-                    <td class="colonne1">59km / 523D+ / <a href="https://www.openrunner.com/r/14529247"
-                        rel="noopener noreferrer" target="_blank">GPS 27B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">28B</td>
-                    <td class="colonne">O / 82km / 774D+ / <a href="https://www.openrunner.com/r/18092558"
-                        rel="noopener noreferrer" target="_blank">GPS 28B </a></td>
-                    <td class="colonne">60km / 465D+ / <a href="https://www.openrunner.com/r/14525759"
-                        rel="noopener noreferrer" target="_blank">GPS 28B-C2 </a></td>
-                    <td class="colonne">51km / 389D+ / <a href="https://www.openrunner.com/r/14529252"
-                        rel="noopener noreferrer" target="_blank">GPS 28B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">29B</td>
-                    <td class="colonne1">NO / 87km / 770D+ / <a href="https://www.openrunner.com/r/18113848"
-                        rel="noopener noreferrer" target="_blank">GPS 29B </a></td>
-                    <td class="colonne1">73km / 560D+ / <a href="https://www.openrunner.com/r/14525767"
-                        rel="noopener noreferrer" target="_blank">GPS 29B-C2 </a></td>
-                    <td class="colonne1">63km / 463D+ / <a href="https://www.openrunner.com/r/18120320"
-                        rel="noopener noreferrer" target="_blank">GPS 29B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">30B</td>
-                    <td class="colonne">SE / 83km / 775D+ / <a href="https://www.openrunner.com/r/18133363"
-                        rel="noopener noreferrer" target="_blank">GPS 30B </a></td>
-                    <td class="colonne">68km / 611D+ / <a href="https://www.openrunner.com/r/14525770"
-                        rel="noopener noreferrer" target="_blank">GPS 30B-C2 </a></td>
-                    <td class="colonne">57m / 506D+ / <a href="https://www.openrunner.com/r/14529260"
-                        rel="noopener noreferrer" target="_blank">GPS 30B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">31B</td>
-                    <td class="colonne1">O / 78km / 678D+ / <a href="https://www.openrunner.com/r/18172000"
-                        rel="noopener noreferrer" target="_blank">GPS 31B </a></td>
-                    <td class="colonne1">65km / 467D+ / <a href="https://www.openrunner.com/r/14527736"
-                        rel="noopener noreferrer" target="_blank">GPS 31B-C2 </a></td>
-                    <td class="colonne1">54km / 384D+ / <a href="https://www.openrunner.com/r/14529266"
-                        rel="noopener noreferrer" target="_blank">GPS 31B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">32B</td>
-                    <td class="colonne">SO / 79km / 703D+ / <a href="https://www.openrunner.com/r/14521924"
-                        rel="noopener noreferrer" target="_blank">GPS 32B </a></td>
-                    <td class="colonne">68km / 687D+ / <a href="https://www.openrunner.com/r/14525796"
-                        rel="noopener noreferrer" target="_blank">GPS 32B-C2 </a></td>
-                    <td class="colonne">49km / 490D+ / <a href="https://www.openrunner.com/r/14529269"
-                        rel="noopener noreferrer" target="_blank">GPS 32B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">33B</td>
-                    <td class="colonne1">ENE / 81km / 574D+ / <a href="https://www.openrunner.com/r/14521931"
-                        rel="noopener noreferrer" target="_blank">GPS 33B </a></td>
-                    <td class="colonne1">64km / 346D+ / <a href="https://www.openrunner.com/r/14525799"
-                        rel="noopener noreferrer" target="_blank">GPS 33B-C2 </a></td>
-                    <td class="colonne1">55km / 375D+ / <a href="https://www.openrunner.com/r/14529277"
-                        rel="noopener noreferrer" target="_blank">GPS 33B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">34B</td>
-                    <td class="colonne">E / 79km / 660D+ / <a href="https://www.openrunner.com/r/14521936"
-                        rel="noopener noreferrer" target="_blank">GPS 34B </a></td>
-                    <td class="colonne">73km / 592D+ / <a href="https://www.openrunner.com/r/14525803"
-                        rel="noopener noreferrer" target="_blank">GPS 34B-C2 </a></td>
-                    <td class="colonne">62km / 486D+ / <a href="https://www.openrunner.com/r/14529282"
-                        rel="noopener noreferrer" target="_blank">GPS 34B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">35B</td>
-                    <td class="colonne1">SO / 87km / 841D+ / <a href="https://www.openrunner.com/r/18171940"
-                        rel="noopener noreferrer" target="_blank">GPS 35B </a></td>
-                    <td class="colonne1">79km / 826D+ / <a href="https://www.openrunner.com/r/14525809"
-                        rel="noopener noreferrer" target="_blank">GPS 35B-C2 </a></td>
-                    <td class="colonne1">63km / 700D+ / <a href="https://www.openrunner.com/r/14529286"
-                        rel="noopener noreferrer" target="_blank">GPS 35B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">36B</td>
-                    <td class="colonne">NO / 86km / 460D+ / <a href="https://www.openrunner.com/r/18170147"
-                        rel="noopener noreferrer" target="_blank">GPS 36B </a></td>
-                    <td class="colonne">70km / 466D+ / <a href="https://www.openrunner.com/r/14525815"
-                        rel="noopener noreferrer" target="_blank">GPS 36B-C2 </a></td>
-                    <td class="colonne">55km / 372D+ / <a href="https://www.openrunner.com/r/14529292"
-                        rel="noopener noreferrer" target="_blank">GPS 36B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">37B</td>
-                    <td class="colonne1">S / 85km / 1010D+ / <a href="https://www.openrunner.com/r/18167808"
-                        rel="noopener noreferrer" target="_blank">GPS 37B </a></td>
-                    <td class="colonne1">67km / 872D+ / <a href="https://www.openrunner.com/r/14525820"
-                        rel="noopener noreferrer" target="_blank">GPS 37B-C2 </a></td>
-                    <td class="colonne1">55km / 795D+ / <a href="https://www.openrunner.com/r/14529295"
-                        rel="noopener noreferrer" target="_blank">GPS 37B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">38B</td>
-                    <td class="colonne">SE / 78km / 635D+ / <a href="https://www.openrunner.com/r/14522004"
-                        rel="noopener noreferrer" target="_blank">GPS 38B </a></td>
-                    <td class="colonne">65km / 507D+ / <a href="https://www.openrunner.com/r/14525827"
-                        rel="noopener noreferrer" target="_blank">GPS 38B-C2 </a></td>
-                    <td class="colonne">39km / 293D+ / <a href="https://www.openrunner.com/r/14529297"
-                        rel="noopener noreferrer" target="_blank">GPS 38B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">39B</td>
-                    <td class="colonne1">SE / 82km / 875D+ / <a href="https://www.openrunner.com/r/14522010"
-                        rel="noopener noreferrer" target="_blank">GPS 39B </a></td>
-                    <td class="colonne1">70km / 745D+ / <a href="https://www.openrunner.com/r/14525831"
-                        rel="noopener noreferrer" target="_blank">GPS 39B-C2 </a></td>
-                    <td class="colonne1">42km / 344D+ / <a href="https://www.openrunner.com/r/14529303"
-                        rel="noopener noreferrer" target="_blank">GPS 39B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">40B</td>
-                    <td class="colonne">S / 87km / 792D+ / <a href="https://www.openrunner.com/r/14522020"
-                        rel="noopener noreferrer" target="_blank">GPS 40B </a></td>
-                    <td class="colonne">77km / 858D+ / <a href="https://www.openrunner.com/r/14525837"
-                        rel="noopener noreferrer" target="_blank">GPS 40B-C2 </a></td>
-                    <td class="colonne">47km / 547D+ / <a href="https://www.openrunner.com/r/14529311"
-                        rel="noopener noreferrer" target="_blank">GPS 40B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">41B</td>
-                    <td class="colonne1">SO / 66km / 640D+ / <a href="https://www.openrunner.com/r/15911957"
-                        rel="noopener noreferrer" target="_blank">GPS 41B </a></td>
-                    <td class="colonne1">46km / 423D+ / <a href="https://www.openrunner.com/r/14525843"
-                        rel="noopener noreferrer" target="_blank">GPS 41B-C2 </a></td>
-                    <td class="colonne1"> </td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">42B</td>
-                    <td class="colonne">SO / 63km / 534D+ / <a href="https://www.openrunner.com/r/15911741"
-                        rel="noopener noreferrer" target="_blank">GPS 42B </a></td>
-                    <td class="colonne">48km / 405D+ / <a href="https://www.openrunner.com/r/14525846"
-                        rel="noopener noreferrer" target="_blank">GPS 42B-C2 </a></td>
-                    <td class="colonne"> </td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">43B</td>
-                    <td class="colonne1">O / 66km / 500D+ / <a href="https://www.openrunner.com/r/18123334"
-                        rel="noopener noreferrer" target="_blank">GPS 43B </a></td>
-                    <td class="colonne1">64km / 430D+ / <a href="https://www.openrunner.com/r/14527427"
-                        rel="noopener noreferrer" target="_blank">GPS 43B-C2 </a></td>
-                    <td class="colonne1">47km / 314D+ / <a href="https://www.openrunner.com/r/14529324"
-                        rel="noopener noreferrer" target="_blank">GPS 43B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">44B</td>
-                    <td class="colonne">O / 88km / 708D+ / <a href="https://www.openrunner.com/r/15780639"
-                        rel="noopener noreferrer" target="_blank">GPS 44B </a></td>
-                    <td class="colonne">75km / 596D+ / <a href="https://www.openrunner.com/r/15780593"
-                        rel="noopener noreferrer" target="_blank">GPS 44B-C2 </a></td>
-                    <td class="colonne">56km / 391D+ / <a href="https://www.openrunner.com/r/15780532"
-                        rel="noopener noreferrer" target="_blank">GPS 44B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">45B</td>
-                    <td class="colonne1">NO / 81km / 536D+ / <a href="https://www.openrunner.com/r/15786895"
-                        rel="noopener noreferrer" target="_blank">GPS 45B </a></td>
-                    <td class="colonne1">76km / 504D+ / <a href="https://www.openrunner.com/r/15791027"
-                        rel="noopener noreferrer" target="_blank">GPS 45B-C2 </a></td>
-                    <td class="colonne1">61km / 367D+ / <a href="https://www.openrunner.com/r/15791048"
-                        rel="noopener noreferrer" target="_blank">GPS 45B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">46B</td>
-                    <td class="colonne">NO / 93km / 740D+ / <a href="https://www.openrunner.com/r/18166041"
-                        rel="noopener noreferrer" target="_blank">GPS 46B </a></td>
-                    <td class="colonne">72km / 526D+ / <a href="https://www.openrunner.com/r/14527444"
-                        rel="noopener noreferrer" target="_blank">GPS 46B-C2 </a></td>
-                    <td class="colonne">57km / 419D+ / <a href="https://www.openrunner.com/r/14529329"
-                        rel="noopener noreferrer" target="_blank">GPS 46B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">47B</td>
-                    <td class="colonne1">NE / 95km / 735D+ / <a href="https://www.openrunner.com/r/18163350"
-                        rel="noopener noreferrer" target="_blank">GPS 47B </a></td>
-                    <td class="colonne1">84km / 618D+ / <a href="https://www.openrunner.com/r/14527453"
-                        rel="noopener noreferrer" target="_blank">GPS 47B-C2 </a></td>
-                    <td class="colonne1">59km / 282D+ / <a href="https://www.openrunner.com/r/14529338"
-                        rel="noopener noreferrer" target="_blank">GPS 47B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">48B</td>
-                    <td class="colonne">E / 100km / 730D+ / <a href="https://www.openrunner.com/r/18100429"
-                        rel="noopener noreferrer" target="_blank">GPS 48B </a></td>
-                    <td class="colonne">77km / 456D+ / <a href="https://www.openrunner.com/r/14527467"
-                        rel="noopener noreferrer" target="_blank">GPS 48B-C2 </a></td>
-                    <td class="colonne">63km / 472D+ / <a href="https://www.openrunner.com/r/14534400"
-                        rel="noopener noreferrer" target="_blank">GPS 48B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">49B</td>
-                    <td class="colonne1">O / 94km / 914D+ / <a href="https://www.openrunner.com/r/18163260"
-                        rel="noopener noreferrer" target="_blank">GPS 49B </a></td>
-                    <td class="colonne1">85km / 645D+ / <a href="https://www.openrunner.com/r/14527477"
-                        rel="noopener noreferrer" target="_blank">GPS 49B-C2 </a></td>
-                    <td class="colonne1">64km / 431D+ / <a href="https://www.openrunner.com/r/14534409"
-                        rel="noopener noreferrer" target="_blank">GPS 49B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">50B</td>
-                    <td class="colonne">E / 96km / 850D+ / <a href="https://www.openrunner.com/r/18161958"
-                        rel="noopener noreferrer" target="_blank">GPS 50B </a></td>
-                    <td class="colonne">78km / 647D+ / <a href="https://www.openrunner.com/r/14527486"
-                        rel="noopener noreferrer" target="_blank">GPS 50B-C2 </a></td>
-                    <td class="colonne">65km / 485D+ / <a href="https://www.openrunner.com/r/14534420"
-                        rel="noopener noreferrer" target="_blank">GPS 50B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">51B</td>
-                    <td class="colonne1">SE / 96km / 795D+ / <a href="https://www.openrunner.com/r/14524285"
-                        rel="noopener noreferrer" target="_blank">GPS 51B </a></td>
-                    <td class="colonne1">71km / 617D+ / <a href="https://www.openrunner.com/r/14527493"
-                        rel="noopener noreferrer" target="_blank">GPS 51B-C2 </a></td>
-                    <td class="colonne1">62km / 482D+ / <a href="https://www.openrunner.com/r/14534428"
-                        rel="noopener noreferrer" target="_blank">GPS 51B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">52B</td>
-                    <td class="colonne">NO / 95km / 801D+ / <a href="https://www.openrunner.com/r/18154896"
-                        rel="noopener noreferrer" target="_blank">GPS 52B </a></td>
-                    <td class="colonne">78km / 615D+ / <a href="https://www.openrunner.com/r/14527498"
-                        rel="noopener noreferrer" target="_blank">GPS 52B-C2 </a></td>
-                    <td class="colonne">65km / 568D+ / <a href="https://www.openrunner.com/r/14534435"
-                        rel="noopener noreferrer" target="_blank">GPS 52B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">53B</td>
-                    <td class="colonne1">O / 98km / 843D+ / <a href="https://www.openrunner.com/r/18154817"
-                        rel="noopener noreferrer" target="_blank">GPS 53B </a></td>
-                    <td class="colonne1">81km / 615D+ / <a href="https://www.openrunner.com/r/14527509"
-                        rel="noopener noreferrer" target="_blank">GPS 53B-C2 </a></td>
-                    <td class="colonne1">62km / 546D+ / <a href="https://www.openrunner.com/r/14534438"
-                        rel="noopener noreferrer" target="_blank">GPS 53B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">54B</td>
-                    <td class="colonne">E / 94km / 511D+ / <a href="https://www.openrunner.com/r/17348177"
-                        rel="noopener noreferrer" target="_blank">GPS 54B </a></td>
-                    <td class="colonne">86km / 567D+ / <a href="https://www.openrunner.com/r/14527517"
-                        rel="noopener noreferrer" target="_blank">GPS 54B-C2 </a></td>
-                    <td class="colonne">75km / 463D+ / <a href="https://www.openrunner.com/r/14534444"
-                        rel="noopener noreferrer" target="_blank">GPS 54B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">55B</td>
-                    <td class="colonne1">SO / 97km / 1035D+ / <a href="https://www.openrunner.com/r/18099396"
-                        rel="noopener noreferrer" target="_blank">GPS 55B </a></td>
-                    <td class="colonne1">81km / 831D+ / <a href="https://www.openrunner.com/r/14527523"
-                        rel="noopener noreferrer" target="_blank">GPS 55B-C2 </a></td>
-                    <td class="colonne1">71km / 766D+ / <a href="https://www.openrunner.com/r/14534451"
-                        rel="noopener noreferrer" target="_blank">GPS 55B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">56B</td>
-                    <td class="colonne">O / 92km / 770D+ / <a href="https://www.openrunner.com/r/18153158"
-                        rel="noopener noreferrer" target="_blank">GPS 56B </a></td>
-                    <td class="colonne">80km / 704D+ / <a href="https://www.openrunner.com/r/14527539"
-                        rel="noopener noreferrer" target="_blank">GPS 56B-C2 </a></td>
-                    <td class="colonne">64km / 535D+ / <a href="https://www.openrunner.com/r/14534461"
-                        rel="noopener noreferrer" target="_blank">GPS 56B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">57B</td>
-                    <td class="colonne1">S / 91km / 830D+ / <a href="https://www.openrunner.com/r/14524324"
-                        rel="noopener noreferrer" target="_blank">GPS 57B </a></td>
-                    <td class="colonne1">81km / 900D+ / <a href="https://www.openrunner.com/r/14527545"
-                        rel="noopener noreferrer" target="_blank">GPS 57B-C2 </a></td>
-                    <td class="colonne1">60km / 746D+ / <a href="https://www.openrunner.com/r/14534473"
-                        rel="noopener noreferrer" target="_blank">GPS 57B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">58B</td>
-                    <td class="colonne">E / 91km / 690D+ / <a href="https://www.openrunner.com/r/14524331"
-                        rel="noopener noreferrer" target="_blank">GPS 58B </a></td>
-                    <td class="colonne">83km / 537D+ / <a href="https://www.openrunner.com/r/14527558"
-                        rel="noopener noreferrer" target="_blank">GPS 58B-C2 </a></td>
-                    <td class="colonne">55km / 406D+ / <a href="https://www.openrunner.com/r/14534478"
-                        rel="noopener noreferrer" target="_blank">GPS 58B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">59B</td>
-                    <td class="colonne">O / 73km / 727D+ / <a href="https://www.openrunner.com/r/16490804"
-                        rel="noopener noreferrer" target="_blank">GPS 59B </a></td>
-                    <td class="colonne">63km / 517D+ / <a href="https://www.openrunner.com/r/16490876"
-                        rel="noopener noreferrer" target="_blank">GPS 59B-C2 </a></td>
-                    <td class="colonne">42km / 309D+ / <a href="https://www.openrunner.com/r/16490926"
-                        rel="noopener noreferrer" target="_blank">GPS 59B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">76B</td>
-                    <td class="colonne1">NO / 110km / 972D+ / <a href="https://www.openrunner.com/r/18122137"
-                        rel="noopener noreferrer" target="_blank">GPS 76B </a></td>
-                    <td class="colonne1">84km / 632D+ / <a href="https://www.openrunner.com/r/14527566"
-                        rel="noopener noreferrer" target="_blank">GPS 76B-C2 </a></td>
-                    <td class="colonne1">68km / 546D+ / <a href="https://www.openrunner.com/r/14534484"
-                        rel="noopener noreferrer" target="_blank">GPS 76B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">77B</td>
-                    <td class="colonne">O / 99km / 993D+ / <a href="https://www.openrunner.com/r/18152952"
-                        rel="noopener noreferrer" target="_blank">GPS 77B </a></td>
-                    <td class="colonne">86km / 715D+ / <a href="https://www.openrunner.com/r/14527575"
-                        rel="noopener noreferrer" target="_blank">GPS 77B-C2 </a></td>
-                    <td class="colonne">69km / 625D+ / <a href="https://www.openrunner.com/r/14534489"
-                        rel="noopener noreferrer" target="_blank">GPS 77B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">78B</td>
-                    <td class="colonne1">N / 104km / 791D+ / <a href="https://www.openrunner.com/r/14524347"
-                        rel="noopener noreferrer" target="_blank">GPS 78B </a></td>
-                    <td class="colonne1">87km / 634D+ / <a href="https://www.openrunner.com/r/14527582"
-                        rel="noopener noreferrer" target="_blank">GPS 78B-C2 </a></td>
-                    <td class="colonne1">70km / 483D+ / <a href="https://www.openrunner.com/r/14534496"
-                        rel="noopener noreferrer" target="_blank">GPS 78B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">79B</td>
-                    <td class="colonne">NE / 105km / 881D+ / <a href="https://www.openrunner.com/r/14524353"
-                        rel="noopener noreferrer" target="_blank">GPS 79B </a></td>
-                    <td class="colonne">90km / 573D+ / <a href="https://www.openrunner.com/r/14527589"
-                        rel="noopener noreferrer" target="_blank">GPS 79B-C2 </a></td>
-                    <td class="colonne">70km / 510D+ / <a href="https://www.openrunner.com/r/14534505"
-                        rel="noopener noreferrer" target="_blank">GPS 79B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">80B</td>
-                    <td class="colonne1">O / 108km / 1035D+ / <a href="https://www.openrunner.com/r/18152839"
-                        rel="noopener noreferrer" target="_blank">GPS 80B </a></td>
-                    <td class="colonne1">82km / 743D+ / <a href="https://www.openrunner.com/r/14527594"
-                        rel="noopener noreferrer" target="_blank">GPS 80B-C2 </a></td>
-                    <td class="colonne1">63km / 500D+ / <a href="https://www.openrunner.com/r/14534507"
-                        rel="noopener noreferrer" target="_blank">GPS 80B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">81B</td>
-                    <td class="colonne">O / 103km / 751D+ / <a href="https://www.openrunner.com/r/18150925"
-                        rel="noopener noreferrer" target="_blank">GPS 81B </a></td>
-                    <td class="colonne">92km / 730D+ / <a href="https://www.openrunner.com/r/14527602"
-                        rel="noopener noreferrer" target="_blank">GPS 81B-C2 </a></td>
-                    <td class="colonne">74km / 500D+ / <a href="https://www.openrunner.com/r/14534512"
-                        rel="noopener noreferrer" target="_blank">GPS 81B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">82B</td>
-                    <td class="colonne1">N / 99km / 638D+ / <a href="https://www.openrunner.com/r/18150823"
-                        rel="noopener noreferrer" target="_blank">GPS 82B </a></td>
-                    <td class="colonne1">90km / 633D+ / <a href="https://www.openrunner.com/r/14527609"
-                        rel="noopener noreferrer" target="_blank">GPS 82B-C2 </a></td>
-                    <td class="colonne1">73km / 484D+ / <a href="https://www.openrunner.com/r/14534516"
-                        rel="noopener noreferrer" target="_blank">GPS 82B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">83B</td>
-                    <td class="colonne">E / 102km / 717D+ / <a href="https://www.openrunner.com/r/18097360"
-                        rel="noopener noreferrer" target="_blank">GPS 83B </a></td>
-                    <td class="colonne">90km / 569D+ / <a href="https://www.openrunner.com/r/14527616"
-                        rel="noopener noreferrer" target="_blank">GPS 83B-C2 </a></td>
-                    <td class="colonne">70km / 512D+ / <a href="https://www.openrunner.com/r/14534523"
-                        rel="noopener noreferrer" target="_blank">GPS 83B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">84B</td>
-                    <td class="colonne1">ONO / 102km / 734D+ / <a href="https://www.openrunner.com/r/18146219"
-                        rel="noopener noreferrer" target="_blank">GPS 84B </a></td>
-                    <td class="colonne1">88km / 562D+ / <a href="https://www.openrunner.com/r/14527625"
-                        rel="noopener noreferrer" target="_blank">GPS 84B-C2 </a></td>
-                    <td class="colonne1">77km / 552D+ / <a href="https://www.openrunner.com/r/14534531"
-                        rel="noopener noreferrer" target="_blank">GPS 84B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">85B</td>
-                    <td class="colonne">N / 103km / 763D+ / <a href="https://www.openrunner.com/r/18141822"
-                        rel="noopener noreferrer" target="_blank">GPS 85B </a></td>
-                    <td class="colonne">91km / 635D+ / <a href="https://www.openrunner.com/r/14527631"
-                        rel="noopener noreferrer" target="_blank">GPS 85B-C2 </a></td>
-                    <td class="colonne">75km / 513D+ / <a href="https://www.openrunner.com/r/14534536"
-                        rel="noopener noreferrer" target="_blank">GPS 85B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">86B</td>
-                    <td class="colonne1">SSO / 102km / 993D+ / <a href="https://www.openrunner.com/r/18137369"
-                        rel="noopener noreferrer" target="_blank">GPS 86B </a></td>
-                    <td class="colonne1">76km / 728D+ / <a href="https://www.openrunner.com/r/14527636"
-                        rel="noopener noreferrer" target="_blank">GPS 86B-C2 </a></td>
-                    <td class="colonne1">66km / 619D+ / <a href="https://www.openrunner.com/r/14534545"
-                        rel="noopener noreferrer" target="_blank">GPS 86B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">87B</td>
-                    <td class="colonne">N / 112km / 829D+ / <a href="https://www.openrunner.com/r/18103555"
-                        rel="noopener noreferrer" target="_blank">GPS 87B </a></td>
-                    <td class="colonne">93km / 718D+ / <a href="https://www.openrunner.com/r/18106275"
-                        rel="noopener noreferrer" target="_blank">GPS 87B-C2 </a></td>
-                    <td class="colonne">65km / 458D+ / <a href="https://www.openrunner.com/r/18106380"
-                        rel="noopener noreferrer" target="_blank">GPS 87B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne1">88B</td>
-                    <td class="colonne1">ENE / 101km / 883D+ / <a href="https://www.openrunner.com/r/14524418"
-                        rel="noopener noreferrer" target="_blank">GPS 88B </a></td>
-                    <td class="colonne1">89km / 560D+ / <a href="https://www.openrunner.com/r/14527648"
-                        rel="noopener noreferrer" target="_blank">GPS 88B-C2 </a></td>
-                    <td class="colonne1">70km / 469D+ / <a href="https://www.openrunner.com/r/14534559"
-                        rel="noopener noreferrer" target="_blank">GPS 88B-C3 </a></td>
-                  </tr>
-                  <tr>
-                    <td class="colonne">89B</td>
-                    <td class="colonne">S / 103km / 1293D+ / <a href="https://www.openrunner.com/r/18134328"
-                        rel="noopener noreferrer" target="_blank">GPS 89B </a></td>
-                    <td class="colonne">79km / 933D+ / <a href="https://www.openrunner.com/r/14527654"
-                        rel="noopener noreferrer" target="_blank">GPS 89B-C2 </a></td>
-                    <td class="colonne">61km / 805D+ / <a href="https://www.openrunner.com/r/14534565"
-                        rel="noopener noreferrer" target="_blank">GPS 89B-C3 </a></td>
-                  </tr>
-                </tbody>
-              </table>
+        </section>
+
+        <section class="home-sections">
+            <div class="container">
+
+                <article class="card">
+                    <h2>Accès adhérents</h2>
+                    <p>Accès réservé : cette page fait partie de l’espace adhérents.</p>
+                    <form id="private-access-form" class="login-form" novalidate>
+                        <label for="private-password">Mot de passe</label>
+                        <input id="private-password" name="password" type="password" autocomplete="current-password"
+                            required>
+                        <button class="btn primary" type="submit">Entrer</button>
+                        <button id="private-logout" class="btn secondary" type="button">Verrouiller</button>
+                        <p id="private-message" class="form-note" aria-live="polite"></p>
+                    </form>
+                    <p id="private-locked-hint" class="form-note">Si vous êtes adhérent, utilisez le mot de passe
+                        communiqué par
+                        le club.</p>
+                </article>
+
+                <article class="card">
+                    <div id="private-content" class="hidden">
+
+                        <div class="hero-actions">
+                            <a class="btn secondary" href="http://bicyclette-bruzoise.ffvelo.fr/images/circuitsB.pdf"
+                                target="_blank" rel="noopener noreferrer">Télécharger le PDF imprimable</a>
+                        </div>
+                        <p class="form-note">Pour ouvrir le lien GPS, cliquer sur la case correspondante</p>
+                        <div class="table-scroll">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th class="colonne3" scope="col"></th>
+                                        <th class="colonne3" scope="col">CIRCUIT 1</th>
+                                        <th class="colonne3" scope="col">CIRCUIT 2</th>
+                                        <th class="colonne3" scope="col">CIRCUIT 3</th>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">1B</td>
+                                        <td class="colonne1">E / 71km / 600D+ / <a
+                                                href="https://www.openrunner.com/r/18257292" rel="noopener noreferrer"
+                                                target="_blank">GPS 1B </a></td>
+                                        <td class="colonne1">65km / 563D+ / <a
+                                                href="https://www.openrunner.com/r/14516508" rel="noopener noreferrer"
+                                                target="_blank">GPS 1B-C2 </a></td>
+                                        <td class="colonne1">49km / 396D+ / <a
+                                                href="https://www.openrunner.com/r/14516556" rel="noopener noreferrer"
+                                                target="_blank">GPS 1B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">2B</td>
+                                        <td class="colonne">SO / 71km / 700D+ / <a
+                                                href="https://www.openrunner.com/r/18080616" rel="noopener noreferrer"
+                                                target="_blank">GPS 2B </a></td>
+                                        <td class="colonne">61Km / 482D+ / <a
+                                                href="https://www.openrunner.com/r/14516522" rel="noopener noreferrer"
+                                                target="_blank">GPS 2B-C2 </a></td>
+                                        <td class="colonne">51km / 400D+ / <a
+                                                href="https://www.openrunner.com/r/14516564" rel="noopener noreferrer"
+                                                target="_blank">GPS 2B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">3B</td>
+                                        <td class="colonne1">NO / 74km / 595D+ / <a
+                                                href="https://www.openrunner.com/r/18087005" rel="noopener noreferrer"
+                                                target="_blank">GPS 3B </a></td>
+                                        <td class="colonne1">63km / 423D+ / <a
+                                                href="https://www.openrunner.com/r/18087064" rel="noopener noreferrer"
+                                                target="_blank">GPS 3B-C2 </a></td>
+                                        <td class="colonne1">51km / 277D+ / <a
+                                                href="https://www.openrunner.com/r/18087107" rel="noopener noreferrer"
+                                                target="_blank">GPS 3B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">4B</td>
+                                        <td class="colonne">SE / 71km / 528D+ / <a
+                                                href="https://www.openrunner.com/r/15922258" rel="noopener noreferrer"
+                                                target="_blank">GPS 4B </a></td>
+                                        <td class="colonne">59km / 484D+ / <a
+                                                href="https://www.openrunner.com/r/14525043" rel="noopener noreferrer"
+                                                target="_blank">GPS 4B-C2 </a></td>
+                                        <td class="colonne">54km / 447D+ / <a
+                                                href="https://www.openrunner.com/r/14529057" rel="noopener noreferrer"
+                                                target="_blank">GPS 4B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">5B</td>
+                                        <td class="colonne1">NE / 70km / 399D+ / <a
+                                                href="https://www.openrunner.com/r/18257414" rel="noopener noreferrer"
+                                                target="_blank">GPS 5B </a></td>
+                                        <td class="colonne1">60km / 325D+ / <a
+                                                href="https://www.openrunner.com/r/14525056" rel="noopener noreferrer"
+                                                target="_blank">GPS 5B-C2 </a></td>
+                                        <td class="colonne1">55km / 319D+ / <a
+                                                href="https://www.openrunner.com/r/14529059" rel="noopener noreferrer"
+                                                target="_blank">GPS 5B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">6B</td>
+                                        <td class="colonne">NO / 69km / 511D+ / <a
+                                                href="https://www.openrunner.com/r/18083269" rel="noopener noreferrer"
+                                                target="_blank">GPS 6B </a></td>
+                                        <td class="colonne">60km / 461D+ / <a
+                                                href="https://www.openrunner.com/r/14525062" rel="noopener noreferrer"
+                                                target="_blank">GPS 6B-C2 </a></td>
+                                        <td class="colonne">53km / 395D+ / <a
+                                                href="https://www.openrunner.com/r/14529062" rel="noopener noreferrer"
+                                                target="_blank">GPS 6B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">7B</td>
+                                        <td class="colonne1">E / 72km / 614D+ / <a
+                                                href="https://www.openrunner.com/r/18257513" rel="noopener noreferrer"
+                                                target="_blank">GPS 7B </a></td>
+                                        <td class="colonne1">67km / 584D+ / <a
+                                                href="https://www.openrunner.com/r/14525070" rel="noopener noreferrer"
+                                                target="_blank">GPS 7B-C2 </a></td>
+                                        <td class="colonne1">53km / 444D+ / <a
+                                                href="https://www.openrunner.com/r/14529064" rel="noopener noreferrer"
+                                                target="_blank">GPS 7B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">8B</td>
+                                        <td class="colonne">NE / 68km / 402D+ / <a
+                                                href="https://www.openrunner.com/r/18257640" rel="noopener noreferrer"
+                                                target="_blank">GPS 8B </a></td>
+                                        <td class="colonne">61km / 427D+ / <a
+                                                href="https://www.openrunner.com/r/14525078" rel="noopener noreferrer"
+                                                target="_blank">GPS 8B-C2 </a></td>
+                                        <td class="colonne">54km / 376D+ / <a
+                                                href="https://www.openrunner.com/r/14529069" rel="noopener noreferrer"
+                                                target="_blank">GPS 8B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">9B</td>
+                                        <td class="colonne1">NO / 77km / 540D+ / <a
+                                                href="https://www.openrunner.com/r/18123240" rel="noopener noreferrer"
+                                                target="_blank">GPS 9B </a></td>
+                                        <td class="colonne1">57km / 370D+ / <a
+                                                href="https://www.openrunner.com/r/14525084" rel="noopener noreferrer"
+                                                target="_blank">GPS 9B-C2 </a></td>
+                                        <td class="colonne1">52km / 410D+ / <a
+                                                href="https://www.openrunner.com/r/14529072" rel="noopener noreferrer"
+                                                target="_blank">GPS 9B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">10B</td>
+                                        <td class="colonne">O / 62km / 524D+ / <a
+                                                href="https://www.openrunner.com/r/18257803" rel="noopener noreferrer"
+                                                target="_blank">GPS 10B </a></td>
+                                        <td class="colonne">59km / 507D+ / <a
+                                                href="https://www.openrunner.com/r/14525094" rel="noopener noreferrer"
+                                                target="_blank">GPS 10B-C2 </a></td>
+                                        <td class="colonne">45km / 338D+ / <a
+                                                href="https://www.openrunner.com/r/14529074" rel="noopener noreferrer"
+                                                target="_blank">GPS 10B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">11B</td>
+                                        <td class="colonne1">E / 64km / 435D+ / <a
+                                                href="https://www.openrunner.com/r/15911900" rel="noopener noreferrer"
+                                                target="_blank">GPS 11B </a></td>
+                                        <td class="colonne1">49km / 276D+ / <a
+                                                href="https://www.openrunner.com/r/14525103" rel="noopener noreferrer"
+                                                target="_blank">GPS 11B-C2 </a></td>
+                                        <td class="colonne1"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">12B</td>
+                                        <td class="colonne">SE / 77km / 570D+ / <a
+                                                href="https://www.openrunner.com/r/18260551" rel="noopener noreferrer"
+                                                target="_blank">GPS 12B </a></td>
+                                        <td class="colonne">65km / 560D+ / <a
+                                                href="https://www.openrunner.com/r/14525113" rel="noopener noreferrer"
+                                                target="_blank">GPS 12B-C2 </a></td>
+                                        <td class="colonne">60km / 509D+ / <a
+                                                href="https://www.openrunner.com/r/14529078" rel="noopener noreferrer"
+                                                target="_blank">GPS 12B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">13B</td>
+                                        <td class="colonne1">E / 72km / 550D+ / <a
+                                                href="https://www.openrunner.com/r/18260696" rel="noopener noreferrer"
+                                                target="_blank">GPS 13B </a></td>
+                                        <td class="colonne1">55km / 370D+ / <a
+                                                href="https://www.openrunner.com/r/14525121" rel="noopener noreferrer"
+                                                target="_blank">GPS 13B-C2 </a></td>
+                                        <td class="colonne1">50km / 405D+ / <a
+                                                href="https://www.openrunner.com/r/14529081" rel="noopener noreferrer"
+                                                target="_blank">GPS 13B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">14B</td>
+                                        <td class="colonne">SE / 69km / 591D+ / <a
+                                                href="https://www.openrunner.com/r/15912050" rel="noopener noreferrer"
+                                                target="_blank">GPS 14B </a></td>
+                                        <td class="colonne">46Km / 410D+ / <a
+                                                href="https://www.openrunner.com/r/14525129" rel="noopener noreferrer"
+                                                target="_blank">GPS 14B-C2 </a></td>
+                                        <td class="colonne"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">15B</td>
+                                        <td class="colonne1">S / 60km / 615D+ / <a
+                                                href="https://www.openrunner.com/r/18260194" rel="noopener noreferrer"
+                                                target="_blank">GPS 15B </a></td>
+                                        <td class="colonne1">47km / 503D+ / <a
+                                                href="https://www.openrunner.com/r/14525135" rel="noopener noreferrer"
+                                                target="_blank">GPS 15B-C2 </a></td>
+                                        <td class="colonne1"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">16B</td>
+                                        <td class="colonne">E / 63km / 463D+ / <a
+                                                href="https://www.openrunner.com/r/18260421" rel="noopener noreferrer"
+                                                target="_blank">GPS 16B </a></td>
+                                        <td class="colonne">52 km / 269D+ / <a
+                                                href="https://www.openrunner.com/r/14525143" rel="noopener noreferrer"
+                                                target="_blank">GPS 16B-C2 </a></td>
+                                        <td class="colonne"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">17B</td>
+                                        <td class="colonne1">S / 65km / 662D+ / <a
+                                                href="https://www.openrunner.com/r/18260330" rel="noopener noreferrer"
+                                                target="_blank">GPS 17B </a></td>
+                                        <td class="colonne1">52km / 601D+ / <a
+                                                href="https://www.openrunner.com/r/14525149" rel="noopener noreferrer"
+                                                target="_blank">GPS 17B-C2 </a></td>
+                                        <td class="colonne1">45km / 527D+ / <a
+                                                href="https://www.openrunner.com/r/14529083" rel="noopener noreferrer"
+                                                target="_blank">GPS 17B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">18B</td>
+                                        <td class="colonne">S / 88km / 882D+ / <a
+                                                href="https://www.openrunner.com/r/14518901" rel="noopener noreferrer"
+                                                target="_blank">GPS 18B </a></td>
+                                        <td class="colonne">74km / 799D+ / <a
+                                                href="https://www.openrunner.com/r/14525157" rel="noopener noreferrer"
+                                                target="_blank">GPS 18B-C2 </a></td>
+                                        <td class="colonne">54km / 429D+ / <a
+                                                href="https://www.openrunner.com/r/14529092" rel="noopener noreferrer"
+                                                target="_blank">GPS 18B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">19B</td>
+                                        <td class="colonne1">S / 65km / 580D+ / <a
+                                                href="https://www.openrunner.com/r/15910228" rel="noopener noreferrer"
+                                                target="_blank">GPS 19B </a></td>
+                                        <td class="colonne1">44km / 457D+ / <a
+                                                href="https://www.openrunner.com/r/14525168" rel="noopener noreferrer"
+                                                target="_blank">GPS 19B-C2 </a></td>
+                                        <td class="colonne1"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">20B</td>
+                                        <td class="colonne">S / 65km / 786D+ / <a
+                                                href="https://www.openrunner.com/r/15910039" rel="noopener noreferrer"
+                                                target="_blank">GPS 20B </a></td>
+                                        <td class="colonne">45km / 557D+ / <a
+                                                href="https://www.openrunner.com/r/14525173" rel="noopener noreferrer"
+                                                target="_blank">GPS 20B-C2 </a></td>
+                                        <td class="colonne"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">21B</td>
+                                        <td class="colonne1">O / 85km / 700D+ / <a
+                                                href="https://www.openrunner.com/r/18180683" rel="noopener noreferrer"
+                                                target="_blank">GPS 21B </a></td>
+                                        <td class="colonne1">73km / 581D+ / <a
+                                                href="https://www.openrunner.com/r/14525716" rel="noopener noreferrer"
+                                                target="_blank">GPS 21B-C2 </a></td>
+                                        <td class="colonne1">53km / 440D+ / <a
+                                                href="https://www.openrunner.com/r/14529096" rel="noopener noreferrer"
+                                                target="_blank">GPS 21B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">22B</td>
+                                        <td class="colonne">SO / 88km / 837D+ / <a
+                                                href="https://www.openrunner.com/r/18109421" rel="noopener noreferrer"
+                                                target="_blank">GPS 22B </a></td>
+                                        <td class="colonne">70km / 641D+ / <a
+                                                href="https://www.openrunner.com/r/14525723" rel="noopener noreferrer"
+                                                target="_blank">GPS 22B-C2 </a></td>
+                                        <td class="colonne">61km / 460D+ / <a
+                                                href="https://www.openrunner.com/r/14529098" rel="noopener noreferrer"
+                                                target="_blank">GPS 22B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">23B</td>
+                                        <td class="colonne1">N / 81km / 582D+ / <a
+                                                href="https://www.openrunner.com/r/18176252" rel="noopener noreferrer"
+                                                target="_blank">GPS 23B </a></td>
+                                        <td class="colonne1">71km / 517D+ / <a
+                                                href="https://www.openrunner.com/r/14525728" rel="noopener noreferrer"
+                                                target="_blank">GPS 23B-C2 </a></td>
+                                        <td class="colonne1">62km / 420D+ / <a
+                                                href="https://www.openrunner.com/r/14529105" rel="noopener noreferrer"
+                                                target="_blank">GPS 23B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">24B</td>
+                                        <td class="colonne">E / 81km / 614D+ / <a
+                                                href="https://www.openrunner.com/r/18176207" rel="noopener noreferrer"
+                                                target="_blank">GPS 24B </a></td>
+                                        <td class="colonne">62km / 357D+ / <a
+                                                href="https://www.openrunner.com/r/14525738" rel="noopener noreferrer"
+                                                target="_blank">GPS 24B-C2 </a></td>
+                                        <td class="colonne">53km / 351D+ / <a
+                                                href="https://www.openrunner.com/r/14529112" rel="noopener noreferrer"
+                                                target="_blank">GPS 24B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">25B</td>
+                                        <td class="colonne1">E / 88km / 564D+ / <a
+                                                href="https://www.openrunner.com/r/18174605" rel="noopener noreferrer"
+                                                target="_blank">GPS 25B </a></td>
+                                        <td class="colonne1">75km / 558D+ / <a
+                                                href="https://www.openrunner.com/r/14525743" rel="noopener noreferrer"
+                                                target="_blank">GPS 25B-C2 </a></td>
+                                        <td class="colonne1">60km / 432D+ / <a
+                                                href="https://www.openrunner.com/r/14529114" rel="noopener noreferrer"
+                                                target="_blank">GPS 25B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">26B</td>
+                                        <td class="colonne">SO / 89km / 855D+ / <a
+                                                href="https://www.openrunner.com/r/18174489" rel="noopener noreferrer"
+                                                target="_blank">GPS 26B </a></td>
+                                        <td class="colonne">72km / 731D+ / <a
+                                                href="https://www.openrunner.com/r/14525749" rel="noopener noreferrer"
+                                                target="_blank">GPS 26B-C2 </a></td>
+                                        <td class="colonne">59km / 475D+ / <a
+                                                href="https://www.openrunner.com/r/14529244" rel="noopener noreferrer"
+                                                target="_blank">GPS 26B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">27B</td>
+                                        <td class="colonne1">SO / 89km / 868D+ / <a
+                                                href="https://www.openrunner.com/r/18093865" rel="noopener noreferrer"
+                                                target="_blank">GPS 27B </a></td>
+                                        <td class="colonne1">70km / 543D+ / <a
+                                                href="https://www.openrunner.com/r/14525754" rel="noopener noreferrer"
+                                                target="_blank">GPS 27B-C2 </a></td>
+                                        <td class="colonne1">59km / 523D+ / <a
+                                                href="https://www.openrunner.com/r/14529247" rel="noopener noreferrer"
+                                                target="_blank">GPS 27B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">28B</td>
+                                        <td class="colonne">O / 82km / 774D+ / <a
+                                                href="https://www.openrunner.com/r/18092558" rel="noopener noreferrer"
+                                                target="_blank">GPS 28B </a></td>
+                                        <td class="colonne">60km / 465D+ / <a
+                                                href="https://www.openrunner.com/r/14525759" rel="noopener noreferrer"
+                                                target="_blank">GPS 28B-C2 </a></td>
+                                        <td class="colonne">51km / 389D+ / <a
+                                                href="https://www.openrunner.com/r/14529252" rel="noopener noreferrer"
+                                                target="_blank">GPS 28B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">29B</td>
+                                        <td class="colonne1">NO / 87km / 770D+ / <a
+                                                href="https://www.openrunner.com/r/18113848" rel="noopener noreferrer"
+                                                target="_blank">GPS 29B </a></td>
+                                        <td class="colonne1">73km / 560D+ / <a
+                                                href="https://www.openrunner.com/r/14525767" rel="noopener noreferrer"
+                                                target="_blank">GPS 29B-C2 </a></td>
+                                        <td class="colonne1">63km / 463D+ / <a
+                                                href="https://www.openrunner.com/r/18120320" rel="noopener noreferrer"
+                                                target="_blank">GPS 29B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">30B</td>
+                                        <td class="colonne">SE / 83km / 775D+ / <a
+                                                href="https://www.openrunner.com/r/18133363" rel="noopener noreferrer"
+                                                target="_blank">GPS 30B </a></td>
+                                        <td class="colonne">68km / 611D+ / <a
+                                                href="https://www.openrunner.com/r/14525770" rel="noopener noreferrer"
+                                                target="_blank">GPS 30B-C2 </a></td>
+                                        <td class="colonne">57m / 506D+ / <a
+                                                href="https://www.openrunner.com/r/14529260" rel="noopener noreferrer"
+                                                target="_blank">GPS 30B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">31B</td>
+                                        <td class="colonne1">O / 78km / 678D+ / <a
+                                                href="https://www.openrunner.com/r/18172000" rel="noopener noreferrer"
+                                                target="_blank">GPS 31B </a></td>
+                                        <td class="colonne1">65km / 467D+ / <a
+                                                href="https://www.openrunner.com/r/14527736" rel="noopener noreferrer"
+                                                target="_blank">GPS 31B-C2 </a></td>
+                                        <td class="colonne1">54km / 384D+ / <a
+                                                href="https://www.openrunner.com/r/14529266" rel="noopener noreferrer"
+                                                target="_blank">GPS 31B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">32B</td>
+                                        <td class="colonne">SO / 79km / 703D+ / <a
+                                                href="https://www.openrunner.com/r/14521924" rel="noopener noreferrer"
+                                                target="_blank">GPS 32B </a></td>
+                                        <td class="colonne">68km / 687D+ / <a
+                                                href="https://www.openrunner.com/r/14525796" rel="noopener noreferrer"
+                                                target="_blank">GPS 32B-C2 </a></td>
+                                        <td class="colonne">49km / 490D+ / <a
+                                                href="https://www.openrunner.com/r/14529269" rel="noopener noreferrer"
+                                                target="_blank">GPS 32B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">33B</td>
+                                        <td class="colonne1">ENE / 81km / 574D+ / <a
+                                                href="https://www.openrunner.com/r/14521931" rel="noopener noreferrer"
+                                                target="_blank">GPS 33B </a></td>
+                                        <td class="colonne1">64km / 346D+ / <a
+                                                href="https://www.openrunner.com/r/14525799" rel="noopener noreferrer"
+                                                target="_blank">GPS 33B-C2 </a></td>
+                                        <td class="colonne1">55km / 375D+ / <a
+                                                href="https://www.openrunner.com/r/14529277" rel="noopener noreferrer"
+                                                target="_blank">GPS 33B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">34B</td>
+                                        <td class="colonne">E / 79km / 660D+ / <a
+                                                href="https://www.openrunner.com/r/14521936" rel="noopener noreferrer"
+                                                target="_blank">GPS 34B </a></td>
+                                        <td class="colonne">73km / 592D+ / <a
+                                                href="https://www.openrunner.com/r/14525803" rel="noopener noreferrer"
+                                                target="_blank">GPS 34B-C2 </a></td>
+                                        <td class="colonne">62km / 486D+ / <a
+                                                href="https://www.openrunner.com/r/14529282" rel="noopener noreferrer"
+                                                target="_blank">GPS 34B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">35B</td>
+                                        <td class="colonne1">SO / 87km / 841D+ / <a
+                                                href="https://www.openrunner.com/r/18171940" rel="noopener noreferrer"
+                                                target="_blank">GPS 35B </a></td>
+                                        <td class="colonne1">79km / 826D+ / <a
+                                                href="https://www.openrunner.com/r/14525809" rel="noopener noreferrer"
+                                                target="_blank">GPS 35B-C2 </a></td>
+                                        <td class="colonne1">63km / 700D+ / <a
+                                                href="https://www.openrunner.com/r/14529286" rel="noopener noreferrer"
+                                                target="_blank">GPS 35B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">36B</td>
+                                        <td class="colonne">NO / 86km / 460D+ / <a
+                                                href="https://www.openrunner.com/r/18170147" rel="noopener noreferrer"
+                                                target="_blank">GPS 36B </a></td>
+                                        <td class="colonne">70km / 466D+ / <a
+                                                href="https://www.openrunner.com/r/14525815" rel="noopener noreferrer"
+                                                target="_blank">GPS 36B-C2 </a></td>
+                                        <td class="colonne">55km / 372D+ / <a
+                                                href="https://www.openrunner.com/r/14529292" rel="noopener noreferrer"
+                                                target="_blank">GPS 36B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">37B</td>
+                                        <td class="colonne1">S / 85km / 1010D+ / <a
+                                                href="https://www.openrunner.com/r/18167808" rel="noopener noreferrer"
+                                                target="_blank">GPS 37B </a></td>
+                                        <td class="colonne1">67km / 872D+ / <a
+                                                href="https://www.openrunner.com/r/14525820" rel="noopener noreferrer"
+                                                target="_blank">GPS 37B-C2 </a></td>
+                                        <td class="colonne1">55km / 795D+ / <a
+                                                href="https://www.openrunner.com/r/14529295" rel="noopener noreferrer"
+                                                target="_blank">GPS 37B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">38B</td>
+                                        <td class="colonne">SE / 78km / 635D+ / <a
+                                                href="https://www.openrunner.com/r/14522004" rel="noopener noreferrer"
+                                                target="_blank">GPS 38B </a></td>
+                                        <td class="colonne">65km / 507D+ / <a
+                                                href="https://www.openrunner.com/r/14525827" rel="noopener noreferrer"
+                                                target="_blank">GPS 38B-C2 </a></td>
+                                        <td class="colonne">39km / 293D+ / <a
+                                                href="https://www.openrunner.com/r/14529297" rel="noopener noreferrer"
+                                                target="_blank">GPS 38B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">39B</td>
+                                        <td class="colonne1">SE / 82km / 875D+ / <a
+                                                href="https://www.openrunner.com/r/14522010" rel="noopener noreferrer"
+                                                target="_blank">GPS 39B </a></td>
+                                        <td class="colonne1">70km / 745D+ / <a
+                                                href="https://www.openrunner.com/r/14525831" rel="noopener noreferrer"
+                                                target="_blank">GPS 39B-C2 </a></td>
+                                        <td class="colonne1">42km / 344D+ / <a
+                                                href="https://www.openrunner.com/r/14529303" rel="noopener noreferrer"
+                                                target="_blank">GPS 39B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">40B</td>
+                                        <td class="colonne">S / 87km / 792D+ / <a
+                                                href="https://www.openrunner.com/r/14522020" rel="noopener noreferrer"
+                                                target="_blank">GPS 40B </a></td>
+                                        <td class="colonne">77km / 858D+ / <a
+                                                href="https://www.openrunner.com/r/14525837" rel="noopener noreferrer"
+                                                target="_blank">GPS 40B-C2 </a></td>
+                                        <td class="colonne">47km / 547D+ / <a
+                                                href="https://www.openrunner.com/r/14529311" rel="noopener noreferrer"
+                                                target="_blank">GPS 40B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">41B</td>
+                                        <td class="colonne1">SO / 66km / 640D+ / <a
+                                                href="https://www.openrunner.com/r/15911957" rel="noopener noreferrer"
+                                                target="_blank">GPS 41B </a></td>
+                                        <td class="colonne1">46km / 423D+ / <a
+                                                href="https://www.openrunner.com/r/14525843" rel="noopener noreferrer"
+                                                target="_blank">GPS 41B-C2 </a></td>
+                                        <td class="colonne1"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">42B</td>
+                                        <td class="colonne">SO / 63km / 534D+ / <a
+                                                href="https://www.openrunner.com/r/15911741" rel="noopener noreferrer"
+                                                target="_blank">GPS 42B </a></td>
+                                        <td class="colonne">48km / 405D+ / <a
+                                                href="https://www.openrunner.com/r/14525846" rel="noopener noreferrer"
+                                                target="_blank">GPS 42B-C2 </a></td>
+                                        <td class="colonne"> </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">43B</td>
+                                        <td class="colonne1">O / 66km / 500D+ / <a
+                                                href="https://www.openrunner.com/r/18123334" rel="noopener noreferrer"
+                                                target="_blank">GPS 43B </a></td>
+                                        <td class="colonne1">64km / 430D+ / <a
+                                                href="https://www.openrunner.com/r/14527427" rel="noopener noreferrer"
+                                                target="_blank">GPS 43B-C2 </a></td>
+                                        <td class="colonne1">47km / 314D+ / <a
+                                                href="https://www.openrunner.com/r/14529324" rel="noopener noreferrer"
+                                                target="_blank">GPS 43B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">44B</td>
+                                        <td class="colonne">O / 88km / 708D+ / <a
+                                                href="https://www.openrunner.com/r/15780639" rel="noopener noreferrer"
+                                                target="_blank">GPS 44B </a></td>
+                                        <td class="colonne">75km / 596D+ / <a
+                                                href="https://www.openrunner.com/r/15780593" rel="noopener noreferrer"
+                                                target="_blank">GPS 44B-C2 </a></td>
+                                        <td class="colonne">56km / 391D+ / <a
+                                                href="https://www.openrunner.com/r/15780532" rel="noopener noreferrer"
+                                                target="_blank">GPS 44B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">45B</td>
+                                        <td class="colonne1">NO / 81km / 536D+ / <a
+                                                href="https://www.openrunner.com/r/15786895" rel="noopener noreferrer"
+                                                target="_blank">GPS 45B </a></td>
+                                        <td class="colonne1">76km / 504D+ / <a
+                                                href="https://www.openrunner.com/r/15791027" rel="noopener noreferrer"
+                                                target="_blank">GPS 45B-C2 </a></td>
+                                        <td class="colonne1">61km / 367D+ / <a
+                                                href="https://www.openrunner.com/r/15791048" rel="noopener noreferrer"
+                                                target="_blank">GPS 45B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">46B</td>
+                                        <td class="colonne">NO / 93km / 740D+ / <a
+                                                href="https://www.openrunner.com/r/18166041" rel="noopener noreferrer"
+                                                target="_blank">GPS 46B </a></td>
+                                        <td class="colonne">72km / 526D+ / <a
+                                                href="https://www.openrunner.com/r/14527444" rel="noopener noreferrer"
+                                                target="_blank">GPS 46B-C2 </a></td>
+                                        <td class="colonne">57km / 419D+ / <a
+                                                href="https://www.openrunner.com/r/14529329" rel="noopener noreferrer"
+                                                target="_blank">GPS 46B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">47B</td>
+                                        <td class="colonne1">NE / 95km / 735D+ / <a
+                                                href="https://www.openrunner.com/r/18163350" rel="noopener noreferrer"
+                                                target="_blank">GPS 47B </a></td>
+                                        <td class="colonne1">84km / 618D+ / <a
+                                                href="https://www.openrunner.com/r/14527453" rel="noopener noreferrer"
+                                                target="_blank">GPS 47B-C2 </a></td>
+                                        <td class="colonne1">59km / 282D+ / <a
+                                                href="https://www.openrunner.com/r/14529338" rel="noopener noreferrer"
+                                                target="_blank">GPS 47B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">48B</td>
+                                        <td class="colonne">E / 100km / 730D+ / <a
+                                                href="https://www.openrunner.com/r/18100429" rel="noopener noreferrer"
+                                                target="_blank">GPS 48B </a></td>
+                                        <td class="colonne">77km / 456D+ / <a
+                                                href="https://www.openrunner.com/r/14527467" rel="noopener noreferrer"
+                                                target="_blank">GPS 48B-C2 </a></td>
+                                        <td class="colonne">63km / 472D+ / <a
+                                                href="https://www.openrunner.com/r/14534400" rel="noopener noreferrer"
+                                                target="_blank">GPS 48B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">49B</td>
+                                        <td class="colonne1">O / 94km / 914D+ / <a
+                                                href="https://www.openrunner.com/r/18163260" rel="noopener noreferrer"
+                                                target="_blank">GPS 49B </a></td>
+                                        <td class="colonne1">85km / 645D+ / <a
+                                                href="https://www.openrunner.com/r/14527477" rel="noopener noreferrer"
+                                                target="_blank">GPS 49B-C2 </a></td>
+                                        <td class="colonne1">64km / 431D+ / <a
+                                                href="https://www.openrunner.com/r/14534409" rel="noopener noreferrer"
+                                                target="_blank">GPS 49B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">50B</td>
+                                        <td class="colonne">E / 96km / 850D+ / <a
+                                                href="https://www.openrunner.com/r/18161958" rel="noopener noreferrer"
+                                                target="_blank">GPS 50B </a></td>
+                                        <td class="colonne">78km / 647D+ / <a
+                                                href="https://www.openrunner.com/r/14527486" rel="noopener noreferrer"
+                                                target="_blank">GPS 50B-C2 </a></td>
+                                        <td class="colonne">65km / 485D+ / <a
+                                                href="https://www.openrunner.com/r/14534420" rel="noopener noreferrer"
+                                                target="_blank">GPS 50B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">51B</td>
+                                        <td class="colonne1">SE / 96km / 795D+ / <a
+                                                href="https://www.openrunner.com/r/14524285" rel="noopener noreferrer"
+                                                target="_blank">GPS 51B </a></td>
+                                        <td class="colonne1">71km / 617D+ / <a
+                                                href="https://www.openrunner.com/r/14527493" rel="noopener noreferrer"
+                                                target="_blank">GPS 51B-C2 </a></td>
+                                        <td class="colonne1">62km / 482D+ / <a
+                                                href="https://www.openrunner.com/r/14534428" rel="noopener noreferrer"
+                                                target="_blank">GPS 51B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">52B</td>
+                                        <td class="colonne">NO / 95km / 801D+ / <a
+                                                href="https://www.openrunner.com/r/18154896" rel="noopener noreferrer"
+                                                target="_blank">GPS 52B </a></td>
+                                        <td class="colonne">78km / 615D+ / <a
+                                                href="https://www.openrunner.com/r/14527498" rel="noopener noreferrer"
+                                                target="_blank">GPS 52B-C2 </a></td>
+                                        <td class="colonne">65km / 568D+ / <a
+                                                href="https://www.openrunner.com/r/14534435" rel="noopener noreferrer"
+                                                target="_blank">GPS 52B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">53B</td>
+                                        <td class="colonne1">O / 98km / 843D+ / <a
+                                                href="https://www.openrunner.com/r/18154817" rel="noopener noreferrer"
+                                                target="_blank">GPS 53B </a></td>
+                                        <td class="colonne1">81km / 615D+ / <a
+                                                href="https://www.openrunner.com/r/14527509" rel="noopener noreferrer"
+                                                target="_blank">GPS 53B-C2 </a></td>
+                                        <td class="colonne1">62km / 546D+ / <a
+                                                href="https://www.openrunner.com/r/14534438" rel="noopener noreferrer"
+                                                target="_blank">GPS 53B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">54B</td>
+                                        <td class="colonne">E / 94km / 511D+ / <a
+                                                href="https://www.openrunner.com/r/17348177" rel="noopener noreferrer"
+                                                target="_blank">GPS 54B </a></td>
+                                        <td class="colonne">86km / 567D+ / <a
+                                                href="https://www.openrunner.com/r/14527517" rel="noopener noreferrer"
+                                                target="_blank">GPS 54B-C2 </a></td>
+                                        <td class="colonne">75km / 463D+ / <a
+                                                href="https://www.openrunner.com/r/14534444" rel="noopener noreferrer"
+                                                target="_blank">GPS 54B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">55B</td>
+                                        <td class="colonne1">SO / 97km / 1035D+ / <a
+                                                href="https://www.openrunner.com/r/18099396" rel="noopener noreferrer"
+                                                target="_blank">GPS 55B </a></td>
+                                        <td class="colonne1">81km / 831D+ / <a
+                                                href="https://www.openrunner.com/r/14527523" rel="noopener noreferrer"
+                                                target="_blank">GPS 55B-C2 </a></td>
+                                        <td class="colonne1">71km / 766D+ / <a
+                                                href="https://www.openrunner.com/r/14534451" rel="noopener noreferrer"
+                                                target="_blank">GPS 55B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">56B</td>
+                                        <td class="colonne">O / 92km / 770D+ / <a
+                                                href="https://www.openrunner.com/r/18153158" rel="noopener noreferrer"
+                                                target="_blank">GPS 56B </a></td>
+                                        <td class="colonne">80km / 704D+ / <a
+                                                href="https://www.openrunner.com/r/14527539" rel="noopener noreferrer"
+                                                target="_blank">GPS 56B-C2 </a></td>
+                                        <td class="colonne">64km / 535D+ / <a
+                                                href="https://www.openrunner.com/r/14534461" rel="noopener noreferrer"
+                                                target="_blank">GPS 56B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">57B</td>
+                                        <td class="colonne1">S / 91km / 830D+ / <a
+                                                href="https://www.openrunner.com/r/14524324" rel="noopener noreferrer"
+                                                target="_blank">GPS 57B </a></td>
+                                        <td class="colonne1">81km / 900D+ / <a
+                                                href="https://www.openrunner.com/r/14527545" rel="noopener noreferrer"
+                                                target="_blank">GPS 57B-C2 </a></td>
+                                        <td class="colonne1">60km / 746D+ / <a
+                                                href="https://www.openrunner.com/r/14534473" rel="noopener noreferrer"
+                                                target="_blank">GPS 57B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">58B</td>
+                                        <td class="colonne">E / 91km / 690D+ / <a
+                                                href="https://www.openrunner.com/r/14524331" rel="noopener noreferrer"
+                                                target="_blank">GPS 58B </a></td>
+                                        <td class="colonne">83km / 537D+ / <a
+                                                href="https://www.openrunner.com/r/14527558" rel="noopener noreferrer"
+                                                target="_blank">GPS 58B-C2 </a></td>
+                                        <td class="colonne">55km / 406D+ / <a
+                                                href="https://www.openrunner.com/r/14534478" rel="noopener noreferrer"
+                                                target="_blank">GPS 58B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">59B</td>
+                                        <td class="colonne">O / 73km / 727D+ / <a
+                                                href="https://www.openrunner.com/r/16490804" rel="noopener noreferrer"
+                                                target="_blank">GPS 59B </a></td>
+                                        <td class="colonne">63km / 517D+ / <a
+                                                href="https://www.openrunner.com/r/16490876" rel="noopener noreferrer"
+                                                target="_blank">GPS 59B-C2 </a></td>
+                                        <td class="colonne">42km / 309D+ / <a
+                                                href="https://www.openrunner.com/r/16490926" rel="noopener noreferrer"
+                                                target="_blank">GPS 59B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">76B</td>
+                                        <td class="colonne1">NO / 110km / 972D+ / <a
+                                                href="https://www.openrunner.com/r/18122137" rel="noopener noreferrer"
+                                                target="_blank">GPS 76B </a></td>
+                                        <td class="colonne1">84km / 632D+ / <a
+                                                href="https://www.openrunner.com/r/14527566" rel="noopener noreferrer"
+                                                target="_blank">GPS 76B-C2 </a></td>
+                                        <td class="colonne1">68km / 546D+ / <a
+                                                href="https://www.openrunner.com/r/14534484" rel="noopener noreferrer"
+                                                target="_blank">GPS 76B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">77B</td>
+                                        <td class="colonne">O / 99km / 993D+ / <a
+                                                href="https://www.openrunner.com/r/18152952" rel="noopener noreferrer"
+                                                target="_blank">GPS 77B </a></td>
+                                        <td class="colonne">86km / 715D+ / <a
+                                                href="https://www.openrunner.com/r/14527575" rel="noopener noreferrer"
+                                                target="_blank">GPS 77B-C2 </a></td>
+                                        <td class="colonne">69km / 625D+ / <a
+                                                href="https://www.openrunner.com/r/14534489" rel="noopener noreferrer"
+                                                target="_blank">GPS 77B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">78B</td>
+                                        <td class="colonne1">N / 104km / 791D+ / <a
+                                                href="https://www.openrunner.com/r/14524347" rel="noopener noreferrer"
+                                                target="_blank">GPS 78B </a></td>
+                                        <td class="colonne1">87km / 634D+ / <a
+                                                href="https://www.openrunner.com/r/14527582" rel="noopener noreferrer"
+                                                target="_blank">GPS 78B-C2 </a></td>
+                                        <td class="colonne1">70km / 483D+ / <a
+                                                href="https://www.openrunner.com/r/14534496" rel="noopener noreferrer"
+                                                target="_blank">GPS 78B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">79B</td>
+                                        <td class="colonne">NE / 105km / 881D+ / <a
+                                                href="https://www.openrunner.com/r/14524353" rel="noopener noreferrer"
+                                                target="_blank">GPS 79B </a></td>
+                                        <td class="colonne">90km / 573D+ / <a
+                                                href="https://www.openrunner.com/r/14527589" rel="noopener noreferrer"
+                                                target="_blank">GPS 79B-C2 </a></td>
+                                        <td class="colonne">70km / 510D+ / <a
+                                                href="https://www.openrunner.com/r/14534505" rel="noopener noreferrer"
+                                                target="_blank">GPS 79B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">80B</td>
+                                        <td class="colonne1">O / 108km / 1035D+ / <a
+                                                href="https://www.openrunner.com/r/18152839" rel="noopener noreferrer"
+                                                target="_blank">GPS 80B </a></td>
+                                        <td class="colonne1">82km / 743D+ / <a
+                                                href="https://www.openrunner.com/r/14527594" rel="noopener noreferrer"
+                                                target="_blank">GPS 80B-C2 </a></td>
+                                        <td class="colonne1">63km / 500D+ / <a
+                                                href="https://www.openrunner.com/r/14534507" rel="noopener noreferrer"
+                                                target="_blank">GPS 80B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">81B</td>
+                                        <td class="colonne">O / 103km / 751D+ / <a
+                                                href="https://www.openrunner.com/r/18150925" rel="noopener noreferrer"
+                                                target="_blank">GPS 81B </a></td>
+                                        <td class="colonne">92km / 730D+ / <a
+                                                href="https://www.openrunner.com/r/14527602" rel="noopener noreferrer"
+                                                target="_blank">GPS 81B-C2 </a></td>
+                                        <td class="colonne">74km / 500D+ / <a
+                                                href="https://www.openrunner.com/r/14534512" rel="noopener noreferrer"
+                                                target="_blank">GPS 81B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">82B</td>
+                                        <td class="colonne1">N / 99km / 638D+ / <a
+                                                href="https://www.openrunner.com/r/18150823" rel="noopener noreferrer"
+                                                target="_blank">GPS 82B </a></td>
+                                        <td class="colonne1">90km / 633D+ / <a
+                                                href="https://www.openrunner.com/r/14527609" rel="noopener noreferrer"
+                                                target="_blank">GPS 82B-C2 </a></td>
+                                        <td class="colonne1">73km / 484D+ / <a
+                                                href="https://www.openrunner.com/r/14534516" rel="noopener noreferrer"
+                                                target="_blank">GPS 82B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">83B</td>
+                                        <td class="colonne">E / 102km / 717D+ / <a
+                                                href="https://www.openrunner.com/r/18097360" rel="noopener noreferrer"
+                                                target="_blank">GPS 83B </a></td>
+                                        <td class="colonne">90km / 569D+ / <a
+                                                href="https://www.openrunner.com/r/14527616" rel="noopener noreferrer"
+                                                target="_blank">GPS 83B-C2 </a></td>
+                                        <td class="colonne">70km / 512D+ / <a
+                                                href="https://www.openrunner.com/r/14534523" rel="noopener noreferrer"
+                                                target="_blank">GPS 83B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">84B</td>
+                                        <td class="colonne1">ONO / 102km / 734D+ / <a
+                                                href="https://www.openrunner.com/r/18146219" rel="noopener noreferrer"
+                                                target="_blank">GPS 84B </a></td>
+                                        <td class="colonne1">88km / 562D+ / <a
+                                                href="https://www.openrunner.com/r/14527625" rel="noopener noreferrer"
+                                                target="_blank">GPS 84B-C2 </a></td>
+                                        <td class="colonne1">77km / 552D+ / <a
+                                                href="https://www.openrunner.com/r/14534531" rel="noopener noreferrer"
+                                                target="_blank">GPS 84B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">85B</td>
+                                        <td class="colonne">N / 103km / 763D+ / <a
+                                                href="https://www.openrunner.com/r/18141822" rel="noopener noreferrer"
+                                                target="_blank">GPS 85B </a></td>
+                                        <td class="colonne">91km / 635D+ / <a
+                                                href="https://www.openrunner.com/r/14527631" rel="noopener noreferrer"
+                                                target="_blank">GPS 85B-C2 </a></td>
+                                        <td class="colonne">75km / 513D+ / <a
+                                                href="https://www.openrunner.com/r/14534536" rel="noopener noreferrer"
+                                                target="_blank">GPS 85B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">86B</td>
+                                        <td class="colonne1">SSO / 102km / 993D+ / <a
+                                                href="https://www.openrunner.com/r/18137369" rel="noopener noreferrer"
+                                                target="_blank">GPS 86B </a></td>
+                                        <td class="colonne1">76km / 728D+ / <a
+                                                href="https://www.openrunner.com/r/14527636" rel="noopener noreferrer"
+                                                target="_blank">GPS 86B-C2 </a></td>
+                                        <td class="colonne1">66km / 619D+ / <a
+                                                href="https://www.openrunner.com/r/14534545" rel="noopener noreferrer"
+                                                target="_blank">GPS 86B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">87B</td>
+                                        <td class="colonne">N / 112km / 829D+ / <a
+                                                href="https://www.openrunner.com/r/18103555" rel="noopener noreferrer"
+                                                target="_blank">GPS 87B </a></td>
+                                        <td class="colonne">93km / 718D+ / <a
+                                                href="https://www.openrunner.com/r/18106275" rel="noopener noreferrer"
+                                                target="_blank">GPS 87B-C2 </a></td>
+                                        <td class="colonne">65km / 458D+ / <a
+                                                href="https://www.openrunner.com/r/18106380" rel="noopener noreferrer"
+                                                target="_blank">GPS 87B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne1">88B</td>
+                                        <td class="colonne1">ENE / 101km / 883D+ / <a
+                                                href="https://www.openrunner.com/r/14524418" rel="noopener noreferrer"
+                                                target="_blank">GPS 88B </a></td>
+                                        <td class="colonne1">89km / 560D+ / <a
+                                                href="https://www.openrunner.com/r/14527648" rel="noopener noreferrer"
+                                                target="_blank">GPS 88B-C2 </a></td>
+                                        <td class="colonne1">70km / 469D+ / <a
+                                                href="https://www.openrunner.com/r/14534559" rel="noopener noreferrer"
+                                                target="_blank">GPS 88B-C3 </a></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="colonne">89B</td>
+                                        <td class="colonne">S / 103km / 1293D+ / <a
+                                                href="https://www.openrunner.com/r/18134328" rel="noopener noreferrer"
+                                                target="_blank">GPS 89B </a></td>
+                                        <td class="colonne">79km / 933D+ / <a
+                                                href="https://www.openrunner.com/r/14527654" rel="noopener noreferrer"
+                                                target="_blank">GPS 89B-C2 </a></td>
+                                        <td class="colonne">61km / 805D+ / <a
+                                                href="https://www.openrunner.com/r/14534565" rel="noopener noreferrer"
+                                                target="_blank">GPS 89B-C3 </a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <h2>Accès rapide</h2>
+                    <ul class="quick-links">
+                        <li><a href="circuits2026.html">Circuits 2026 (planning)</a></li>
+                        <li><a href="circuitsA.html">Circuits A</a></li>
+                        <li><a href="circuitsB.html">Circuits B</a></li>
+                        <li><a href="circuitsbonus.html">Circuits bonus</a></li>
+                    </ul>
+                    <p class="form-note">Déverrouillez pour afficher le contenu.</p>
+                </article>
             </div>
-          </div>
+        </section>
+    </main>
 
-          <h2>Accès rapide</h2>
-          <ul class="quick-links">
-            <li><a href="circuits2026.html">Circuits 2026 (planning)</a></li>
-            <li><a href="circuitsA.html">Circuits A</a></li>
-            <li><a href="circuitsB.html">Circuits B</a></li>
-            <li><a href="circuitsbonus.html">Circuits bonus</a></li>
-          </ul>
-          <p class="form-note">Déverrouillez pour afficher le contenu.</p>
-        </article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <p>© 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
-        <p class="footer-meta">
-          Bruz (35170) – Bretagne | Site réalisé par le club.
-        </p>
-        <p class="social-links">
-          Suivez-nous :
-          <a aria-label="Instagram" class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/"
-            rel="noopener noreferrer" target="_blank">
-            <span class="sr-only">Instagram</span>
-            <!-- Instagram SVG -->
-            <svg aria-hidden="true" role="img" viewbox="0 0 24 24">
-              <path
-                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z">
-              </path>
-            </svg>
-          </a>
-          <a aria-label="Facebook" class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199"
-            rel="noopener noreferrer" target="_blank">
-            <span class="sr-only">Facebook</span>
-            <!-- Facebook SVG -->
-            <svg aria-hidden="true" role="img" viewbox="0 0 24 24">
-              <path
-                d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z">
-              </path>
-            </svg>
-          </a>
-        </p>
-      </div>
-      <div class="partner-logos">
-        <a href="https://www.ffct-codep35.org/" rel="noopener noreferrer" target="_blank" title="Codep 35 – FFCT">
-          <img alt="Codep 35 – FFCT" src="assets/img/codep3.gif" />
-        </a>
-        <a href="https://ffvelo.fr/" rel="noopener noreferrer" target="_blank"
-          title="Fédération Française de Cyclotourisme – FFVélo">
-          <img alt="FFVélo" src="assets/img/ffvelo2.gif" />
-        </a>
-        <a href="https://www.ville-bruz.fr/" rel="noopener noreferrer" target="_blank" title="Ville de Bruz">
-          <img alt="Ville de Bruz" src="assets/img/logobruz1.gif" />
-        </a>
-      </div>
-    </div>
-  </footer>
-  <script src="assets/js/main.js"></script>
-  <script src="assets/js/private-access.js"></script>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-left">
+                <p>© La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+                <p class="footer-meta">
+                    Bruz (35170) – Bretagne | Site réalisé par le club.
+                </p>
+                <p class="social-links">
+                    Suivez-nous :
+                    <a aria-label="Instagram" class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/"
+                        rel="noopener noreferrer" target="_blank">
+                        <span class="sr-only">Instagram</span>
+                        <!-- Instagram SVG -->
+                        <svg aria-hidden="true" role="img" viewbox="0 0 24 24">
+                            <path
+                                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a aria-label="Facebook" class="social-icon"
+                        href="https://www.facebook.com/profile.php?id=61586064200199" rel="noopener noreferrer"
+                        target="_blank">
+                        <span class="sr-only">Facebook</span>
+                        <!-- Facebook SVG -->
+                        <svg aria-hidden="true" role="img" viewbox="0 0 24 24">
+                            <path
+                                d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z">
+                            </path>
+                        </svg>
+                    </a>
+                </p>
+            </div>
+            <div class="partner-logos">
+                <a href="https://www.ffct-codep35.org/" rel="noopener noreferrer" target="_blank"
+                    title="Codep 35 – FFCT">
+                    <img alt="Codep 35 – FFCT" src="assets/img/codep3.gif" />
+                </a>
+                <a href="https://ffvelo.fr/" rel="noopener noreferrer" target="_blank"
+                    title="Fédération Française de Cyclotourisme – FFVélo">
+                    <img alt="FFVélo" src="assets/img/ffvelo2.gif" />
+                </a>
+                <a href="https://www.ville-bruz.fr/" rel="noopener noreferrer" target="_blank" title="Ville de Bruz">
+                    <img alt="Ville de Bruz" src="assets/img/logobruz1.gif" />
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/private-access.js"></script>
 </body>
 
 </html>
