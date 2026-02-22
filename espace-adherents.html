@@ -31,7 +31,7 @@
           <!-- <li><a href="sorties.html">Les sorties</a></li>  Page en construction -->
           <!-- <li><a href="sejours.html">Les séjours</a></li> Page en construction -->
           <!-- <li><a href="randopedestres.html">Les randonnées pédestres</a></li> Page en construction -->
-          <li><a href="circuits2026.html" class="nav-private">Circuit 2026</a></li>
+          <li><a href="circuits2026.html" class="nav-private">Circuits 2026</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="espace-adherents.html" aria-current="page" class="nav-private">Espace adhérents</a></li>
         </ul>
@@ -42,7 +42,7 @@
   <main class="site-main">
     <section class="home-hero">
       <div class="container two-columns">
-        <article class="card card">
+        <article class="card">
           <div class="hero-grid">
             <div class="hero-content">
               <img class="hero-logo" src="assets/img/logo1b3a.gif" alt="Logo de la Bicyclette Bruzoise">
@@ -62,15 +62,15 @@
                 <p>Pour accéder aux contenus internes, saisissez le mot de passe.</p>
 
                 <!-- Formulaire branché sur private-access.js -->
-                <form class="login-form" id="password-form">
-                  <label for="password">Mot de passe</label>
-                  <input type="password" id="password" name="password" autocomplete="current-password" required>
+                <form class="login-form" id="private-access-form">
+                  <label for="private-password">Mot de passe</label>
+                  <input type="password" id="private-password" name="password" autocomplete="current-password" required>
 
-                  <p class="form-note" id="password-error" aria-live="polite"></p>
+                  <p class="form-note" id="private-message" aria-live="polite"></p>
 
                   <div class="form-actions">
                     <button type="submit" class="btn primary">Entrer</button>
-                    <button type="button" id="lock-btn" class="btn ghost">Verrouiller</button>
+                    <button type="button" id="private-logout" class="btn ghost">Verrouiller</button>
                   </div>
 
                   <p class="form-help">
@@ -86,7 +86,7 @@
 
         <article class="card">
           <h2>Accès rapide</h2>
-          <p>Après connexion, les liens ci-dessous s’affichent automatiquement.</p>
+          <!-- Après connexion, les liens ci-dessous s’affichent automatiquement. -->
 
           <div id="private-content" class="hidden">
             <h3>Calendrier 2026</h3>
@@ -113,13 +113,13 @@
             <h3>Documents</h3>
             <ul class="private-list">
               <li><a href="assets/pdf/2025.12.26%20-%20AG%202025.pdf">Compte rendu AG</a></li>
-              <li><a href="assets\pdf\2026.01.10%20-%20CR%20réunion%20de%20bureau.pdf">Compte rendu CA</a></li>
+              <li><a href="assets/pdf/2026.01.10%20-%20CR%20réunion%20de%20bureau.pdf">Compte rendu CA</a></li>
               <li><a href="assets/pdf/reglement.pdf">Règlement intérieur</a></li>
               <li><a href="assets/pdf/statuts.pdf">Statuts</a></li>
             </ul>
           </div>
 
-          <div id="private-locked">
+          <div id="private-locked-hint">
             <p class="form-note">Vous n’êtes pas connecté. Les liens internes sont masqués.</p>
             <p><a class="card-link" href="contact.html">Nous contacter →</a></p>
           </div>
