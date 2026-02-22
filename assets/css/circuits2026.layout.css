@@ -1,0 +1,26 @@
+/* Layout patch – Circuits 2026
+   Objectif : colonne gauche (docs) 1/3, colonne droite (calendrier) 2/3. */
+
+.private-two-columns{
+  display:grid;
+  grid-template-columns: 0.7fr 2.3fr;
+  gap: 1rem;
+  align-items:start;
+}
+
+@media (max-width: 980px){
+  .private-two-columns{
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mise en évidence du jour courant dans la grille */
+.day-cell.is-today{
+  outline: 2px solid currentColor;
+  outline-offset: -2px;
+  border-radius: 10px;
+}
+
+.day-cell.is-today .day-number{
+  font-weight: 700;
+}
