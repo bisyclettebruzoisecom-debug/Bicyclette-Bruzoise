@@ -67,8 +67,7 @@
     <main class="site-main">
         <section class="page-header">
             <div class="container">
-                <h1>Circuits B</h1>
-                <p>Parcours et liens GPS (Openrunner).</p>
+                <h1>Circuits B - accès réservé</h1>
             </div>
         </section>
 
@@ -76,22 +75,10 @@
             <div class="container">
 
                 <article class="card">
-                    <h2>Accès adhérents</h2>
-                    <p>Accès réservé : cette page fait partie de l’espace adhérents.</p>
-                    <form id="private-access-form" class="login-form" novalidate>
-                        <label for="private-password">Mot de passe</label>
-                        <input id="private-password" name="password" type="password" autocomplete="current-password"
-                            required>
-                        <button class="btn primary" type="submit">Entrer</button>
-                        <button id="private-logout" class="btn secondary" type="button">Verrouiller</button>
-                        <p id="private-message" class="form-note" aria-live="polite"></p>
-                    </form>
-                    <p id="private-locked-hint" class="form-note">Si vous êtes adhérent, utilisez le mot de passe
-                        communiqué par
-                        le club.</p>
-                </article>
-
-                <article class="card">
+                    <h2>Parcours et liens GPS (Openrunner).</h2>
+                    <p class="form-note">Déverrouillez pour afficher le contenu. Si vous êtes adhérent, utilisez le mot
+                        de
+                        passe communiqué par le club.</p>
                     <div id="private-content" class="hidden">
 
                         <div class="hero-actions">
@@ -972,16 +959,19 @@
                             </table>
                         </div>
                     </div>
-
-                    <h2>Accès rapide</h2>
-                    <ul class="quick-links">
-                        <li><a href="circuits2026.html">Circuits 2026 (planning)</a></li>
-                        <li><a href="circuitsA.html">Circuits A</a></li>
-                        <li><a href="circuitsB.html">Circuits B</a></li>
-                        <li><a href="circuitsbonus.html">Circuits bonus</a></li>
-                    </ul>
-                    <p class="form-note">Déverrouillez pour afficher le contenu.</p>
                 </article>
+
+                <article class="card">
+                    <form id="private-access-form" class="login-form" novalidate>
+                        <label for="private-password">Mot de passe</label>
+                        <input id="private-password" name="password" type="password" autocomplete="current-password" required>
+                        <button class="btn primary" type="submit">Entrer</button>
+                        <button id="private-logout" class="btn secondary" type="button">Verrouiller</button>
+                        <p id="private-message" class="form-note" aria-live="polite"></p>
+                    </form>
+                </article>
+
+
             </div>
         </section>
     </main>
