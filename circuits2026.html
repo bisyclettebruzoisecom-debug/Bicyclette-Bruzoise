@@ -8,6 +8,7 @@
   <meta name="description" content="Calendrier des circuits 2026 – espace adhérents de la Bicyclette Bruzoise.">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/circuits2026.css">
+  <link rel="stylesheet" href="assets/css/circuits2026.layout.css">
 </head>
 
 <body>
@@ -28,12 +29,12 @@
         </button>
 
         <ul id="primary-menu" class="nav-list">
-          <li><a href="index.html" >Accueil</a></li>
+          <li><a href="index.html">Accueil</a></li>
           <li><a href="club.html">Le club</a></li>
           <!-- <li><a href="sorties.html">Les sorties</a></li>  Page en construction -->
           <!-- <li><a href="sejours.html">Les séjours</a></li> Page en construction -->
           <!-- <li><a href="randopedestres.html">Les randonnées pédestres</a></li> Page en construction -->
-          <li><a href="circuits2026.html" aria-current="page" class="nav-private">Circuit 2026</a></li>
+          <li><a href="circuits2026.html" class="nav-private">Circuit 2026</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
         </ul>
@@ -81,7 +82,7 @@
           <form id="private-access-form" class="login-form">
             <div>
               <label for="private-password">Mot de passe</label>
-              <input id="private-password" name="password" type="password" required autocomplete="current-password">
+              <input id="private-password" type="password" autocomplete="off" inputmode="text">
             </div>
 
             <div>
@@ -94,77 +95,61 @@
         <!-- Contenu privé -->
         <div id="private-content" class="hidden">
 
-          <article class="card">
-            <div class="private-header">
-              <h2>Documents & accès rapide</h2>
-              <button id="private-logout" class="btn secondary" type="button">Verrouiller</button>
-            </div>
+          <div class="private-two-columns">
 
-            <div class="docs-grid">
-              <section class="docs-col">
+            <article class="card">
+              <div class="private-header">
+                <h2>Documents & accès rapide</h2>
+                <button id="private-logout" class="btn secondary" type="button">Verrouiller</button>
                 <h3>Documents &amp; accès rapide</h3>
                 <ul class="private-list">
-                  <li><a href="#calendar">Aller au calendrier interactif</a></li>
-                  <li><a href="assets/pdf/Calendrier_2026_annuel.pdf" target="_blank" rel="noopener">Planning annuel
+                  <li><a href="assets/pdf/Calendrier_2026_annuel.pdf" target="_blank" rel="noopener">Planning annuel 2026
                       (PDF)</a></li>
-                  <li><a href="assets/pdf/circuitsA.pdf" target="_blank" rel="noopener">Circuits A (PDF)</a></li>
-                  <li><a href="assets/pdf/circuitsB.pdf" target="_blank" rel="noopener">Circuits B (PDF)</a></li>
-                </ul>
-              </section>
-
-              <section class="docs-col">
-                <h3>Planning</h3>
-                <ul class="private-list">
-                  <li><a href="assets/pdf/Calendrier_2026_annuel.pdf" target="_blank" rel="noopener">Planning des
-                      circuits 2026 (PDF annuel)</a></li>
-                  <li><a href="assets/pdf/Calendrier_2026_1er_semestre.pdf" target="_blank" rel="noopener">Planning des
+                  <li><a href="assets/pdf/Calendrier_2026_1er_semestre.pdf" target="_blank" rel="noopener">Planning
+                      des
                       circuits 2026 (PDF 1er semestre)</a></li>
-                  <li><a href="assets/pdf/Calendrier_2026_2eme_semestre.pdf" target="_blank" rel="noopener">Planning des
+                  <li><a href="assets/pdf/Calendrier_2026_2eme_semestre.pdf" target="_blank" rel="noopener">Planning
+                      des
                       circuits 2026 (PDF 2nd semestre)</a></li>
-                </ul>
-              </section>
-
-              <section class="docs-col">
-                <h3>Circuits</h3>
-                <ul class="private-list">
-                  <li><a href="circuitsA.html">Circuits A (page)</a> — <a href="assets/pdf/circuitsA.pdf"
+                  <li><a href="circuitsA.html">Circuits A (lien)</a> — <a href="assets/pdf/circuitsA.pdf"
                       target="_blank" rel="noopener">PDF imprimable</a></li>
-                  <li><a href="circuitsB.html">Circuits B (page)</a> — <a href="assets/pdf/circuitsB.pdf"
+                  <li><a href="circuitsB.html">Circuits B (lien)</a> — <a href="assets/pdf/circuitsB.pdf"
                       target="_blank" rel="noopener">PDF imprimable</a></li>
                   <li><a href="circuitsbonus.html">Circuit bonus</a></li>
                 </ul>
-              </section>
-            </div>
-          </article>
-
-          <article class="card" id="calendar">
-            <div class="calendar-topbar">
-              <h2>Calendrier des circuits</h2>
-              <div class="calendar-legend" aria-label="Légende">
-                <span class="legend-item"><span class="legend-dot dot-wed"></span>Mercredi</span>
-                <span class="legend-item"><span class="legend-dot dot-sat"></span>Samedi</span>
-                <span class="legend-item"><span class="legend-dot dot-sun"></span>Dimanche</span>
               </div>
-            </div>
+            </article>
 
-            <div class="calendar-layout">
-              <div>
-                <div class="calendar-topbar" style="margin-bottom:0;">
-                  <h3 id="month-title"></h3>
+            <article class="card" id="calendar">
+              <div class="calendar-topbar">
+                <h2>Calendrier des circuits</h2>
+                <div class="calendar-legend" aria-label="Légende">
+                  <span class="legend-item"><span class="legend-dot dot-wed"></span>Mercredi</span>
+                  <span class="legend-item"><span class="legend-dot dot-sat"></span>Samedi</span>
+                  <span class="legend-item"><span class="legend-dot dot-sun"></span>Dimanche</span>
                 </div>
-
-                <div class="month-switcher" id="month-switcher"></div>
-                <div id="calendar-grid"></div>
               </div>
 
-              <aside class="details-panel">
-                <h3>Détail du circuit</h3>
-                <div id="details-content" class="details-empty">
-                  Cliquez sur un jour avec circuit pour afficher les parcours.
+              <div class="calendar-layout">
+                <div>
+                  <div class="calendar-topbar" style="margin-bottom:0;">
+                    <h3 id="month-title"></h3>
+                  </div>
+
+                  <div class="month-switcher" id="month-switcher"></div>
+                  <div id="calendar-grid"></div>
                 </div>
-              </aside>
-            </div>
-          </article>
+
+                <aside class="details-panel">
+                  <h3>Détail du circuit</h3>
+                  <div id="details-content" class="details-empty">
+                    Cliquez sur un jour avec circuit pour afficher les parcours.
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+          </div>
 
         </div>
       </div>
@@ -174,7 +159,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-left">
-        <p>&copy; La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p>&copy; 2025 La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
         <p class="footer-meta">
           Bruz (35170) – Bretagne | Site réalisé par le club.
         </p>
@@ -217,7 +202,7 @@
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/private-access.js"></script>
-  <script src="assets\js\circuits2026_UPDATED.js"></script>
+  <script src="assets\js\circuits2026_UPDATED_v2.js"></script>
 </body>
 
 </html>
