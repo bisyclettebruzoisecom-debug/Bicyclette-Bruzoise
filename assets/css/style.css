@@ -1,4 +1,31 @@
 
+/* ==========================================================================
+   La Bicyclette Bruzoise — style.css (documenté)
+   --------------------------------------------------------------------------
+   Objectif
+   - Feuille de style principale du site (public + espace adhérents).
+   - Design "cartes" (fond clair), navigation responsive, sections accueil.
+
+   Convention
+   - Variables CSS dans :root.
+   - Mise en page : .container, .two-columns, .grids-3.
+   - Composants : header/nav, cards, boutons, footer.
+   - Responsive : breakpoints principaux 980px (menu) / 900px (hero) / 768px / 720px.
+
+   Astuce debug mobile
+   - Si un élément déborde (scroll horizontal), cherchez :
+     * white-space: nowrap (liens/boutons)
+     * images avec height fixe
+     * caractères "espaces insécables" dans le HTML (&nbsp;)
+
+   NOTE
+   - Cette version ajoute des commentaires explicatifs sans modifier la logique
+     CSS existante (comportement inchangé).
+   ========================================================================== */
+
+/* =========================
+   0) Variables de thème
+   ========================= */
 :root {
   --bg: #f5f5f7;
   --bg-alt: #ffffff;
@@ -12,16 +39,28 @@
   --shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
 }
 
+
+/* =========================
+   1) Reset / base
+   - box-sizing global
+   ========================= */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+
+/* Scroll doux (UX) */
 html {
   scroll-behavior: smooth;
 }
 
+
+/* =========================
+   2) Base typographique + fond
+   - Fond image (accueil) + voile sombre (body::before)
+   ========================= */
 body {
   margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -41,6 +80,8 @@ body::before {
   z-index: -1;
 }
 
+
+/* Liens : couleur thème + underline au survol */
 a {
   color: var(--primary);
   text-decoration: none;
@@ -51,16 +92,28 @@ a:focus {
   text-decoration: underline;
 }
 
+
+/* Images : par défaut responsives (pas de débordement) */
 img {
   max-width: 100%;
   display: block;
 }
 
+
+/* =========================
+   3) Layout
+   - Container centré
+   ========================= */
 .container {
   width: min(1120px, 100% - 2rem);
   margin: 0 auto;
 }
 
+
+/* =========================
+   4) Header + navigation
+   - Header sticky et translucide (blur)
+   ========================= */
 .site-header {
   background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(20px);
@@ -119,6 +172,8 @@ img {
   color: var(--muted);
 }
 
+
+/* Navigation : menu desktop (flex) + menu mobile (toggle) */
 .main-nav {
   position: relative;
 }
@@ -186,6 +241,11 @@ img {
   border-color: var(--primary-dark);
 }
 
+
+/* =========================
+   4.1) Menu responsive (<= 980px)
+   - Le JS ajoute/enlève .is-open sur .main-nav
+   ========================= */
 /* Menu responsive */
 @media (max-width: 980px) {
   .nav-toggle {
@@ -215,10 +275,19 @@ img {
     width: 100%;
   }
 }
+
+/* =========================
+   5) Contenu principal
+   ========================= */
 .site-main {
   padding-bottom: 3rem;
 }
 
+
+/* =========================
+   6) Hero (bandeau accueil)
+   - Texte sur carte semi-opaque (hero-inner-overlay)
+   ========================= */
 .hero {
   background: transparent; /* on laisse l'image de fond apparente */
   padding: 3rem 0 3.5rem;
@@ -277,6 +346,10 @@ img {
   margin: 0.5rem 0 0;
 }
 
+
+/* =========================
+   7) Sections / grilles
+   ========================= */
 .home-sections {
   padding: 2.5rem 0 1rem;
 }
@@ -294,6 +367,10 @@ img {
   padding: 2rem 0;
 }
 
+
+/* =========================
+   8) Composants : cards / boutons / formulaires
+   ========================= */
 .card {
   background-color: var(--bg-alt);
   border-radius: var(--radius);
@@ -325,10 +402,12 @@ img {
 }
 
 .page-header p {
-  margin: 10;
+  margin: 10px;
   color: var(--muted);
 }
 
+
+/* Tables : style simple (listes circuits, etc.) */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -368,6 +447,8 @@ img {
   font-weight: 600;
 }
 
+
+/* Formulaires (contact + login adhérents) */
 .contact-form,
 .login-form {
   display: grid;
@@ -411,6 +492,8 @@ img {
   min-height: 1.2em;
 }
 
+
+/* Boutons : classes .primary / .secondary + états */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -447,6 +530,10 @@ img {
 
 
 
+
+/* =========================
+   9) Footer / réseaux / partenaires
+   ========================= */
 .site-footer {
   border-top: 1px solid #e5e5e5;
   padding: 1.25rem 0;
@@ -489,6 +576,8 @@ img {
   display: block;
 }
 
+
+/* Utilitaire : cacher un bloc (utilisé par JS) */
 .hidden {
   display: none;
 }
@@ -629,6 +718,13 @@ img {
   display: block;
   border-radius: 12px;    /* si vous avez des cartes arrondies */
 }
+
+/* =========================
+   10) Responsive
+   - Plusieurs blocs @media (<= 768px) coexistent : c'est OK.
+   - Conserver l'ordre : le dernier bloc gagne en cas de conflit.
+   ========================= */
+
 /* ===========================
    Responsive mobile
    =========================== */
@@ -730,5 +826,33 @@ img {
 
   .card .grids-3 > .card {
     margin-bottom: 1rem;
+  }
+}
+/* Empêche le texte de déborder (espaces insécables, longs liens, etc.) */
+.home-sections .card,
+.home-sections .card p,
+.home-sections .card li,
+.home-sections .card a {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* Très utile si .grids-3 est une grille : autorise les enfants à rétrécir */
+.grids-3 > * {
+  min-width: 0;
+}
+
+/* Sur mobile : les petites cartes des séjours (gîte / abbaye) passent en 1 colonne */
+@media (max-width: 768px) {
+  .home-sections .card .grids-3 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .home-sections .card .card-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
   }
 }
