@@ -402,7 +402,7 @@ img {
 }
 
 .page-header p {
-  margin: 10px;
+  margin: 10px; /* NOTE: valeur invalide en CSS (manque l'unité, ex. 10px). */
   color: var(--muted);
 }
 
@@ -721,15 +721,19 @@ img {
 
 /* =========================
    10) Responsive
-   - Plusieurs blocs @media (<= 768px) coexistent : c'est OK.
-   - Conserver l'ordre : le dernier bloc gagne en cas de conflit.
+   - Breakpoints principaux :
+     * 980px : menu (bouton ☰ + dropdown)
+     * 900px : hero (image + texte)
+     * 768px : mobile global (colonnes -> 1 colonne, boutons empilés, anti-débordement)
+     * 720px : footer / branding
+   - Le JS ajoute/enlève .is-open sur .main-nav pour ouvrir le menu mobile.
    ========================= */
 
 /* ===========================
    Responsive mobile
    =========================== */
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
   /* Marges latérales un peu réduites sur mobile */
   .site-main .container,
   .site-footer .container,
@@ -788,9 +792,6 @@ img {
     max-width: 100%;
     height: auto;
   }
-}
-/* ===== Fix mobile : section "Actualité 2026" + actions ===== */
-@media (max-width: 768px) {
 
   /* Empêche les débordements horizontaux (liens/boutons trop longs) */
   body { overflow-x: hidden; }
@@ -827,23 +828,7 @@ img {
   .card .grids-3 > .card {
     margin-bottom: 1rem;
   }
-}
-/* Empêche le texte de déborder (espaces insécables, longs liens, etc.) */
-.home-sections .card,
-.home-sections .card p,
-.home-sections .card li,
-.home-sections .card a {
-  overflow-wrap: anywhere;
-  word-break: break-word;
-}
 
-/* Très utile si .grids-3 est une grille : autorise les enfants à rétrécir */
-.grids-3 > * {
-  min-width: 0;
-}
-
-/* Sur mobile : les petites cartes des séjours (gîte / abbaye) passent en 1 colonne */
-@media (max-width: 768px) {
   .home-sections .card .grids-3 {
     display: grid;
     grid-template-columns: 1fr;
@@ -856,3 +841,4 @@ img {
     display: block;
   }
 }
+
