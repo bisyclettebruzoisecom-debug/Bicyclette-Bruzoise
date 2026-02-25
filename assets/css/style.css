@@ -693,3 +693,42 @@ img {
     height: auto;
   }
 }
+/* ===== Fix mobile : section "Actualité 2026" + actions ===== */
+@media (max-width: 768px) {
+
+  /* Empêche les débordements horizontaux (liens/boutons trop longs) */
+  body { overflow-x: hidden; }
+  .card, .hero-card { overflow-wrap: anywhere; }
+
+  /* Boutons d'action : 1 bouton par ligne sur mobile */
+  .hero-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.6rem;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    white-space: normal; /* autorise le retour à la ligne */
+    text-align: center;
+  }
+
+  /* Images : toujours responsives */
+  img,
+  .hero-image,
+  .card-image {
+    max-width: 100%;
+    height: auto !important;
+    display: block;
+  }
+
+  /* Grilles à l'intérieur des cartes (ex: cartes "séjours") */
+  .card .grids-3 {
+    display: block;
+  }
+
+  .card .grids-3 > .card {
+    margin-bottom: 1rem;
+  }
+}
