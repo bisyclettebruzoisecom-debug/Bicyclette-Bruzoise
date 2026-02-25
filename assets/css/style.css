@@ -629,3 +629,67 @@ img {
   display: block;
   border-radius: 12px;    /* si vous avez des cartes arrondies */
 }
+/* ===========================
+   Responsive mobile
+   =========================== */
+@media (max-width: 768px) {
+
+  /* Marges latérales un peu réduites sur mobile */
+  .site-main .container,
+  .site-footer .container,
+  .site-header .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Les gros blocs texte + image passent en une seule colonne */
+  .hero-grid {
+    display: grid;              /* au cas où ce ne soit pas déjà le cas */
+    grid-template-columns: 1fr; /* une seule colonne sur mobile */
+    gap: 1.25rem;
+  }
+
+  .hero-media {
+    margin-top: 1rem;
+  }
+
+  /* Les mises en page 2 colonnes (club, espace adhérents, contact) 
+     deviennent une seule colonne plein écran */
+  .two-columns {
+    display: block;             /* écrase flex/grid éventuels */
+  }
+
+  .two-columns > * {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Les grilles en 3 cartes passent en 1 carte par ligne */
+  .grids-3 {
+    display: block;
+  }
+
+  .grids-3 > * {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Cartes un peu plus “souples” sur mobile */
+  .card {
+    padding: 1rem 1rem;
+  }
+
+  /* Optionnel : titres un peu plus petits si besoin */
+  .hero-content h1,
+  .page-header h1 {
+    font-size: 1.6rem;
+  }
+
+  /* Assure que les images ne débordent jamais */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
