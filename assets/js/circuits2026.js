@@ -185,6 +185,7 @@
   let currentMonth = (__now.getFullYear() === YEAR) ? __now.getMonth() : 0; // 0 = janvier
 
   let didAutoOpenToday = false;
+  let selectedDateKey = null;
 
   function isUnlocked() {
     try {
@@ -305,15 +306,33 @@
       if (todayCell) todayCell.classList.add("is-today");
     }
 
-    // Clic : afficher le détail
+    // Mise en évidence du jour sélectionné
+    if (selectedDateKey) {
+      const selectedCell = calendarGridEl.querySelector(`.day-cell[data-date="${selectedDateKey}"]`);
+      if (selectedCell) selectedCell.classList.add("is-selected");
+    }
+
+    // Clic : afficher le détail + mémoriser la sélection
     calendarGridEl.querySelectorAll(".day-cell.has-ride").forEach(cell => {
       cell.addEventListener("click", () => {
         const dateKey = cell.getAttribute("data-date");
+
+        calendarGridEl.querySelectorAll(".day-cell.is-selected").forEach(c => {
+          c.classList.remove("is-selected");
+        });
+
+        cell.classList.add("is-selected");
+        selectedDateKey = dateKey;
+
         showDetails(detailsContent, dateKey);
       });
     });
+
     // Panneau de détails : par défaut, message d’aide ; si demandé, ouvrir sur une date
     if (autoOpenDateKey) {
+      selectedDateKey = autoOpenDateKey;
+      const autoCell = calendarGridEl.querySelector(`.day-cell[data-date="${autoOpenDateKey}"]`);
+      if (autoCell) autoCell.classList.add("is-selected");
       showDetails(detailsContent, autoOpenDateKey);
     } else {
       detailsContent.classList.add("details-empty");
