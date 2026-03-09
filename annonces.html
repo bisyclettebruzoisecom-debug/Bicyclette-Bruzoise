@@ -67,16 +67,22 @@
 
 
     .annonces-grid {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(280px, 1fr));
       gap: 1.5rem;
-      align-items: flex-start;
+      align-items: start;
+    }
+
+    .annonces-column {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
     .annonce-card {
-      flex: 1 1 30%;
-      max-width: 30%;
-      min-width: 280px;
+      width: 100%;
+      max-width: none;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       height: auto;
@@ -96,16 +102,17 @@
       max-width: 420px;
     }
 
-    @media (max-width: 768px) {
-      .annonce-card {
-        flex: 1 1 100%;
-        max-width: 100%;
-      }
-    }
-
-    @media (max-width: 768px) {
+    @media (max-width: 900px) {
       .annonces-grid {
         grid-template-columns: 1fr;
+      }
+
+      .annonces-column {
+        display: contents;
+      }
+
+      .annonce-card {
+        max-width: 100%;
       }
 
       .section-title {
@@ -188,7 +195,9 @@
                     et une protection couvrante pour le cyclisme à haute vitesse.
                     Elles sont utilisées par l'équipe Decathlon CMA CGM.
                   </p>
-                  <p><strong>Contact :</strong> <a href="mailto:bisyclette.bruzoise.tresorier@gmail.com">bisyclette.bruzoise.tresorier@gmail.com</a></p>
+                  <p><strong>Contact :</strong> <a
+                      href="mailto:bisyclette.bruzoise.tresorier@gmail.com">bisyclette.bruzoise.tresorier@gmail.com</a>
+                  </p>
                 </div>
 
                 <div class="annonce-gallery">
@@ -198,6 +207,34 @@
                     decoding="async">
                 </div>
               </article>
+
+              <article class="card annonce-card">
+                <div class="annonce-body">
+                  <h3>Séjour-Club de St-Jacut-de-la-Mer</h3>
+                  <p class="annonce-subtitle">Disponibilité d’une chambre double (2 lits)</p>
+                  <p class="annonce-meta"><strong>Prix :</strong> 480,98 € pour 2 personnes en chambre double avec taxe
+                    de séjour</p>
+                  <p class="annonce-meta">ou : 240,49 € par personne (partage de la chambre)</p>
+                  <p class="annonce-meta"><strong>Date : Répondre avant le </strong>16 mars 2026</p>
+
+                  <p>
+                    Cette disponibilité peut convenir à 1 couple ou à 2 personnes seules(2 hommes ou 2 femmes).
+                    Le Séjour-Club a lieu à l’<a href="https://www.abbaye-st-jacut.com/" target="_blank" rel="noopener noreferrer">Abbaye de
+                    Saint-Jacut-de-la-Mer</a> du dimanche 10 au mercredi 13 mai 2026 ; arrivée dimanche en fin de matinée jusqu’au mercredi 10 h. Ce séjour est ouvert aux licenciés et membres.
+                    3 nuits, 4 jours en Pension Complète. Chambre double avec sdb et toilettes privatives. Ascenseur
+                    pour accéder aux chambres. Lits faits et linge de toilette fournis.
+
+                  </p>
+                  <img class="card-image" src="assets/img/Saintjacut.jpg" alt="Abbaye de Saint-Jacut-de-la-Mer"
+                    width="200" loading="lazy" decoding="async">
+                  <a href="https://www.abbaye-st-jacut.com/" target="_blank" rel="noopener noreferrer">Abbaye de
+                    Saint-Jacut-de-la-Mer</a>
+                  <p><strong>Contact :</strong> <a
+                      href="mailto:bisyclette.bruzoise@gmail.com">bisyclette.bruzoise@gmail.com</a>
+                  </p>
+                </div>
+              </article>
+
 
               <article class="card annonce-card">
                 <div class="annonce-body">
@@ -286,6 +323,43 @@
       </div>
     </div>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const grid = document.querySelector(".annonces-grid");
+      if (!grid) return;
+
+      const cards = Array.from(grid.querySelectorAll(".annonce-card"));
+
+      function layoutAnnonces() {
+        grid.innerHTML = "";
+
+        if (window.innerWidth <= 900) {
+          cards.forEach(card => grid.appendChild(card));
+          return;
+        }
+
+        const columns = Array.from({ length: 3 }, () => {
+          const col = document.createElement("div");
+          col.className = "annonces-column";
+          return col;
+        });
+
+        columns.forEach(col => grid.appendChild(col));
+
+        cards.forEach((card, index) => {
+          columns[index % 3].appendChild(card);
+        });
+      }
+
+      let resizeTimer;
+      layoutAnnonces();
+
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(layoutAnnonces, 100);
+      });
+    });
+  </script>
   <script src="assets/js/private-access.js"></script>
 </body>
 
