@@ -8,6 +8,7 @@
   <meta name="description"
     content="Ressources du club : historique, adhésion, assurances, sécurité, annonces et espace adhérents de la Bicyclette Bruzoise (Bruz).">
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Styles de cette page -->
   <style>
     .announcements-intro,
     .access-card {
@@ -57,14 +58,13 @@
 
     .annonce-gallery img {
       width: 100%;
-      max-width: 150px;
+      max-width: 100px;
       height: auto;
       display: block;
       border-radius: 12px;
       object-fit: cover;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
-
 
     .annonces-grid {
       display: grid;
@@ -88,8 +88,6 @@
       height: auto;
       box-sizing: border-box;
     }
-
-
 
     .access-actions {
       display: flex;
@@ -142,12 +140,10 @@
         <ul id="primary-menu" class="nav-list">
           <li><a href="index.html">Accueil</a></li>
           <li><a href="club.html" aria-current="page">Le club</a></li>
-          <!-- <li><a href="sorties.html">Les sorties</a></li>  Page en construction -->
-          <!-- <li><a href="sejours.html">Les séjours</a></li> Page en construction -->
-          <!-- <li><a href="randopedestres.html">Les randonnées pédestres</a></li> Page en construction -->
           <li><a href="circuits2026.html" class="nav-private">Circuits 2026</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
+          <li><a href="annonces.html" aria-current="page" class="nav-private">Annonces</a></li>
         </ul>
       </nav>
     </div>
@@ -159,29 +155,44 @@
         <div id="private-content" class="hidden">
           <section class="private-block">
             <h1>Annonces</h1>
-
             <div class="annonces-grid">
+
+              <!-- Annonce 1 -->
               <article class="card annonce-card">
                 <div class="annonce-body">
                   <h3>Commandes groupées</h3>
-                  <p>Le club propose à ses adhérents des articles en commande groupée.</p>
-                  <ul class="private-list">
-                    <li>
-                      <a
-                        href="https://www.helloasso.com/associations/la-bicyclette-bruzoise/boutiques/commande-groupee">
-                        Nettoyant et bidons
-                      </a>
-                    </li>
+                  <p>Le club propose à ses adhérents des articles en commande groupée.
+                    <a href="https://www.helloasso.com/associations/la-bicyclette-bruzoise/boutiques/commande-groupee"
+                      class="btn primary" target="_blank" rel="noopener noreferrer">
+                      Cliquer pour commander
+                    </a>
+                  </p>
+                  <p class="annonce-subtitle">Commandes en cours :</p>
+                  <ul class="private-list" alt="">
+                    <li>Gants BB avec manchon : 21€</li>
+                    <img src="assets\annonces\Comgroup\gants.png" alt="gqnts BB" loading="lazy" decoding="async"
+                      width="60">
+                    <li>Chaussettes BB aéro : 23€</li>
+                    <img src="assets\annonces\Comgroup\Chaussettesaero.png" alt="Chqussettes aéro" loading="lazy"
+                      decoding="async" width="60">
+                    <li>Chaussettes BB coton : 8.50€</li>
+                    <img src="assets\annonces\Comgroup\chaussettes.png" alt="Lunettes ROADR 900 - vue 2" loading="lazy"
+                      decoding="async" width="60">
+                    <li>Bidon BB Elite 500ml : 5.50€</li>
+                    <img src="assets/annonces/Comgroup/bidon.png" width="60" alt="bidon BB Elite" loading="lazy" decoding="async">
+                    <li>Nettotant vélo : 6.50€/L</li>
+                    <img src="assets/annonces/Comgroup/Mucoff.png" width="60" alt="Lunettes ROADR 900 - vue 2" loading="lazy"
+                      decoding="async">
+                    <br>
                   </ul>
+
                 </div>
                 <div class="annonce-gallery">
-                  <img src="assets/annonces/Comgroup/bidon.png" alt="Lunettes ROADR 900 - vue 1" loading="lazy"
-                    decoding="async">
-                  <img src="assets/annonces/Comgroup/Mucoff.png" alt="Lunettes ROADR 900 - vue 2" loading="lazy"
-                    decoding="async">
                 </div>
               </article>
 
+
+              <!-- Annonce 2 -->
               <article class="card annonce-card">
                 <div class="annonce-body">
                   <h3>Lunettes ROADR 900</h3>
@@ -189,7 +200,6 @@
                   <p class="annonce-meta"><strong>Date :</strong> mars 2026</p>
 
                   <p class="annonce-subtitle">Pack 4 verres - jamais utilisés</p>
-
                   <p>
                     Ces lunettes de soleil de catégorie 3 offrent un large champ de vision
                     et une protection couvrante pour le cyclisme à haute vitesse.
@@ -199,7 +209,6 @@
                       href="mailto:bisyclette.bruzoise.tresorier@gmail.com">bisyclette.bruzoise.tresorier@gmail.com</a>
                   </p>
                 </div>
-
                 <div class="annonce-gallery">
                   <img src="assets/annonces/n1-2026-03-06/im1.jpg" alt="Lunettes ROADR 900 - vue 1" loading="lazy"
                     decoding="async">
@@ -207,7 +216,7 @@
                     decoding="async">
                 </div>
               </article>
-
+              <!-- Annonce 3 -->
               <article class="card annonce-card">
                 <div class="annonce-body">
                   <h3>Séjour-Club de St-Jacut-de-la-Mer</h3>
@@ -219,13 +228,15 @@
 
                   <p>
                     Cette disponibilité peut convenir à 1 couple ou à 2 personnes seules(2 hommes ou 2 femmes).
-                    Le Séjour-Club a lieu à l’<a href="https://www.abbaye-st-jacut.com/" target="_blank" rel="noopener noreferrer">Abbaye de
-                    Saint-Jacut-de-la-Mer</a> du dimanche 10 au mercredi 13 mai 2026 ; arrivée dimanche en fin de matinée jusqu’au mercredi 10 h. Ce séjour est ouvert aux licenciés et membres.
+                    Le Séjour-Club a lieu à l’<a href="https://www.abbaye-st-jacut.com/" target="_blank"
+                      rel="noopener noreferrer">Abbaye de
+                      Saint-Jacut-de-la-Mer</a> du dimanche 10 au mercredi 13 mai 2026 ; arrivée dimanche en fin de
+                    matinée jusqu’au mercredi 10 h. Ce séjour est ouvert aux licenciés et membres.
                     3 nuits, 4 jours en Pension Complète. Chambre double avec sdb et toilettes privatives. Ascenseur
                     pour accéder aux chambres. Lits faits et linge de toilette fournis.
 
                   </p>
-                  <img class="card-image" src="assets/img/Saintjacut.jpg" alt="Abbaye de Saint-Jacut-de-la-Mer"
+                  <img class="card-image" src="assets/img/actualites/Saintjacut.jpg" alt="Abbaye de Saint-Jacut-de-la-Mer"
                     width="200" loading="lazy" decoding="async">
                   <a href="https://www.abbaye-st-jacut.com/" target="_blank" rel="noopener noreferrer">Abbaye de
                     Saint-Jacut-de-la-Mer</a>
@@ -234,8 +245,7 @@
                   </p>
                 </div>
               </article>
-
-
+              <!-- Annonce 4 -->
               <article class="card annonce-card">
                 <div class="annonce-body">
                   <h3>Annonces</h3>
@@ -258,7 +268,7 @@
         </div>
       </div>
     </section>
-
+    <!-- Verrouillage et dévérouillage de l'espace adhérents -->
     <section class="home-sections">
       <div class="container">
         <article class="card access-card">
@@ -277,7 +287,7 @@
       </div>
     </section>
   </main>
-
+  <!-- Pied de page -->
   <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-left">
@@ -323,6 +333,7 @@
       </div>
     </div>
   </footer>
+  <!-- Script Java -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const grid = document.querySelector(".annonces-grid");

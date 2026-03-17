@@ -375,9 +375,6 @@
         selectedDateKey = dateKey;
 
         showDetails(detailsContent, dateKey);
-
-        // Faire défiler jusqu'au panneau "Détail du circuit"
-        detailsContent.closest(".details-panel").scrollIntoView({ behavior: "smooth", block: "nearest" });
       });
     });
 

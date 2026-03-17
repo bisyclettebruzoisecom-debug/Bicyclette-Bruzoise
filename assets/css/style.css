@@ -689,7 +689,15 @@ img {
   max-height: 420px;
   object-fit: cover;
 }
-
+.hero-imageannonces{
+  width: 50%;
+  height: auto;
+  display: block;
+  border-radius: calc(var(--radius) - 2px);
+  box-shadow: var(--shadow);
+  max-height: 420px;
+  object-fit: cover;
+}
 .card-image{
   display: block;
   border-radius: calc(var(--radius) - 2px);

@@ -34,7 +34,7 @@
           <!-- <li><a href="sorties.html">Les sorties</a></li>  Page en construction -->
           <!-- <li><a href="sejours.html">Les séjours</a></li> Page en construction -->
           <!-- <li><a href="randopedestres.html">Les randonnées pédestres</a></li> Page en construction -->
-          <li><a href="circuits2026.html" class="nav-private">Circuits 2026</a></li>
+          <li><a href="circuits2026.html" aria-current="page" class="nav-private">Circuits 2026</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
         </ul>
@@ -140,12 +140,23 @@
                   <div id="calendar-grid"></div>
                 </div>
 
-                <aside class="details-panel">
-                  <h3>Détail du circuit</h3>
-                  <div id="details-content" class="details-empty">
-                    Cliquez sur un jour avec circuit pour afficher les parcours.
-                  </div>
-                </aside>
+                <div class="calendar-right-col">
+
+                  <aside class="details-panel">
+                    <h3>Détail du circuit</h3>
+                    <div id="details-content" class="details-empty">
+                      Cliquez sur un jour avec circuit pour afficher les parcours.
+                    </div>
+                  </aside>
+
+                  <aside class="details-panel">
+                    <h3>Activités du mois</h3>
+                    <div id="month-activities-content">
+                      <!-- rempli dynamiquement -->
+                    </div>
+                  </aside>
+
+                </div>
               </div>
             </article>
 
