@@ -1,0 +1,18 @@
+# Bicyclette Bruzoise – assets/api/.htaccess
+# Protège le dossier API sur OVH hébergement mutualisé.
+
+# Interdit la navigation dans le dossier (pas de liste de fichiers)
+Options -Indexes
+
+# Interdit l'accès direct à tous les fichiers sauf upload.php
+<FilesMatch "^(?!upload\.php$)">
+    Order Deny,Allow
+    Deny from all
+</FilesMatch>
+
+# Sécurité : refuse les requêtes sans Referer (appels directs hors navigateur)
+# Décommentez les 4 lignes suivantes si vous voulez cette protection supplémentaire :
+# RewriteEngine On
+# RewriteCond %{HTTP_REFERER} !^https://www\.bicyclette-bruzoise\.fr [NC]
+# RewriteCond %{HTTP_REFERER} !^$
+# RewriteRule ^ - [F,L]
