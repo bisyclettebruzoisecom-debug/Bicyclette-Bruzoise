@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dépôt photos – Capitaine de route</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/album.css">
+  <link rel="stylesheet" href="assets/css/upload.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-branding" href="index.html" aria-label="La Bicyclette Bruzoise — Accueil">
+        <img class="brand-logo" src="assets/img/BBlogo.jpg" alt="Logo de la Bicyclette Bruzoise">
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Dépôt photos – Capitaine de route</span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="section-albums">
+      <div class="container">
+
+        <!-- Authentification capitaine -->
+        <div id="upload-locked" class="card login-card">
+          <h2>🔐 Accès capitaines de route</h2>
+          <p class="private-hint">Cet espace est réservé aux capitaines de route pour déposer les photos des sorties.</p>
+          <form id="upload-auth-form" class="login-form" autocomplete="off">
+            <label for="upload-password">Mot de passe capitaine</label>
+            <input type="password" id="upload-password" placeholder="Mot de passe" autocomplete="current-password">
+            <button type="submit" class="btn primary">Accéder</button>
+            <p id="upload-auth-message" class="login-error" role="alert" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- Interface de dépôt -->
+        <div id="upload-content" class="hidden">
+          <div class="albums-topbar">
+            <h1 class="albums-title">📷 Déposer des photos</h1>
+            <button id="upload-logout" class="btn secondary btn-sm">Déconnexion</button>
+          </div>
+
+          <div class="upload-layout">
+
+            <!-- Panneau gauche : formulaire -->
+            <div class="card upload-form-card">
+              <h2>Informations de la sortie</h2>
+              <form id="upload-form" novalidate>
+                <div class="form-group">
+                  <label for="sortie-date">Date de la sortie *</label>
+                  <input type="date" id="sortie-date" required>
+                </div>
+                <div class="form-group">
+                  <label for="sortie-nom">Nom de la sortie *</label>
+                  <input type="text" id="sortie-nom" placeholder="Ex : Circuit du Moulin de Pont-Réan" required maxlength="100">
+                </div>
+                <div class="form-group">
+                  <label for="sortie-capitaine">Votre prénom</label>
+                  <input type="text" id="sortie-capitaine" placeholder="Prénom du capitaine" maxlength="60">
+                </div>
+                <div class="form-group">
+                  <label for="sortie-distance">Distance approximative (km)</label>
+                  <input type="number" id="sortie-distance" placeholder="Ex : 65" min="1" max="999">
+                </div>
+
+                <!-- Zone de dépôt -->
+                <div class="form-group">
+                  <label>Photos *</label>
+                  <div id="drop-zone" class="drop-zone" role="button" tabindex="0" aria-label="Zone de dépôt des photos">
+                    <div class="drop-zone-icon">📁</div>
+                    <p class="drop-zone-text">Glissez vos photos ici</p>
+                    <p class="drop-zone-hint">ou cliquez pour sélectionner</p>
+                    <input type="file" id="photos-input" accept="image/jpeg,image/png,image/webp" multiple class="hidden">
+                  </div>
+                  <p class="field-hint">Formats acceptés : JPG, PNG, WebP. Taille max par photo : 10 Mo.</p>
+                </div>
+
+                <!-- Aperçu des photos sélectionnées -->
+                <div id="preview-grid" class="preview-grid hidden"></div>
+
+                <!-- Barre de progression -->
+                <div id="upload-progress-wrap" class="progress-wrap hidden">
+                  <div class="progress-bar-track">
+                    <div id="upload-progress-bar" class="progress-bar-fill"></div>
+                  </div>
+                  <p id="upload-progress-label" class="progress-label">Envoi en cours…</p>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" id="upload-submit" class="btn primary" disabled>
+                    Envoyer les photos
+                  </button>
+                  <button type="reset" id="upload-reset" class="btn secondary">Effacer</button>
+                </div>
+
+                <p id="upload-result" class="upload-result hidden" role="alert" aria-live="polite"></p>
+              </form>
+            </div>
+
+            <!-- Panneau droit : albums existants -->
+            <div class="card upload-albums-card">
+              <h2>Albums existants</h2>
+              <p class="private-hint">Albums déjà publiés sur le site.</p>
+              <div id="existing-albums-list" class="existing-albums-list">
+                <p class="albums-status">Chargement…</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>&copy; La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/upload.js"></script>
+</body>
+</html>

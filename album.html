@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Album photos – La Bicyclette Bruzoise</title>
+  <meta name="description" content="Album photos des sorties de la Bicyclette Bruzoise – accès adhérents.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/album.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-branding" href="index.html" aria-label="La Bicyclette Bruzoise — Accueil">
+        <img class="brand-logo" src="assets/img/BBlogo.jpg" alt="Logo de la Bicyclette Bruzoise">
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+        </span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+          <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html">Le club</a></li>
+          <li><a href="circuits2026.html" class="nav-private">Circuits 2026</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="section-albums">
+      <div class="container">
+
+        <!-- Zone verrouillée -->
+        <div id="private-locked-hint" class="card login-card">
+          <div class="private-header">
+            <div>
+              <h2>📷 Album photos</h2>
+              <p class="private-hint">Espace réservé aux adhérents de la Bicyclette Bruzoise.</p>
+            </div>
+          </div>
+          <form id="private-access-form" class="login-form" autocomplete="off">
+            <label for="private-password">Mot de passe adhérents</label>
+            <input type="password" id="private-password" placeholder="Saisir le mot de passe" autocomplete="current-password">
+            <button type="submit" class="btn primary">Accéder aux photos</button>
+            <p id="private-message" role="alert" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <!-- Zone déverrouillée -->
+        <div id="private-content" class="hidden">
+          <div class="albums-topbar">
+            <h1 class="albums-title">Album photos</h1>
+            <div class="albums-toolbar">
+              <input type="search" id="album-search" placeholder="Rechercher une sortie…" class="album-search-input">
+              <button id="private-logout" class="btn secondary btn-sm">Déconnexion</button>
+            </div>
+          </div>
+
+          <!-- État chargement / erreur -->
+          <div id="albums-loading" class="albums-status">Chargement des albums…</div>
+          <div id="albums-error" class="albums-status albums-error hidden"></div>
+
+          <!-- Grille des albums -->
+          <div id="albums-grid" class="albums-grid hidden"></div>
+
+          <!-- Lightbox -->
+          <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Visionneuse photo">
+            <button class="lb-close" id="lb-close" aria-label="Fermer">✕</button>
+            <button class="lb-nav lb-prev" id="lb-prev" aria-label="Photo précédente">‹</button>
+            <button class="lb-nav lb-next" id="lb-next" aria-label="Photo suivante">›</button>
+            <div class="lb-img-wrap">
+              <img id="lb-img" src="" alt="" class="lb-img">
+              <p id="lb-caption" class="lb-caption"></p>
+            </div>
+            <div id="lb-counter" class="lb-counter"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>&copy; La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p class="footer-meta">Bruz (35170) – Bretagne | Site réalisé par le club.</p>
+      </div>
+      <div class="partner-logos">
+        <a href="https://www.ffct-codep35.org/" target="_blank" rel="noopener noreferrer" title="Codep 35 – FFCT">
+          <img src="assets/img/codep3.gif" alt="Codep 35 – FFCT">
+        </a>
+        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer" title="FFVélo">
+          <img src="assets/img/ffvelo2.gif" alt="FFVélo">
+        </a>
+        <a href="https://www.ville-bruz.fr/" target="_blank" rel="noopener noreferrer" title="Ville de Bruz">
+          <img src="assets/img/logobruz1.gif" alt="Ville de Bruz">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/private-access.js"></script>
+  <script src="assets/js/album.js"></script>
+</body>
+</html>
