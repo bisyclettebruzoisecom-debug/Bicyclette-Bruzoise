@@ -185,22 +185,22 @@
       "26 février : Randonnée pédestre"
     ],
     3: ["<strong>14 mars</strong> : brevet de 200 km à Romillé",
-      "<strong>21 mars</strong> : Le club de Saint Jacques De La Lande organise sa rando annuelle le samedi  21 mars. Nous vous donnons rendez-vous sur la place de Bruz à 13h15 pour un départ à 13h30. Renseignements auprès de vos capitaines de route. <br><a href=\"assets/img/actualites/Rando2026-03-21-StJacques.png\" target=\"_blank\" rel=\"noopener\">Souvenir Joseph GOUILLET</a>",
-      "<strong>26 mars</strong> : Randonnée pédestre"],
-    4: ["01 et 04 avril : sortie de printemps 130 km & 85 km + sortie de St-Gilles",
-      "12 avril au 26 avril : vacances scolaires",
-      "23 avril : Randonnée pédestre",
+      "<strong>21 mars</strong> : Le club de Saint Jacques De La Lande organise sa rando annuelle Souvenir Joseph Gouillet le samedi  21 mars. Nous vous donnons rendez-vous sur la place de Bruz à 13h15 pour un départ à 13h30. Renseignements auprès de vos capitaines de route. <br><a href=\"https://stjacquescyclo35.wordpress.com/category/news/souvenir-joseph-gouillet\" target=\"_blank\" rel=\"noopener\">Traces gpx</a>",
+      "<strong>26 mars</strong> : Randonnée pédestre <br> La rando pédestre du jeudi 26 mars aura lieu à LA CHAPELLE THOUARAULT. Parcours agréable de 9,5 kms sans difficulté. Pour le co-voiturage depuis Bruz, départ à 13h30 parking d’Aldi (rdv 5mn avant), ou rdv directement à 14 h à LA CHAPELLE THOUARAULT sur le parking de la salle des Rochers au 13 rue des Rochers. En venant de L’Hermitage, la salle se trouve à l’entrée du bourg. "],
+    4: ["le <strong> 01 et 04 avril </strong>: Pour cette randonnée de printemps, deux circuits de <strong>130 Km et 85 Km</strong> sont proposés. Rapprochez-vous de vos capitaines de route <br>Circuits : <a href=\"https://www.openrunner.com/route-details/22723353\" target=\"_blank\" rel=\"noopener\">130 km</a> / <a href=\"https://www.openrunner.com/route-details/22723472\" target=\"_blank\" rel=\"noopener\">85 km</a>",
+      "04 avril : Le club de Saint Gilles organise sa rando annuelle le 4 avril. Pour ceux le souhaitant, rendez-vous à 13h00 pour un départ à 13h15. <br><a href=\"https://sites.google.com/us-saintgilles35.org/larivedulou2026/accueil\" target=\"_blank\" rel=\"noopener\">Informations</a>",
+      "<strong>23 avril</strong> : Randonnée pédestre",
       "25 avril : BRM de 300KM",
-      "25 et 26 avril : rando club de 30km, 50km, 80km, 100km sur les 2 jours",
-      "29 avril et le 02 mai : rando de printemps 160 km / 140 km / 100 km"],
-    5: ["Le 02 mai : rando de printemps 160 km / 140 km / 100 km",
-      "07 au 10 mai : itinérant Bagnères-de-l'Orne",
-      "10 au 13 mai : séjour à St-Jacut-de-la-Mer",
-      "21 mai : Randonnée pédestre - journée",
-      "30 mai au 06 juin : Séjour Ardèche"],
+      "<strong>25 et 26 avril </strong>: rando club de 30km, 50km, 80km, 100km sur les 2 jours.<br> Gratuit pour les adhérents de la BB.",
+      "le <strong> 29 avril et le 2 mai </strong>: 3 circuits de 160Km, 140km et 100 Km sont proposés. Rapprochez-vous de vos capitaines de route<br>Circuits : <a href=\"https://www.openrunner.com/route-details/21291909\" target=\"_blank\" rel=\"noopener\"> 160 km</a>/ <a href=\"https://www.openrunner.com/route-details/22232709\" target=\"_blank\" rel=\"noopener\"> 140 km</a> / <a href=\"https://www.openrunner.com/route-details/22731771\" target=\"_blank\" rel=\"noopener\"> 100 km</a>"],
+    5: ["le <strong> 29 avril et le 2 mai </strong>: 3 circuits de 160Km, 140km et 100 Km sont proposés. Rapprochez-vous de vos capitaines de route <br>Circuits : <a href=\"https://www.openrunner.com/route-details/21291909\" target=\"_blank\" rel=\"noopener\"> 160 km</a>/ <a href=\"https://www.openrunner.com/route-details/22232709\" target=\"_blank\" rel=\"noopener\"> 140 km</a> / <a href=\"https://www.openrunner.com/route-details/22731771\" target=\"_blank\" rel=\"noopener\"> 100 km</a>",
+      "<strong>07 au 10 mai</strong> : itinérant Bagnères-de-l'Orne",
+      "<strong>10 au 13 mai</strong> : séjour à St-Jacut-de-la-Mer",
+      "<strong>21 mai</strong> : Randonnée pédestre - journée",
+      "<strong>30 mai au 06 juin</strong> : Séjour Ardèche"],
     6: ["06 juin : brevet de 400 km à Chantepie",
-      "13 juin : Rando 185 km – Le circuit des trois vallées",
-      "18 juin : Randonnée pédestre",
+      "<strong>13 juin</strong> : Rando 185 km – Le circuit des trois vallées",
+      "<strong>18 juin</strong> : Randonnée pédestre",
       "20 juin : rando du Rheu",
       "27 juin : rando de Pipriac"],
     7: ["04 juillet : vacances scolaires"],
@@ -442,7 +442,7 @@
         const label = idx === 0 ? "Circuit 1 (long)" : idx === 1 ? "Circuit 2 (inter)" : "Circuit 3 (court)";
         html += "<li>" + label;
         if (url) {
-          html += ` – <a href="${url}" target="_blank" rel="noopener">Trace OpenRunner</a>`;
+          html += ` – <a href="${url}" target="_blank" rel="noopener">gpx</a>`;
         } else {
           html += " – lien à compléter";
         }
