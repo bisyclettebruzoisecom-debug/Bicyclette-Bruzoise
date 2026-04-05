@@ -18,7 +18,7 @@
 
 // ─── Configuration ──────────────────────────────────────────────────────────
 
-define('CAPTAIN_PASSWORD', 'MotDePasseCapitaine2026'); // <<< À CHANGER
+define('CAPTAIN_PASSWORD', 'cap26'); // <<< À CHANGER
 define('SESSION_KEY',      'bb_captain_ok');
 
 define('ALBUMS_DIR',   __DIR__ . '/../../albums/');   // assets/albums/
