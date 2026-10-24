@@ -1,0 +1,225 @@
+/* Albums photos — cartes carrées homogènes, sans scroll horizontal */
+
+/* La page défile normalement. */
+.albums-scroll {
+  overflow: visible;
+  padding: 0;
+}
+
+.album-year {
+  margin: 0 0 1.6rem;
+}
+
+.album-year > h2 {
+  margin: 0 0 .65rem;
+  font-size: 1.35rem;
+}
+
+/* Taille identique des cartes sur ordinateur. */
+.album-year .news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 245px);
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.album-year .news-card {
+  width: 245px;
+  height: 245px;
+  min-height: 245px;
+  aspect-ratio: 1 / 1;
+}
+
+/* Cartes simples : priorité au titre et au lien. */
+.album-year .news-card > a {
+  height: 100%;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.album-year .news-card .news-date {
+  margin-bottom: .4rem;
+  flex: 0 0 auto;
+}
+
+.album-year .news-card h3 {
+  margin: 0 0 .4rem;
+  font-size: 1.05rem;
+  line-height: 1.15;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.album-year .news-card p {
+  margin: 0;
+  font-size: .82rem;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.album-year .news-card .news-link {
+  margin-top: auto;
+  padding-top: .45rem;
+  flex: 0 0 auto;
+}
+
+/* Événement contenant plusieurs albums : le texte descriptif est sacrifié
+   pour garantir que tous les liens restent visibles dans une carte 245x245. */
+.album-event-card {
+  position: relative;
+}
+
+.album-event-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  padding: .85rem;
+  overflow: hidden;
+  color: var(--text);
+  text-shadow: 0 0 10px rgba(255,255,255,.95), 0 0 5px rgba(255,255,255,.95);
+}
+
+.album-event-content .news-date {
+  margin-bottom: .25rem;
+  flex: 0 0 auto;
+}
+
+.album-event-content h3 {
+  margin: 0 0 .35rem;
+  font-size: 1rem;
+  line-height: 1.1;
+  flex: 0 0 auto;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.album-event-content > p {
+  display: none;
+}
+
+.album-links {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  gap: .22rem;
+  overflow: visible;
+}
+
+.album-sub-link {
+  display: inline-block;
+  padding: .19rem .31rem;
+  border-radius: .32rem;
+  background: rgba(255,255,255,.90);
+  color: var(--primary-dark);
+  font-size: .66rem;
+  line-height: 1.08;
+  font-weight: 750;
+  text-decoration: none;
+  text-shadow: none;
+}
+
+.album-sub-link:hover,
+.album-sub-link:focus {
+  background: #fff;
+  text-decoration: underline;
+}
+
+/* Cartes avec beaucoup de sous-albums : liens encore plus compacts. */
+.album-event-card:has(.album-links a:nth-child(7)) .album-event-content {
+  padding: .7rem;
+}
+
+.album-event-card:has(.album-links a:nth-child(7)) .album-event-content h3 {
+  font-size: .9rem;
+  margin-bottom: .25rem;
+}
+
+.album-event-card:has(.album-links a:nth-child(7)) .album-sub-link {
+  font-size: .59rem;
+  padding: .15rem .24rem;
+}
+
+/* Smartphone : toujours des cartes carrées de même taille, mais elles
+   rétrécissent ensemble pour tenir sur deux colonnes. */
+@media (max-width: 600px) {
+  .albums-section {
+    padding-top: 1rem;
+  }
+
+  .album-year {
+    margin-bottom: 1.25rem;
+  }
+
+  .album-year .news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: .65rem;
+  }
+
+  .album-year .news-card {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+  }
+
+  .album-year .news-card > a,
+  .album-event-content {
+    padding: .65rem;
+  }
+
+  .album-year .news-card h3,
+  .album-event-content h3 {
+    font-size: .88rem;
+    -webkit-line-clamp: 2;
+  }
+
+  .album-year .news-card p {
+    display: none;
+  }
+
+  .news-date {
+    font-size: .68rem;
+  }
+
+  .album-sub-link {
+    font-size: .57rem;
+    padding: .13rem .20rem;
+  }
+
+  .album-event-card:has(.album-links a:nth-child(7)) .album-event-content {
+    padding: .5rem;
+  }
+
+  .album-event-card:has(.album-links a:nth-child(7)) .album-event-content h3 {
+    font-size: .78rem;
+  }
+
+  .album-event-card:has(.album-links a:nth-child(7)) .album-sub-link {
+    font-size: .52rem;
+    padding: .11rem .17rem;
+  }
+}
+
+/* Très petits écrans : une colonne afin que les liens restent utilisables. */
+@media (max-width: 360px) {
+  .album-year .news-grid {
+    grid-template-columns: 245px;
+  }
+
+  .album-year .news-card {
+    width: 245px;
+    height: 245px;
+  }
+}

@@ -1,0 +1,119 @@
+/* Albums photos — grille responsive, sans barre de défilement visible */
+html, body { min-height: 100%; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+.site-header { flex: 0 0 auto; }
+.site-main { flex: 1 0 auto; padding-bottom: 0; }
+.albums-section { padding: 1rem 0 1.5rem; }
+.albums-heading { margin-bottom: 1rem; }
+.albums-heading h1 { margin-top: .15rem; margin-bottom: .45rem; }
+.albums-heading p { margin-top: 0; margin-bottom: .65rem; }
+
+/* Le document lui-même défile : aucune zone interne avec ascenseur. */
+.albums-scroll { overflow: visible; padding-right: 0; }
+.album-year { margin: 0 0 1.5rem; }
+.album-year > h2 { margin: 0 0 .55rem; font-size: 1.35rem; }
+
+.album-year .news-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  overflow: visible;
+}
+.album-year .news-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+.album-year .news-card > a { height: 100%; }
+
+/* Événements regroupant plusieurs albums */
+.album-event-card { position: relative; }
+.album-event-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  padding: .85rem;
+  color: var(--text);
+  text-shadow: 0 0 10px rgba(255,255,255,.95), 0 0 5px rgba(255,255,255,.95);
+  overflow: hidden;
+}
+.album-event-content .news-date { flex: 0 0 auto; }
+.album-event-content h3 {
+  flex: 0 0 auto;
+  margin: .15rem 0 .35rem;
+  font-size: 1rem;
+  line-height: 1.12;
+}
+.album-event-content p {
+  margin: 0 0 .35rem;
+  line-height: 1.15;
+  font-size: .78rem;
+  /* Le descriptif est secondaire : il disparaît si la carte doit réserver la place aux liens. */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.album-links {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-end;
+  gap: .25rem;
+  max-height: 58%;
+  overflow: hidden;
+}
+.album-sub-link {
+  display: inline-block;
+  padding: .22rem .38rem;
+  border-radius: .35rem;
+  background: rgba(255,255,255,.88);
+  color: var(--primary-dark);
+  font-size: .70rem;
+  line-height: 1.1;
+  font-weight: 750;
+  text-decoration: none;
+  text-shadow: none;
+}
+.album-sub-link:hover, .album-sub-link:focus { background: #fff; text-decoration: underline; }
+
+/* Plus de place pour les cartes très chargées en liens. */
+.album-event-card:has(.album-links a:nth-child(6)) .album-event-content p { display: none; }
+.album-event-card:has(.album-links a:nth-child(8)) .album-event-content h3 { font-size: .92rem; }
+.album-event-card:has(.album-links a:nth-child(8)) .album-links { max-height: 70%; }
+.album-event-card:has(.album-links a:nth-child(8)) .album-sub-link { font-size: .64rem; padding: .18rem .30rem; }
+
+.site-footer { flex: 0 0 auto; }
+
+@media (max-width: 980px) {
+  .album-year .news-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  body { display: block; }
+  .albums-section { padding-top: .75rem; }
+  .albums-heading { margin-bottom: .8rem; }
+  .album-year { margin-bottom: 1.15rem; }
+  .album-year .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; }
+  .album-event-content { padding: .7rem; }
+  .album-event-content h3 { font-size: .92rem; }
+  .album-event-content p { display: none; }
+  .album-links { max-height: 68%; gap: .2rem; }
+  .album-sub-link { font-size: .65rem; padding: .18rem .3rem; }
+}
+@media (max-width: 420px) {
+  .container { width: min(100% - 1rem, 1120px); }
+  .album-year .news-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; }
+  .album-year > h2 { font-size: 1.2rem; }
+  .album-event-content { padding: .55rem; }
+  .album-event-content h3 { font-size: .82rem; }
+  .album-event-content .news-date { font-size: .68rem; }
+  .album-sub-link { font-size: .60rem; padding: .16rem .24rem; }
+}
+@media (max-width: 340px) {
+  .album-year .news-grid { grid-template-columns: 1fr; }
+}
