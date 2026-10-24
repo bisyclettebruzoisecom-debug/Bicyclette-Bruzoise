@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Randonnées Bruzoises – 25 &amp; 26 avril 2026 – La Bicyclette Bruzoise</title>
+  <meta name="description"
+    content="Randonnées Bruzoises et Tremplins de la Vilaine – 25 et 26 avril 2026 à Bruz (35). Cyclo 30/50/80 km, Gravel 60 km, Tremplins 100 km.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .hero-media {
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .hero-media img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    .contact-block {
+      margin-top: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .map-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      align-items: start;
+    }
+
+    .map-frame {
+      width: 100%;
+      min-height: 400px;
+      border: 0;
+    }
+
+    .safety-list {
+      margin: 1rem 0 0;
+      padding-left: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .safety-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    @media (max-width: 640px) {
+      .map-frame {
+        min-height: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-branding" href="index.html" aria-label="La Bicyclette Bruzoise — Accueil">
+        <img class="brand-logo" src="assets/img/BBlogo.jpg" alt="Logo de la Bicyclette Bruzoise">
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+          <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html">Le club</a></li>
+          <li><a href="circuits2026.html" class="nav-private">Circuits 2026</a></li>
+          <li><a href="randonneesbruzoises.html" aria-current="page">Randonnées Bruzoises</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <!-- ===== HERO ===== -->
+    <section class="home-hero" aria-labelledby="page-title">
+      <div class="container">
+        <article class="card hero-card">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <h1 id="page-title">Randonnées Bruzoises<br><span style="color:var(--primary)">25 &amp; 26 avril
+                  2026</span></h1>
+
+              <p>
+                La Bicyclette Bruzoise vous invite à ses <strong>Randonnées Bruzoises</strong> et aux
+                <strong>Tremplins de la Vilaine – Saison 2</strong>. Des parcours aux difficultés variées
+                vous sont proposés.
+              </p>
+
+              <h2>Rando club – cyclo &amp; gravel</h2>
+              <p>
+                Trois circuits route et une randonnée gravel pour tous les niveaux, au départ de la
+                Maison des associations à Bruz.
+              </p>
+              <ul>
+                <li><strong>Parcours cyclotourisme :</strong> 30 km, 50 km et 80 km</li>
+                <li><strong>Parcours gravel :</strong> 60 km</li>
+              </ul>
+              <p>Pour les parcours de 50 km, 60 km et 80 km, un <strong>ravitaillement</strong> est assuré à mi-parcours
+                à Treffendel.</p>
+
+              <h2>Les Tremplins de la Vilaine – Saison 2 – 100 km / 1300m D+</h2>
+              <p>
+                Un circuit de 100 km pour 1 300 m de dénivelé positif, au départ de la Maison des
+                associations à Bruz. Ce parcours, qui a rencontré un grand succès en 2025, devrait à nouveau
+                séduire les cyclistes de la région en 2026.
+              </p>
+              <p>Un <strong>ravitaillement</strong> est assuré à mi-parcours aux Corbinières.</p>
+
+              <div class="hero-actions">
+                <a href="#circuits" class="btn secondary">Les circuits</a>
+              </div>
+
+              <h2>Accueil à la Maison des associations</h2>
+              <table class="table" aria-label="Horaires d'accueil des Randonnées Bruzoises 2026">
+                <thead>
+                  <tr>
+                    <th>Jour</th>
+                    <th>Accueil à partir de</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Samedi 25 avril</td>
+                    <td>13h30</td>
+                  </tr>
+                  <tr>
+                    <td>Dimanche 26 avril</td>
+                    <td>9h00</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p>Inscription sur place · <strong>Café d'accueil à l'arrivée</strong></p>
+              <p style="margin-top:1rem;"><strong>Participation :</strong></p>
+              <ul>
+                <li>4 € pour les licenciés FFVélo (FFCT)</li>
+                <li>7 € pour les licenciés des autres fédérations ou les non-licenciés</li>
+              </ul>
+
+              <div class="hero-actions">
+                <a href="#acces" class="btn primary">Plan d'accès</a>
+              </div>
+            </div>
+
+            <div class="hero-media">
+              <img class="hero-image" src="assets/img/actualites/Randoclub2026.png"
+                alt="Affiche des Randonnées Bruzoises 2026" loading="lazy" style="max-height:400px;object-fit:contain;">
+
+              <img class="card-image" src="assets/img/actualites/Tremplinssaison2.png"
+                alt="Affiche des Tremplins de la Vilaine – Saison 2" loading="lazy"
+                style="max-height:400px;object-fit:contain;">
+            </div>
+          </div>
+
+          <p class="contact-block">
+            <strong>Renseignements :</strong><br>
+            <a href="mailto:bisyclette.bruzoise@gmail.com">bisyclette.bruzoise@gmail.com</a>
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== PLAN D'ACCÈS ===== -->
+    <section class="home-sections" id="acces" aria-labelledby="acces-title">
+      <div class="container">
+        <article class="card">
+          <h2 id="acces-title">Plan d'accès – Maison des associations – Bruz</h2>
+          <p><strong>Coordonnées GPS :</strong> 48.026352, -1.737166</p>
+          <p>59 avenue Alphonse Legault – 35170 Bruz</p>
+          <p>Un parking est disponible.</p>
+
+          <div class="map-grid">
+            <div>
+              <iframe class="map-frame"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1586.6035168478836!2d-1.7382739712121276!3d48.02649019128808!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480f1eff0c82a0a7%3A0x9ee740836147bf4e!2s59%20Av.%20Alphonse%20Legault%2C%2035170%20Bruz!5e0!3m2!1sfr!2sfr!4v1776621387076!5m2!1sfr!2sfr"
+                allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="Carte d'accès à la Maison des associations de Bruz"></iframe>
+            </div>
+
+            <div>
+              <iframe class="map-frame"
+                src="https://www.google.com/maps/embed?pb=!4v1776621173705!6m8!1m7!1sPKenW0fcSK_g3AITEtXzFQ!2m2!1d48.02604011610227!2d-1.736254550058097!3f315.90545345072553!4f-14.052309451007432!5f0.7820865974627469"
+                allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+                title="Vue Street View de la Maison des associations de Bruz"></iframe>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== SÉCURITÉ ===== -->
+    <section class="home-hero" aria-labelledby="securite-title">
+      <div class="container">
+        <article class="card hero-card">
+          <div class="hero-grid">
+            <div class="hero-content">
+              <h2 id="securite-title">Sécurité</h2>
+              <p>
+                La sécurité des cyclistes est au cœur de nos priorités, pour tous les pratiquants,
+                qu’ils soient débutants ou expérimentés.
+              </p>
+
+              <h3>Consignes de sécurité</h3>
+              <ul class="safety-list">
+                <li>Portez un casque, accessoire vital et indispensable.</li>
+                <li>Vérifiez votre matériel : freins, éclairage, sonnette et pneus.</li>
+                <li>Assurez-vous d’être bien visible.</li>
+                <li>Respectez le Code de la route.</li>
+                <li>Ne vous éloignez pas du parcours officiel.</li>
+                <li>Respectez les consignes de l’organisateur et des bénévoles.</li>
+                <li>Arrêtez-vous aux feux rouges et aux stops.</li>
+                <li>Dépassez avec précaution les autres usagers des chemins.</li>
+                <li>Ne roulez pas à plus de deux de front.</li>
+                <li>Ne franchissez pas les lignes continues.</li>
+                <li>Ne roulez pas sur la moitié gauche de la chaussée.</li>
+                <li>Maîtrisez votre vitesse : ce n’est pas une cyclosportive.</li>
+                <li>Évitez les regroupements en peloton.</li>
+                <li>Respectez les autres usagers de la route si vous voulez être respectés.</li>
+                <li>Arrêtez-vous aux ravitaillements pour vous reposer et vous alimenter.</li>
+                <li>Respectez la nature et l’environnement.</li>
+              </ul>
+
+              <div class="contact-block">
+                <strong>Numéros d'urgence</strong>
+                <ul class="safety-list">
+                  <li>Malaise, accident de la route, personne blessée : 15, 18, 112 ou 114.</li>
+                  <li>Infraction : 17, 112 ou 114.</li>
+                </ul>
+              </div>
+
+              <div class="hero-actions">
+                <a href="https://ffvelo.fr/la-securite/" target="_blank" rel="noopener noreferrer" class="btn secondary">
+                  Nos engagements pour la sécurité
+                </a>
+              </div>
+            </div>
+
+            <div class="hero-media">
+              <img class="hero-image" src="assets/img/Flyersecurite.jpg"
+                alt="Affiche de sécurité des Randonnées Bruzoises" loading="lazy"
+                style="max-height:400px;object-fit:contain;">
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== CIRCUITS (mot de passe) ===== -->
+    <section class="home-sections" id="circuits" aria-labelledby="circuits-title">
+      <div class="container">
+        <article class="card">
+          <h2 id="circuits-title">Traces GPS des circuits</h2>
+          <p>
+            Les traces GPS des circuits sont réservées aux participants. Le mot de passe vous est remis
+            lors de votre inscription sur place.
+          </p>
+
+          <div id="rando-locked-hint">
+            <form id="rando-access-form" class="login-form" style="max-width:340px;">
+              <label for="rando-password">Mot de passe participant</label>
+              <input type="password" id="rando-password" name="rando-password" autocomplete="current-password"
+                placeholder="Mot de passe…">
+              <p id="rando-message" class="error-message" aria-live="polite"></p>
+              <button type="submit" class="btn primary">Accéder aux traces</button>
+            </form>
+          </div>
+
+          <div id="rando-content" class="hidden">
+            <p>✅ Accès accordé. Retrouvez les traces de vos circuits ci-dessous.</p>
+            <ul class="private-list">
+              <li><a href="https://www.openrunner.com/route-details/22814065" target="_blank"
+                  rel="noopener noreferrer">Circuit cyclo 30 km</a></li>
+              <li><a href="https://www.openrunner.com/route-details/22813981" target="_blank"
+                  rel="noopener noreferrer">Circuit cyclo 50 km</a></li>
+              <li><a href="https://www.openrunner.com/route-details/22813920" target="_blank"
+                  rel="noopener noreferrer">Circuit cyclo 80 km</a></li>
+              <li><a href="https://www.openrunner.com/route-details/23204853" target="_blank"
+                  rel="noopener noreferrer">Circuit gravel 60 km</a></li>
+              <li><a href="https://www.openrunner.com/route-details/23137382" target="_blank"
+                  rel="noopener noreferrer">Tremplins de la Vilaine – 100 km</a></li>
+            </ul>
+            <p style="margin-top:1rem;">
+              <button id="rando-logout" class="btn secondary" type="button">Verrouiller l'accès</button>
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ===== ALBUM PHOTOS ===== -->
+    <section class="home-sections" id="photos" aria-labelledby="photos-title">
+      <div class="container">
+        <article class="card">
+          <h2 id="photos-title">Album photos de l'événement</h2>
+          <p>Retrouvez les photos des Randonnées Bruzoises et des Tremplins de la Vilaine après l'événement.</p>
+          <p id="album-placeholder" style="color:var(--muted);font-style:italic;">
+            📷 L'album sera disponible en ligne après le 26 avril 2026. Revenez consulter cette page.
+          </p>
+          <!-- Décommenter et renseigner le lien quand l'album sera disponible :
+          <div class="hero-actions">
+            <a href="LIEN_ALBUM" target="_blank" rel="noopener noreferrer" class="btn primary">Voir l'album photos</a>
+          </div>
+          -->
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>&copy; La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p class="footer-meta">Bruz (35170) – Bretagne | Site réalisé par le club.</p>
+        <p class="social-links">
+          Suivez-nous :
+          <a class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram">
+            <span class="sr-only">Instagram</span>
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z" />
+            </svg>
+          </a>
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook">
+            <span class="sr-only">Facebook</span>
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z" />
+            </svg>
+          </a>
+        </p>
+      </div>
+
+      <div class="partner-logos">
+        <a href="https://www.ffct-codep35.org/" target="_blank" rel="noopener noreferrer" title="Codep 35 – FFCT">
+          <img src="assets/img/codep3.gif" alt="Codep 35 – FFCT">
+        </a>
+        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer"
+          title="Fédération française de cyclotourisme – FFVélo">
+          <img src="assets/img/ffvelo2.gif" alt="FFVélo">
+        </a>
+        <a href="https://www.ville-bruz.fr/" target="_blank" rel="noopener noreferrer" title="Ville de Bruz">
+          <img src="assets/img/logobruz1.gif" alt="Ville de Bruz">
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/rando.js"></script>
+</body>
+
+</html>
