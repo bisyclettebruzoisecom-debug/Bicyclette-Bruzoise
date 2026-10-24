@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le club – La Bicyclette Bruzoise</title>
+  <meta name="description"
+    content="Ressources du club : historique, adhésion, assurances, sécurité, annonces et espace adhérents de la Bicyclette Bruzoise (Bruz).">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!-- Styles de cette page -->
+  <style>
+    .announcements-intro,
+    .access-card {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .private-block {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      margin: 0 0 1rem 0;
+      font-size: 1.5rem;
+    }
+
+    .annonce-card h3 {
+      margin-bottom: 0.25rem;
+    }
+
+    .annonce-subtitle {
+      font-weight: 600;
+      color: #1f3c88;
+      margin-top: 0.25rem;
+    }
+
+    .annonce-meta {
+      margin: 0;
+      color: #555;
+      font-size: 0.95rem;
+    }
+
+    .annonce-gallery {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 150px));
+      gap: 0.75rem;
+      justify-content: start;
+      align-items: start;
+    }
+
+    .annonce-gallery img {
+      width: 100%;
+      max-width: 100px;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Première annonce : vignettes compactes et agrandissement au clic */
+    .annonce-card--sale .annonce-body { gap: 0.3rem; }
+    .annonce-card--sale h3 { margin: 0 0 0.2rem; }
+    .annonce-card--sale .annonce-photos { display: flex; gap: 0.6rem; align-items: center; flex-wrap: wrap; }
+    .annonce-card--sale .annonce-photos button { padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+    .annonce-card--sale .annonce-photos img { display: block; width: 105px; height: 100px; object-fit: contain; border-radius: 8px; }
+    .annonce-card--sale .annonce-specs { margin: 0.15rem 0; padding-left: 1.15rem; font-size: 0.89rem; line-height: 1.3; }
+    .annonce-card--sale .annonce-contact { margin: 0.2rem 0 0; font-size: 0.88rem; line-height: 1.35; overflow-wrap: anywhere; }
+    .annonce-photo-dialog { max-width: min(94vw, 1100px); max-height: 94vh; padding: 0.6rem; border: 0; border-radius: 12px; background: #fff; box-shadow: 0 12px 45px #0006; }
+    .annonce-photo-dialog::backdrop { background: #000b; }
+    .annonce-photo-dialog img { display: block; max-width: min(90vw, 1050px); max-height: 82vh; width: auto; height: auto; object-fit: contain; }
+    .annonce-photo-dialog .photo-close { display: block; margin: 0 0 0.4rem auto; padding: 0.2rem 0.6rem; cursor: pointer; }
+
+    .annonces-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      align-items: stretch;
+    }
+
+    .annonce-card {
+      width: 100%;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      box-sizing: border-box;
+    }
+
+    .annonce-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    /* Taille standard pour tous les widgets d'annonces */
+    .annonce-card iframe {
+      display: block;
+      width: 100%;
+      height: 520px;
+      border: none;
+    }
+
+    .access-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+
+    .access-card .login-form {
+      max-width: 420px;
+    }
+
+    @media (max-width: 900px) {
+      .section-title {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="site-branding" href="index.html" aria-label="La Bicyclette Bruzoise — Accueil">
+        <img class="brand-logo" src="assets/img/BBlogo.jpg" alt="Logo de la Bicyclette Bruzoise">
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+        </span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navigation principale">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu">
+          <span class="nav-toggle-icon" aria-hidden="true">☰</span>
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+
+        <ul id="primary-menu" class="nav-list">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html" aria-current="page">Le club</a></li>
+          <li><a href="calendrier.html" class="nav-private">Calendrier</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
+          <li><a href="annonces.html" aria-current="page" class="nav-private">Annonces</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="home-sections">
+      <div class="container">
+        <div id="private-content" class="hidden">
+          <section class="private-block">
+            <h1>Annonces</h1>
+            <div class="annonces-grid">
+
+              <article class="card annonce-card annonce-card--sale">
+                <div class="annonce-body">
+                  <h3>🚴‍♂️ À VENDRE – CERVÉLO SOLOIST</h3>
+                  <div class="annonce-photos" aria-label="Photos du vélo">
+                    <button type="button" class="photo-enlarge" data-src="assets/annonces/cervelo1.jpg" aria-label="Agrandir la première photo du Cervélo"><img src="assets/annonces/cervelo1.jpg" alt="Cervélo Soloist, première vue" loading="lazy"></button>
+                    <button type="button" class="photo-enlarge" data-src="assets/annonces/cervelo2.jpg" aria-label="Agrandir la deuxième photo du Cervélo"><img src="assets/annonces/cervelo2.jpg" alt="Cervélo Soloist, deuxième vue" loading="lazy"></button>
+                  </div>
+                  <ul class="annonce-specs">
+                    <li>Taille : 51</li>
+                    <li>Transmission : SRAM Red AXS</li>
+                    <li>Pédalier : SRAM Force</li>
+                    <li>Roues : Look R50</li>
+                    <li>Cintre : carbone Evo</li>
+                    <li>État : excellent état</li>
+                    <li>Prix : 3 990 €</li>
+                  </ul>
+                  <p class="annonce-contact">📞 Jean-Pierre : <a href="tel:+33617185214">06 17 18 52 14</a><br>
+                    <a href="mailto:jeanpierrebuis35@gmail.com">jeanpierrebuis35@gmail.com</a><br>
+                    N’hésitez pas à partager 🚴‍♂️</p>
+                </div>
+              </article>
+
+              <article class="card annonce-card">
+                <div class="annonce-body">
+                  <h3>Séjour Club 2027</h3>
+                  <iframe id="haWidgetVignette" allowtransparency="true" title="Séjour de printemps à Malansac"
+                    src="https://www.helloasso.com/associations/la-bicyclette-bruzoise/evenements/sejour-de-printemps-a-malansac/widget-vignette"></iframe>
+                </div>
+              </article>
+
+              <article class="card annonce-card">
+                <div class="annonce-body">
+                  <h3>Boutique de l'association</h3>
+                  <iframe id="haWidget" allowtransparency="true" scrolling="auto" title="Boutique de l'association"
+                    src="https://www.helloasso.com/associations/la-bicyclette-bruzoise/boutiques/commande-groupee/widget"></iframe>
+                </div>
+              </article>
+
+              <article class="card annonce-card">
+                <div class="annonce-body">
+                  <h3>Annonces</h3>
+                  <p>
+                    Pour déposer une annonce, transmettez les éléments suivants à l'adresse :
+                    <a href="mailto:bisyclette.bruzoise@gmail.com">bisyclette.bruzoise@gmail.com</a>
+                  </p>
+                  <ul>
+                    <li>Titre de l'annonce</li>
+                    <li>Prix</li>
+                    <li>Brève description de l'objet ou du service</li>
+                    <li>Contact : téléphone et/ou adresse mail</li>
+                    <li>Photos éventuelles</li>
+                  </ul>
+                  <p>Réservé aux adhérents</p>
+                </div>
+              </article>
+
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+    <!-- Verrouillage et dévérouillage de l'espace adhérents -->
+    <section class="home-sections">
+      <div class="container">
+        <article class="card access-card">
+          <h2>Accès adhérents</h2>
+          <form id="private-access-form" class="login-form" novalidate>
+            <label for="private-password">Mot de passe</label>
+            <input id="private-password" name="password" type="password" autocomplete="current-password"
+              inputmode="text" required>
+            <div class="access-actions">
+              <button class="btn primary" type="submit">Entrer</button>
+              <button id="private-logout" class="btn secondary" type="button">Verrouiller</button>
+            </div>
+            <p id="private-message" class="form-note" aria-live="polite"></p>
+          </form>
+        </article>
+      </div>
+    </section>
+  </main>
+  <!-- Pied de page -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>&copy; La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p class="footer-meta">
+          Bruz (35170) – Bretagne | Site réalisé par le club.
+        </p>
+        <p class="social-links">
+          Suivez-nous :
+          <a class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/" target="_blank"
+            rel="noopener noreferrer" aria-label="Instagram">
+            <span class="sr-only">Instagram</span>
+            <!-- Instagram SVG -->
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z" />
+            </svg>
+          </a>
+
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199" target="_blank"
+            rel="noopener noreferrer" aria-label="Facebook">
+            <span class="sr-only">Facebook</span>
+            <!-- Facebook SVG -->
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true">
+              <path
+                d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z" />
+            </svg>
+          </a>
+        </p>
+      </div>
+
+      <div class="partner-logos">
+        <a href="https://www.ffct-codep35.org/" target="_blank" rel="noopener noreferrer" title="Codep 35 – FFCT">
+          <img src="assets/img/codep3.gif" alt="Codep 35 – FFCT">
+        </a>
+        <a href="https://ffvelo.fr/" target="_blank" rel="noopener noreferrer"
+          title="Fédération Française de Cyclotourisme – FFVélo">
+          <img src="assets/img/ffvelo2.gif" alt="FFVélo">
+        </a>
+        <a href="https://www.ville-bruz.fr/" target="_blank" rel="noopener noreferrer" title="Ville de Bruz">
+          <img src="assets/img/logobruz1.gif" alt="Ville de Bruz">
+        </a>
+      </div>
+    </div>
+  </footer>
+  <dialog id="annonce-photo-dialog" class="annonce-photo-dialog" aria-label="Photo agrandie">
+    <button type="button" class="photo-close" aria-label="Fermer la photo">✕ Fermer</button>
+    <img alt="Photo agrandie du Cervélo Soloist">
+  </dialog>
+  <script>
+    (() => {
+      const dialog = document.getElementById('annonce-photo-dialog');
+      const image = dialog.querySelector('img');
+      document.querySelectorAll('.photo-enlarge').forEach(button => {
+        button.addEventListener('click', () => {
+          image.src = button.dataset.src;
+          image.alt = button.querySelector('img').alt;
+          if (typeof dialog.showModal === 'function') dialog.showModal();
+          else window.open(image.src, '_blank', 'noopener');
+        });
+      });
+      dialog.querySelector('.photo-close').addEventListener('click', () => dialog.close());
+      dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+    })();
+  </script>
+  <!-- Script Java -->
+  <script src="assets/js/private-access.js"></script>
+</body>
+
+</html>

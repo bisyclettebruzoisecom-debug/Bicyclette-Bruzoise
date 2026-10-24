@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Calendrier BB — La Bicyclette Bruzoise</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<style>
+.bb-page-head{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.bb-page-head h1{margin:0}
+.bb-settings{display:flex;align-items:end;flex-wrap:wrap;gap:1rem;margin:0 0 1rem}
+.bb-setting{display:flex;flex-direction:column;gap:.35rem;font-weight:650}
+.bb-setting select{border:1px solid #cbd5e1;border-radius:8px;padding:.6rem .75rem;background:white;font:inherit;min-width:150px}
+.bb-period{display:flex;flex-wrap:wrap;gap:.35rem}
+.bb-period button{padding:.65rem .9rem;border:1px solid #cbd5e1;border-radius:8px;background:#fff;cursor:pointer;font-weight:650}
+.bb-period button[aria-pressed=true]{background:#155e45;color:white;border-color:#155e45}
+.bb-print{margin-left:auto}
+.bb-help{font-size:.9rem;color:#475569;margin:.4rem 0 1rem}
+.bb-preview{display:grid;gap:1.5rem}
+.bb-paper{background:#fff;border:1px solid #d7dfe5;box-shadow:0 3px 12px #0000000c;padding:14px 16px;overflow:hidden}
+.bb-paper-header{display:flex;align-items:center;justify-content:center;position:relative;min-height:52px;margin-bottom:6px}
+.bb-paper-logo{position:absolute;left:0;top:0;width:48px;height:48px;object-fit:contain}
+.bb-paper-header-text{text-align:center;padding:0 50px}
+.bb-paper-footer{margin-top:8px;font:10px/1.3 Arial,sans-serif}
+.bb-paper-footer p{margin:2px 0}
+.bb-paper-footer .bb-legend{display:flex;gap:12px;font-weight:bold;margin-bottom:4px}
+.bb-paper h2{font-size:1.13rem;text-align:center;margin:0 0 .25rem;text-transform:uppercase;color:#14543d}
+.bb-paper .bb-edition{text-align:center;color:#64748b;font-size:.76rem;margin:0 0 .6rem}
+.bb-calendar-table{width:100%;border-collapse:collapse;table-layout:fixed;font-family:Arial,sans-serif;font-size:clamp(8px,.85vw,11px);line-height:1.18}
+.bb-calendar-table th,.bb-calendar-table td{border:1px solid #738b7d;padding:3px 4px;vertical-align:middle;overflow-wrap:anywhere}
+.bb-calendar-table th{background:#dcece2;color:#143b2b;font-weight:700}
+.bb-calendar-table thead tr:first-child th{background:#176449;color:#fff}
+.bb-calendar-table th:nth-child(1),.bb-calendar-table td:nth-child(1){text-align:center}
+.bb-calendar-table th:nth-child(3),.bb-calendar-table td:nth-child(3),.bb-calendar-table th:nth-child(4),.bb-calendar-table td:nth-child(4),.bb-calendar-table th:nth-child(5),.bb-calendar-table td:nth-child(5){text-align:center}
+.bb-calendar-table tbody tr:nth-child(even){background:#f3f8f5}
+.bb-calendar-table td.event{font-size:.94em;white-space:pre-line}
+.bb-calendar-table td.week{font-weight:700}
+.bb-login{max-width:420px}
+@media(max-width:720px){.bb-paper{overflow-x:auto;padding:8px}.bb-calendar-table{min-width:690px;font-size:9px}.bb-print{margin-left:0}.bb-settings{gap:.65rem}}
+@page{size:A4 portrait;margin:20mm}
+@media print{
+ html,body{background:white!important;margin:0!important;padding:0!important;width:100%!important;height:auto!important}
+ body::before,body>.site-header,body>.site-footer,body>.site-main{display:none!important}
+ #bb-print-pages{display:block!important;position:static!important;width:100%!important;margin:0!important;padding:0!important}
+ .bb-paper{width:100%!important;border:0!important;box-shadow:none!important;padding:0!important;margin:0!important;overflow:visible!important;break-after:page;page-break-after:always}
+ .bb-paper:last-child{break-after:auto;page-break-after:auto}
+ .bb-paper-header{height:12mm;display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:1mm}
+ .bb-paper-logo{position:absolute;left:0;top:0;width:11mm;height:11mm;object-fit:contain}
+ .bb-paper h2{font-size:10pt!important;line-height:1.1;margin:0!important;color:#124d36}
+ .bb-paper .bb-edition{font-size:6pt!important;margin:1mm 0 0!important;text-align:center}
+ .bb-calendar-table{width:100%!important;min-width:0!important;font-size:7.2pt!important;line-height:1.06!important;table-layout:fixed!important}
+ .bb-calendar-table th,.bb-calendar-table td{padding:.12mm .35mm!important;border:0.35pt solid #777!important;overflow-wrap:anywhere;vertical-align:middle!important}
+ .bb-calendar-table td.event{font-size:6.6pt!important;line-height:1.02!important;white-space:pre-line!important}
+ .bb-calendar-table thead{display:table-header-group}
+ .bb-calendar-table thead tr:first-child th:first-child{font-size:6.3pt!important;overflow-wrap:anywhere}
+ .bb-calendar-table thead tr:nth-child(2) th{font-size:6.3pt!important}
+ .bb-calendar-table tbody tr{min-height:3.65mm;break-inside:avoid;page-break-inside:avoid}
+ .bb-calendar-table th,.bb-calendar-table tbody tr:nth-child(even){-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .bb-paper-footer{margin-top:1mm;font:5.2pt/1.05 Arial,sans-serif;color:#111}
+ .bb-paper-footer p{margin:0 0 .25mm}
+ .bb-paper-footer .bb-legend{display:flex;gap:4mm;font-weight:bold;margin-bottom:1mm}
+}
+#bb-print-pages{display:none}
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a aria-label="La Bicyclette Bruzoise — Accueil" class="site-branding" href="index.html">
+        <img alt="Logo de la Bicyclette Bruzoise" class="brand-logo" src="assets/img/BBlogo.jpg" />
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+        </span>
+      </a>
+      <nav aria-label="Navigation principale" class="main-nav">
+        <button aria-controls="primary-menu" aria-expanded="false" class="nav-toggle" type="button">
+          <span aria-hidden="true" class="nav-toggle-icon">☰</span>
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <ul class="nav-list" id="primary-menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html">Le club</a></li>
+          <li><a href="calendrier.html" class="nav-private" aria-current="page">Calendrier</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+<main class="site-main">
+<section class="page-header"><div class="container bb-page-head"><h1>Calendrier de la Bicyclette Bruzoise</h1></div></section>
+<section class="home-sections"><div class="container">
+<article class="card hidden" id="private-content" style="display:none">
+<div class="bb-settings">
+<label class="bb-setting" for="bb-year">Année<select id="bb-year"><option value="2026">2026</option><option value="2027">2027</option></select></label>
+<div class="bb-setting"><span id="bb-period-label">Période</span><div class="bb-period" role="group" aria-labelledby="bb-period-label">
+<button type="button" data-period="annual" aria-pressed="true">Annuel</button>
+<button type="button" data-period="s1" aria-pressed="false">Semestre 1</button>
+<button type="button" data-period="s2" aria-pressed="false">Semestre 2</button>
+</div></div>
+<button type="button" class="btn primary bb-print" id="bb-print">🖨 Imprimer / PDF</button>
+</div>
+<p class="bb-help">Aperçu du calendrier au format des tableaux Excel. Cliquez sur « Imprimer / PDF », puis choisissez « Enregistrer au format PDF » dans votre navigateur. Format A4 portrait : une page pour le calendrier annuel ou pour le semestre choisi.</p>
+<div id="bb-preview" class="bb-preview"></div>
+</article>
+<article class="card bb-login" id="bb-login-card">
+<p id="private-locked-hint">Cette page est réservée aux adhérents de la Bicyclette Bruzoise.</p>
+<form id="private-access-form" class="login-form" novalidate>
+<label for="private-password">Mot de passe adhérents</label><input id="private-password" name="password" type="password" autocomplete="current-password" required>
+<div><button class="btn primary" type="submit">Accéder au calendrier</button> <button class="btn secondary" id="private-logout" type="button">Verrouiller</button></div>
+<p id="private-message" class="form-note" aria-live="polite"></p>
+</form>
+</article>
+</div></section>
+</main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>© La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p class="footer-meta">
+          Bruz (35170) – Bretagne | Site réalisé par le club.
+        </p>
+        <p class="social-links">
+          Suivez-nous :
+          <a aria-label="Instagram" class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/"
+            rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">Instagram</span>
+            <!-- Instagram SVG -->
+            <svg aria-hidden="true" role="img" viewbox="0 0 24 24">
+              <path
+                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z">
+              </path>
+            </svg>
+          </a>
+          <a aria-label="Facebook" class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199"
+            rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">Facebook</span>
+            <!-- Facebook SVG -->
+            <svg aria-hidden="true" role="img" viewbox="0 0 24 24">
+              <path
+                d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z">
+              </path>
+            </svg>
+          </a>
+        </p>
+      </div>
+      <div class="partner-logos">
+        <a href="https://www.ffct-codep35.org/" rel="noopener noreferrer" target="_blank" title="Codep 35 – FFCT">
+          <img alt="Codep 35 – FFCT" src="assets/img/codep3.gif" />
+        </a>
+        <a href="https://ffvelo.fr/" rel="noopener noreferrer" target="_blank"
+          title="Fédération Française de Cyclotourisme – FFVélo">
+          <img alt="FFVélo" src="assets/img/ffvelo2.gif" />
+        </a>
+        <a href="https://www.ville-bruz.fr/" rel="noopener noreferrer" target="_blank" title="Ville de Bruz">
+          <img alt="Ville de Bruz" src="assets/img/logobruz1.gif" />
+        </a>
+      </div>
+    </div>
+  </footer>
+
+<div id="bb-print-pages" aria-hidden="true"></div>
+<script id="bb-calendar-data" type="application/json">{"2026":[[{"week":"1","period":"29 décembre au 04 janvier"},{"week":"2","period":"05 janvier au 11 janvier"},{"week":"3","period":"12 janvier au 18 janvier"},{"week":"4","period":"19 janvier au 25 janvier"},{"week":"5","period":"26 janvier au 01 février"},{"week":"6","period":"02 février au 08 février"},{"week":"7","period":"09 février au 15 février"},{"week":"8","period":"16 février au 22 février"},{"week":"9","period":"23 février au 01 mars"},{"week":"10","period":"02 mars au 08 mars"},{"week":"11","period":"09 mars au 15 mars"},{"week":"12","period":"16 mars au 22 mars"},{"week":"13","period":"23 mars au 29 mars"},{"week":"14","period":"30 mars au 05 avril"},{"week":"15","period":"06 avril au 12 avril"},{"week":"16","period":"13 avril au 19 avril"},{"week":"17","period":"20 avril au 26 avril"},{"week":"18","period":"27 avril au 03 mai"},{"week":"19","period":"04 mai au 10 mai"},{"week":"20","period":"11 mai au 17 mai"},{"week":"21","period":"18 mai au 24 mai"},{"week":"22","period":"25 mai au 31 mai"},{"week":"23","period":"01 juin au 07 juin"},{"week":"24","period":"08 juin au 14 juin"},{"week":"25","period":"15 juin au 21 juin"},{"week":"26","period":"22 juin au 28 juin"}],[{"week":"27","period":"29 juin au 05 juillet"},{"week":"28","period":"06 juillet au 12 juillet"},{"week":"29","period":"13 juillet au 19 juillet"},{"week":"30","period":"20 juillet au 26 juillet"},{"week":"31","period":"27 juillet au 02 août"},{"week":"32","period":"03 août au 09 août"},{"week":"33","period":"10 août au 16 août"},{"week":"34","period":"17 août au 23 août"},{"week":"35","period":"24 août au 30 août"},{"week":"36","period":"31 août au 06 septembre"},{"week":"37","period":"07 septembre au 13 septembre"},{"week":"38","period":"14 septembre au 20 septembre"},{"week":"39","period":"21 septembre au 27 septembre"},{"week":"40","period":"28 septembre au 04 octobre"},{"week":"41","period":"05 octobre au 11 octobre"},{"week":"42","period":"12 octobre au 18 octobre"},{"week":"43","period":"19 octobre au 25 octobre"},{"week":"44","period":"26 octobre au 01 novembre"},{"week":"45","period":"02 novembre au 08 novembre"},{"week":"46","period":"09 novembre au 15 novembre"},{"week":"47","period":"16 novembre au 22 novembre"},{"week":"48","period":"23 novembre au 29 novembre"},{"week":"49","period":"30 novembre au 06 décembre"},{"week":"50","period":"07 décembre au 13 décembre"},{"week":"51","period":"14 décembre au 20 décembre"},{"week":"52","period":"21 décembre au 27 décembre"},{"week":"53","period":"28 décembre au 03 janvier"}]],"2027":[[{"week":"1","period":"04 janvier au 10 janvier"},{"week":"2","period":"11 janvier au 17 janvier"},{"week":"3","period":"18 janvier au 24 janvier"},{"week":"4","period":"25 janvier au 31 janvier"},{"week":"5","period":"01 février au 07 février"},{"week":"6","period":"08 février au 14 février"},{"week":"7","period":"15 février au 21 février"},{"week":"8","period":"22 février au 28 février"},{"week":"9","period":"01 mars au 07 mars"},{"week":"10","period":"08 mars au 14 mars"},{"week":"11","period":"15 mars au 21 mars"},{"week":"12","period":"22 mars au 28 mars"},{"week":"13","period":"29 mars au 04 avril"},{"week":"14","period":"05 avril au 11 avril"},{"week":"15","period":"12 avril au 18 avril"},{"week":"16","period":"19 avril au 25 avril"},{"week":"17","period":"26 avril au 02 mai"},{"week":"18","period":"03 mai au 09 mai"},{"week":"19","period":"10 mai au 16 mai"},{"week":"20","period":"17 mai au 23 mai"},{"week":"21","period":"24 mai au 30 mai"},{"week":"22","period":"31 mai au 06 juin"},{"week":"23","period":"07 juin au 13 juin"},{"week":"24","period":"14 juin au 20 juin"},{"week":"25","period":"21 juin au 27 juin"},{"week":"26","period":"28 juin au 04 juillet"}],[{"week":"27","period":"05 juillet au 11 juillet"},{"week":"28","period":"12 juillet au 18 juillet"},{"week":"29","period":"19 juillet au 25 juillet"},{"week":"30","period":"26 juillet au 01 août"},{"week":"31","period":"02 août au 08 août"},{"week":"32","period":"09 août au 15 août"},{"week":"33","period":"16 août au 22 août"},{"week":"34","period":"23 août au 29 août"},{"week":"35","period":"30 août au 05 septembre"},{"week":"36","period":"06 septembre au 12 septembre"},{"week":"37","period":"13 septembre au 19 septembre"},{"week":"38","period":"20 septembre au 26 septembre"},{"week":"39","period":"27 septembre au 03 octobre"},{"week":"40","period":"04 octobre au 10 octobre"},{"week":"41","period":"11 octobre au 17 octobre"},{"week":"42","period":"18 octobre au 24 octobre"},{"week":"43","period":"25 octobre au 31 octobre"},{"week":"44","period":"01 novembre au 07 novembre"},{"week":"45","period":"08 novembre au 14 novembre"},{"week":"46","period":"15 novembre au 21 novembre"},{"week":"47","period":"22 novembre au 28 novembre"},{"week":"48","period":"29 novembre au 05 décembre"},{"week":"49","period":"06 décembre au 12 décembre"},{"week":"50","period":"13 décembre au 19 décembre"},{"week":"51","period":"20 décembre au 26 décembre"},{"week":"52","period":"27 décembre au 02 janvier"}]]}</script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/monthActivities.js"></script>
+<script src="assets/js/calendrier.js"></script>
+<script>
+(()=>{'use strict';
+const DATA=JSON.parse(document.getElementById('bb-calendar-data').textContent);
+const preview=document.getElementById('bb-preview'), printPages=document.getElementById('bb-print-pages');
+const yearInput=document.getElementById('bb-year');
+let period='annual';
+const label={s1:'1er semestre',s2:'2e semestre'};
+const notes=["INFOS : * Départ des groupes : 13h45, dans l'ordre chronologique, rendez-vous à partir de 13h30 place du Dr Joly","* Ce calendrier est évolutif et des versions mises à jour vous parviendront dès que les dates des activités nous seront communiquées.","* Les derniers mercredis du mois, les circuits sont soit ceux du calendrier, soit préparés par les capitaines de route (case verte).","* Certains circuits du dimanche seront ceux du club de Goven. Le calendrier du dimanche sera actualisé tous les trimestres (2 ou 3 circuits par trimestre).","* Les circuits A correspondent aux années paires, les B aux années impaires. Le calendrier propose le circuit principal ; des parcours plus courts C2 et C3 sont disponibles dans le fichier de correspondance. Tous les circuits sont numérisés (voir le site du club).","https://www.bicyclette-bruzoise.fr"];
+// Les événements sont EXCLUSIVEMENT issus de assets/js/monthActivities.js.
+// Les périodes restent dans ce document ; les circuits proviennent uniquement de assets/js/calendrier.js.
+const MONTHS=['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+function cleanActivity(html){
+ const div=document.createElement('div');div.innerHTML=String(html).replace(/<br\s*\/?\s*>/gi,' ');
+ return (div.textContent||'').replace(/\s+/g,' ').trim();
+}
+function activityDate(text,year,sourceMonth){
+ const lower=text.toLocaleLowerCase('fr-FR');
+ // Les plages « du 24 au 29 mai » sont rattachées à leur premier jour.
+ let range=lower.match(/\b(?:du|le)\s+(\d{1,2})(?:er)?\s+au\s+\d{1,2}\s+(janvier|février|fevrier|mars|avril|mai|juin|juillet|août|aout|septembre|octobre|novembre|décembre|decembre)/);
+ if(range){const names={'fevrier':1,'aout':7,'decembre':11};let m=MONTHS.indexOf(range[2]);if(m<0)m=names[range[2]];return new Date(year,m,+range[1],12);}
+ // Les entrées commençant par « Du 5 mai », « 03 avril », « 20/02 »…
+ let match=lower.match(/\b(\d{1,2})(?:er)?\s*\/\s*(\d{1,2})(?:\s*\/\s*(\d{2,4}))?/);
+ if(match){const d=+match[1],m=+match[2];if(m>=1&&m<=12&&d>=1&&d<=31)return new Date(year,m-1,d,12);}
+ match=lower.match(/\b(\d{1,2})(?:er)?\s+(janvier|février|fevrier|mars|avril|mai|juin|juillet|août|aout|septembre|octobre|novembre|décembre|decembre)\b/);
+ if(match){const names={'fevrier':1,'aout':7,'decembre':11};let m=MONTHS.indexOf(match[2]);if(m<0)m=names[match[2]];return new Date(year,m,+match[1],12);}
+ // Sans date complète : utiliser le mois déclaré dans le fichier source.
+ return new Date(year,sourceMonth-1,1,12);
+}
+// Lundi de la semaine ISO n° week de l'année year (la semaine 1 contient le 4 janvier).
+function isoMonday(year,week){
+ const jan4=new Date(year,0,4,12);
+ const monday=new Date(jan4);monday.setDate(jan4.getDate()-((jan4.getDay()+6)%7)+(week-1)*7);
+ return monday;
+}
+// Vacances scolaires raisonnées à la semaine : une semaine (lundi → dimanche)
+// est en vacances si son lundi est >= premier jour de vacances et < jour de reprise.
+function holidaysForWeek(year,week){
+ const parse=iso=>{const [y,m,d]=iso.split('-').map(Number);return new Date(y,m-1,d,12);};
+ const monday=isoMonday(+year,+week);
+ const labels=[];
+ for(const h of window.BB_SCHOOL_HOLIDAYS||[]){
+  const start=parse(h.start),resume=parse(h.resume);
+  if(monday<start||monday>=resume)continue;
+  // Vacances d'été : seule la première semaine est signalée.
+  if(h.firstWeekOnly&&monday-start>=7*86400000)continue;
+  labels.push(h.firstWeekOnly?'Début des '+h.label.charAt(0).toLowerCase()+h.label.slice(1):h.label);
+ }
+ return labels;
+}
+function eventsForYear(year){
+ const months=(window.BB_MONTH_ACTIVITIES||{})[year]||{};
+ const holidayTexts=window.BB_HOLIDAY_ACTIVITY_TEXTS||new Set();
+ const result=new Map();
+ for(const [month,activities] of Object.entries(months)){
+  for(const raw of activities){
+   const text=cleanActivity(raw);if(!text)continue;
+   // Les lignes récapitulatives des vacances sont remplacées par le placement à la semaine.
+   if(holidayTexts.has(text))continue;
+   const date=activityDate(text,+year,+month);
+     const thursday=new Date(date);thursday.setDate(date.getDate()+3-((date.getDay()+6)%7));
+   const firstThursday=new Date(thursday.getFullYear(),0,4,12);
+   firstThursday.setDate(firstThursday.getDate()+3-((firstThursday.getDay()+6)%7));
+   const week=1+Math.round((thursday-firstThursday)/604800000);
+   const key=String(week);
+   const arr=result.get(key)||[];
+   if(!arr.includes(text))arr.push(text);
+   result.set(key,arr);
+  }
+ }
+ return result;
+}
+const sourceVersion={2026:'Version du 16 décembre 2025',2027:'Version du 13 octobre 2026'};
+function makePage(year,semesters){
+ const paper=document.createElement('section');paper.className='bb-paper';paper.classList.add(semesters.length===2?'bb-annual':'bb-semester');
+ const h=document.createElement('h2');h.textContent=`CALENDRIER DE LA BICYCLETTE BRUZOISE ${year}${semesters.length===1?' — '+label[semesters[0]]:''}`;
+ const edition=document.createElement('p');edition.className='bb-edition';edition.textContent=sourceVersion[year];
+ const header=document.createElement('div');header.className='bb-paper-header';
+ const logo=document.createElement('img');logo.className='bb-paper-logo';logo.src='assets/img/BBlogo.jpg';logo.alt='Logo BB';
+ const headText=document.createElement('div');headText.className='bb-paper-header-text';headText.append(h,edition);
+ header.append(logo,headText);paper.append(header);
+ const table=document.createElement('table');table.className='bb-calendar-table';
+ const widths=[9,24,8,8,8,43];
+ const colgroup=document.createElement('colgroup');
+ for(const w of widths){const col=document.createElement('col');col.style.width=w+'%';colgroup.appendChild(col);}
+ table.appendChild(colgroup);
+ const thead=document.createElement('thead');
+ const tr1=document.createElement('tr');
+ for(const [value,span] of [['SEMAINE',1],['PÉRIODE',1],['CIRCUITS',3],['ÉVÉNEMENTS',1]]){
+  const th=document.createElement('th');th.textContent=value;if(span>1)th.colSpan=span;tr1.appendChild(th);
+ }
+ const tr2=document.createElement('tr');
+ for(const val of ['N°','Du lundi au dimanche','Mercredi','Samedi','Dimanche','Sortie longue, séjour, sortie extérieure, vie du club']){
+  const th=document.createElement('th');th.textContent=val;tr2.appendChild(th);
+ }
+ thead.append(tr1,tr2);table.appendChild(thead);
+ const tbody=document.createElement('tbody');
+ const eventMap=eventsForYear(year);
+ const weeklyCircuits=window.BB_PRINT_WEEKLY_CIRCUITS||{};
+ for(const semester of semesters) for(const row of DATA[year][semester==='s1'?0:1]){
+  const tr=document.createElement('tr');
+  for(const [i,key] of ['week','period','wed','sat','sun','event'].entries()){
+   const td=document.createElement('td');
+   const circuitIndex={wed:0,sat:1,sun:2}[key];
+   if(key==='event')td.textContent=[...holidaysForWeek(year,row.week),...(eventMap.get(String(Number(row.week)))||[])].join('\n');
+   else if(circuitIndex!==undefined){
+    const letter=Number(year)%2===0?'A':'B';
+    const source=weeklyCircuits[`S${Number(row.week)}${letter}`];
+    td.textContent=window.BB_normalizePlanCode(source?.[circuitIndex]||'',Number(year));
+   }else td.textContent=row[key]||'';
+   if(i===0)td.className='week';if(i===5)td.className='event';tr.appendChild(td);
+  }
+  tbody.appendChild(tr);
+ }
+ table.appendChild(tbody);paper.appendChild(table);
+ const footer=document.createElement('div');footer.className='bb-paper-footer';
+ const legend=document.createElement('div');legend.className='bb-legend';legend.textContent='Organisation BB     |     Autres organisations';footer.appendChild(legend);
+ for(const line of notes){const p=document.createElement('p');p.textContent=line;footer.appendChild(p);}
+ paper.appendChild(footer);return paper;
+}
+// Données partagées directement avec calendrier.html via calendrier.js.
+function loadWeeklyCircuits(){
+ const plans=window.BB_WEEK_PLANS;
+ if(!plans || !Array.isArray(plans.A) || !Array.isArray(plans.B))
+  throw new Error('BB_WEEK_PLANS absent de calendrier.js');
+ window.BB_PRINT_WEEKLY_CIRCUITS=Object.fromEntries(
+  [...plans.A,...plans.B].map(row=>[row[0],row.slice(1)]));
+}
+function render(){
+ const year=yearInput.value;
+ document.querySelectorAll('[data-period]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.period===period)));
+ preview.replaceChildren();printPages.replaceChildren();
+ const semesters=period==='annual'?['s1','s2']:[period];
+ preview.appendChild(makePage(year,semesters));printPages.appendChild(makePage(year,semesters));
+}
+function syncAccess(){
+ const content=document.getElementById('private-content');
+ const unlocked=!content.classList.contains('hidden');
+ content.style.display=unlocked?'block':'none';
+ document.getElementById('bb-login-card').style.display=unlocked?'none':'block';
+ if(unlocked)render();
+}
+window.addEventListener('DOMContentLoaded',()=>{
+ try{loadWeeklyCircuits();}catch(err){console.error('Calendrier BB :',err);alert('Circuits indisponibles : vérifiez assets/js/calendrier.js.');}
+ // Année civile en cours, limitée aux calendriers disponibles (2026 et 2027).
+ const currentYear=String(new Date().getFullYear());
+ if (Object.prototype.hasOwnProperty.call(DATA,currentYear)) yearInput.value=currentYear;
+ yearInput.addEventListener('change',render);
+ document.querySelectorAll('[data-period]').forEach(b=>b.addEventListener('click',()=>{period=b.dataset.period;render();}));
+ document.getElementById('bb-print').addEventListener('click',()=>{render();window.print();});
+ document.addEventListener('bb:privateUnlocked',syncAccess);
+ document.getElementById('private-logout').addEventListener('click',()=>setTimeout(syncAccess,0));
+ // private-access.js initialise son état sur DOMContentLoaded.
+ setTimeout(syncAccess,0);
+});
+})();
+</script>
+<script src="assets/js/private-access.js"></script>
+</body>
+</html>

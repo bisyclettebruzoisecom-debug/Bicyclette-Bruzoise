@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Descriptif des circuits – La Bicyclette Bruzoise</title>
+  <meta name="description" content="Bibliothèque des circuits A et B : direction, distance, dénivelé, traces OpenRunner et itinéraires.">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <style>
+    .table-scroll {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-top: 1rem;
+    }
+
+    .table-scroll .table {
+      min-width: 760px;
+    }
+
+    .table td {
+      vertical-align: top;
+    }
+
+    .quick-links {
+      margin: 0.75rem 0 0;
+      padding-left: 1.1rem;
+    }
+
+    .quick-links li {
+      margin: 0.25rem 0;
+    }
+    .bb-heading{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+    .bb-version{font-size:.85rem;color:#64748b;text-align:right;margin-left:auto}
+    .bb-controls{display:flex;flex-direction:column;gap:.75rem;margin:1rem 0;min-width:0}
+    .bb-toolbar{display:flex;align-items:center;gap:.45rem;width:100%;min-width:0;overflow-x:auto;padding-bottom:.2rem}
+    .bb-switch{display:flex;align-items:center;gap:.4rem;flex:0 0 auto;white-space:nowrap}
+    .bb-switch button{padding:.65rem 1.05rem;border:1px solid #cbd5e1;background:#fff;border-radius:7px;cursor:pointer;font-weight:700;white-space:nowrap}
+    .bb-switch button[aria-pressed="true"]{background:#155e45;color:#fff;border-color:#155e45}
+    .bb-filter-actions{display:flex;align-items:center;gap:.45rem;margin-left:auto;flex:0 0 auto;white-space:nowrap}
+    .bb-filter-actions .btn{padding:.55rem .7rem;font-size:.85rem;white-space:nowrap}
+    .bb-filter-row{display:flex;align-items:flex-end;gap:18px;flex-wrap:nowrap;max-width:100%;overflow-x:auto;padding-bottom:.2rem}
+    .bb-field{display:flex;flex-direction:column;gap:.3rem;flex:0 0 2cm;min-width:0}
+    .bb-field label,.bb-range-label{font-weight:600;font-size:.9rem;white-space:nowrap}
+    .bb-field input,.bb-field select{box-sizing:border-box;width:2cm;min-width:0;padding:.45rem .25rem;border:1px solid #cbd5e1;border-radius:7px;background:#fff;font-size:13px}
+    .bb-field input::placeholder{font-size:11px}
+    .bb-range-group{display:grid;grid-template-columns:repeat(2,1.5cm);column-gap:5px;row-gap:.3rem;flex:0 0 auto;min-width:0}
+    .bb-range-label{grid-column:1/-1}
+    .bb-range-group input{box-sizing:border-box;width:1.5cm;min-width:0;padding:.4rem .1rem;border:1px solid #cbd5e1;border-radius:6px;background:#fff;font-size:12px;text-align:center;appearance:textfield;-moz-appearance:textfield}
+    .bb-range-group input::-webkit-inner-spin-button,.bb-range-group input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
+    .bb-range-group input::placeholder{font-size:10px}
+    @media(max-width:680px){.bb-toolbar{gap:.4rem}.bb-switch button{padding:.45rem .65rem;font-size:.78rem}.bb-filter-actions .btn{padding:.45rem .5rem;font-size:.75rem}.bb-filter-row{gap:14px}}
+    .bb-table{width:100%;border-collapse:collapse;min-width:950px}
+    .bb-table th,.bb-table td{padding:.7rem .65rem;border-bottom:1px solid #e2e8f0;text-align:left;vertical-align:top}
+    .bb-table thead th{background:#e9f3ef;position:sticky;top:0}
+    .bb-table tbody tr:nth-child(even){background:#f8fafc}
+    .bb-table td:nth-child(1){font-weight:700;white-space:nowrap}
+    .bb-table td:nth-child(2),.bb-table td:nth-child(3),.bb-table td:nth-child(4){white-space:nowrap}
+    .bb-table td:nth-child(6){min-width:330px;line-height:1.5}
+    .bb-table a{white-space:nowrap}
+    .bb-count{color:#475569;margin:.6rem 0}
+    .bb-hint{font-size:.85rem;color:#64748b}
+    .bb-print-btn{white-space:nowrap;align-self:end}
+    #bb-print-document{display:none}
+    @media print {
+      @page{
+        size:A4 portrait;
+        margin:15mm 14mm 20mm;
+        @bottom-right{content:counter(page);font:8pt Arial,sans-serif;color:#555}
+      }
+      body{background:#fff!important;color:#111!important;font-family:Arial,sans-serif;font-size:10pt}
+      body > header,body > main,body > footer,body > script{display:none!important}
+      #bb-print-document{display:block!important}
+      .bb-print-header{display:flex;align-items:center;gap:12mm;border-bottom:1px solid #777;padding-bottom:9px;margin-bottom:16px}
+      .bb-print-header h1{font-size:17pt;margin:0} 
+      .bb-print-logo{width:20mm;height:20mm;object-fit:contain;flex:none}
+      .bb-print-header p{margin:0;color:#555}
+      .bb-print-circuit{break-inside:avoid;page-break-inside:avoid;margin:0 0 13px}
+      .bb-print-circuit h2{font-size:11pt;margin:0 0 5px;font-weight:bold}
+      .bb-print-circuit p{margin:0;line-height:1.45;overflow-wrap:anywhere}
+      .bb-print-circuit a{color:#111;text-decoration:none}
+      .bb-print-summary{font-size:9pt;margin-bottom:16px;color:#555}
+    }
+    @media(max-width:680px){.bb-heading{align-items:flex-start}.bb-version{margin-left:0;text-align:left}}
+  </style>
+
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a aria-label="La Bicyclette Bruzoise — Accueil" class="site-branding" href="index.html">
+        <img alt="Logo de la Bicyclette Bruzoise" class="brand-logo" src="assets/img/BBlogo.jpg" />
+        <span class="brand-text">
+          <span class="brand-title">La Bicyclette Bruzoise</span>
+          <span class="brand-subtitle">Club cyclotourisme — Bruz</span>
+        </span>
+      </a>
+      <nav aria-label="Navigation principale" class="main-nav">
+        <button aria-controls="primary-menu" aria-expanded="false" class="nav-toggle" type="button">
+          <span aria-hidden="true" class="nav-toggle-icon">☰</span>
+          <span class="nav-toggle-label">Menu</span>
+        </button>
+        <ul class="nav-list" id="primary-menu">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="club.html">Le club</a></li>
+          <li><a href="calendrier.html" class="nav-private">Calendrier</a></li>
+          <li><a href="circuitsBB.html" class="nav-private" aria-current="page">Circuits</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="espace-adherents.html" class="nav-private">Espace adhérents</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="page-header"><div class="container bb-heading"><h1>Bibliothèque des circuits</h1><span class="bb-version" id="bb-version"></span></div></section>
+    <section class="home-sections"><div class="container"><article class="card">
+      <div id="private-content" class="hidden">
+        <div class="bb-controls">
+          <div class="bb-toolbar">
+            <div class="bb-switch" role="group" aria-label="Choix des circuits">
+              <button id="bb-a" type="button" aria-pressed="true">Circuits A</button>
+              <button id="bb-b" type="button" aria-pressed="false">Circuits B</button>
+              <button id="bb-bonus" type="button" aria-pressed="false">Circuits bonus</button>
+              <button id="bb-all" type="button" aria-pressed="false">Tous les circuits</button>
+            </div>
+            <div class="bb-filter-actions">
+              <button class="btn secondary" type="button" id="bb-reset">Réinitialiser les filtres</button>
+              <button class="btn primary bb-print-btn" type="button" id="bb-print">🖨 Imprimer / PDF</button>
+            </div>
+          </div>
+          <div class="bb-filter-row" aria-label="Filtres des circuits">
+            <div class="bb-field"><label for="bb-reference">Référence</label><input id="bb-reference" type="search" placeholder="Réf." autocomplete="off" aria-label="Rechercher une référence, même partielle"></div>
+            <div class="bb-field"><label for="bb-direction">Direction</label><select id="bb-direction" aria-label="Filtrer par direction"><option value="">Toutes</option></select></div>
+            <div class="bb-range-group" role="group" aria-labelledby="bb-km-label">
+              <span class="bb-range-label" id="bb-km-label">Longueur (km)</span>
+              <input id="bb-km-min" type="number" min="0" step="any" inputmode="decimal" placeholder="Min" aria-label="Longueur minimum en kilomètres">
+              <input id="bb-km-max" type="number" min="0" step="any" inputmode="decimal" placeholder="Max" aria-label="Longueur maximum en kilomètres">
+            </div>
+            <div class="bb-range-group" role="group" aria-labelledby="bb-dp-label">
+              <span class="bb-range-label" id="bb-dp-label">Dénivelé (m)</span>
+              <input id="bb-dp-min" type="number" min="0" step="any" inputmode="decimal" placeholder="Min" aria-label="Dénivelé minimum en mètres">
+              <input id="bb-dp-max" type="number" min="0" step="any" inputmode="decimal" placeholder="Max" aria-label="Dénivelé maximum en mètres">
+            </div>
+          </div>
+        </div>
+        <p id="bb-count" class="bb-count" role="status" aria-live="polite"></p>
+        <div class="table-scroll"><table class="bb-table"><thead><tr><th scope="col">Référence</th><th scope="col">Direction</th><th scope="col">km</th><th scope="col">D+</th><th scope="col">Lien OpenRunner</th><th scope="col">Itinéraire</th></tr></thead><tbody id="bb-rows"></tbody></table></div>
+      </div>
+    </article><article class="card"><form id="private-access-form" class="login-form" novalidate><label for="private-password">Mot de passe</label><input id="private-password" name="password" type="password" autocomplete="current-password" required><button class="btn primary" type="submit">Entrer</button><button id="private-logout" class="btn secondary" type="button">Verrouiller</button><p id="private-message" class="form-note" aria-live="polite"></p></form></article></div></section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>© La Bicyclette Bruzoise – Club affilié à la FFVélo.</p>
+        <p class="footer-meta">
+          Bruz (35170) – Bretagne | Site réalisé par le club.
+        </p>
+        <p class="social-links">
+          Suivez-nous :
+          <a aria-label="Instagram" class="social-icon" href="https://www.instagram.com/labicyclettebruzoise/"
+            rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">Instagram</span>
+            <!-- Instagram SVG -->
+            <svg aria-hidden="true" role="img" viewbox="0 0 24 24">
+              <path
+                d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2a3 3 0 0 1 3 3v10a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h10zm-5 3.5A4.5 4.5 0 1 0 16.5 12 4.51 4.51 0 0 0 12 7.5zm0 2A2.5 2.5 0 1 1 9.5 12 2.5 2.5 0 0 1 12 9.5zM17.75 6.25a1 1 0 1 0 1 1 1 1 0 0 0-1-1z">
+              </path>
+            </svg>
+          </a>
+          <a aria-label="Facebook" class="social-icon" href="https://www.facebook.com/profile.php?id=61586064200199"
+            rel="noopener noreferrer" target="_blank">
+            <span class="sr-only">Facebook</span>
+            <!-- Facebook SVG -->
+            <svg aria-hidden="true" role="img" viewbox="0 0 24 24">
+              <path
+                d="M13.5 22v-8h2.7l.4-3H13.5V9.1c0-.9.3-1.6 1.6-1.6h1.6V4.8c-.8-.1-1.6-.2-2.4-.2-2.4 0-4 1.5-4 4.2V11H8v3h2.3v8h3.2z">
+              </path>
+            </svg>
+          </a>
+        </p>
+      </div>
+      <div class="partner-logos">
+        <a href="https://www.ffct-codep35.org/" rel="noopener noreferrer" target="_blank" title="Codep 35 – FFCT">
+          <img alt="Codep 35 – FFCT" src="assets/img/codep3.gif" />
+        </a>
+        <a href="https://ffvelo.fr/" rel="noopener noreferrer" target="_blank"
+          title="Fédération Française de Cyclotourisme – FFVélo">
+          <img alt="FFVélo" src="assets/img/ffvelo2.gif" />
+        </a>
+        <a href="https://www.ville-bruz.fr/" rel="noopener noreferrer" target="_blank" title="Ville de Bruz">
+          <img alt="Ville de Bruz" src="assets/img/logobruz1.gif" />
+        </a>
+      </div>
+    </div>
+  </footer>
+  <div id="bb-print-document" aria-hidden="true"></div>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/circuits.js"></script>
+  <script src="assets/js/circuitsBonusData.js"></script>
+  <script>
+  (() => {
+    'use strict';
+    // Date de mise à jour : à modifier ICI uniquement (affichée à l'écran et en pied de page à l'impression).
+    const LAST_UPDATE = '13 octobre 2026';
+    el0('bb-version').textContent = `Version — mise à jour du ${LAST_UPDATE}`;
+    const printStyle = document.createElement('style');
+    printStyle.textContent = `@media print{@page{@bottom-left{content:"Mise à jour du ${LAST_UPDATE}";font:8pt Arial,sans-serif;color:#555}}}`;
+    document.head.appendChild(printStyle);
+    function el0(id) { return document.getElementById(id); }
+    const database = window.BB_CIRCUITS || {};
+    const rows = [
+      ...Object.entries(database).filter(([ref]) => /^\d+[AB](?:C\d+)?$/.test(ref)).map(([ref, data]) => ({ref, type: /A/.test(ref) ? 'A' : 'B', ...data})),
+      ...Object.entries(window.BB_CIRCUITS_BONUS || {}).map(([ref, data]) => ({ref, type:'bonus', ...data}))
+    ];
+    const el = id => document.getElementById(id);
+    let type = 'A';
+    const directions = [...new Set(rows.map(r => String(r.direction || '').trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'fr'));
+    for (const d of directions) {const option=document.createElement('option');option.value=d;option.textContent=d;el('bb-direction').appendChild(option);}
+    function numeric(value) { if (value === null || value === undefined || String(value).trim() === '') return NaN; const n=Number(String(value).replace(',','.')); return Number.isFinite(n) ? n : NaN; }
+    function naturalRef(a,b) { const pa=a.ref.match(/^(\d+)([AB]?)(.*)$/), pb=b.ref.match(/^(\d+)([AB]?)(.*)$/); return Number(pa[1])-Number(pb[1]) || pa[2].localeCompare(pb[2]) || pa[3].localeCompare(pb[3], 'fr', {numeric:true}); }
+    let displayedRows = [];
+    function render() {
+      const direction=el('bb-direction').value;
+      const bounds=['bb-km-min','bb-km-max','bb-dp-min','bb-dp-max'].map(id=>el(id).value.trim()===''?null:numeric(el(id).value));
+      const [kmMin,kmMax,dpMin,dpMax]=bounds;
+      const reference=el('bb-reference').value.trim().replace(/\s+/g,'').toUpperCase();
+      const visible=rows.filter(r => {
+        if((type !== 'all' && r.type !== type) || (direction && String(r.direction).trim()!==direction) || (reference && !r.ref.toUpperCase().includes(reference)))return false;
+        const km=numeric(r.km), dp=numeric(r.dPlus);
+        if(kmMin!==null && (!Number.isFinite(km) || km<kmMin))return false;
+        if(kmMax!==null && (!Number.isFinite(km) || km>kmMax))return false;
+        if(dpMin!==null && (!Number.isFinite(dp) || dp<dpMin))return false;
+        if(dpMax!==null && (!Number.isFinite(dp) || dp>dpMax))return false;
+        return true;
+      }).sort(naturalRef);
+      displayedRows=visible;
+      const tbody=el('bb-rows');tbody.replaceChildren();const fragment=document.createDocumentFragment();
+      for(const r of visible){
+        const tr=document.createElement('tr');
+        for(const value of [r.ref, r.direction || '—', Number.isFinite(numeric(r.km))?`${numeric(r.km)} km`:'—', Number.isFinite(numeric(r.dPlus))?`${numeric(r.dPlus)} m`:'—']){const td=document.createElement('td');td.textContent=value;tr.appendChild(td);}
+        const gps=document.createElement('td');if(typeof r.openrunner==='string' && /^https:\/\/(?:www\.)?openrunner\.com\//i.test(r.openrunner)){const a=document.createElement('a');a.href=r.openrunner;a.target='_blank';a.rel='noopener noreferrer';a.textContent='Voir le parcours ↗';gps.appendChild(a);}else{gps.textContent='—';}tr.appendChild(gps);
+        const itinerary=document.createElement('td');itinerary.textContent=r.itineraire || '—';tr.appendChild(itinerary);fragment.appendChild(tr);
+      }
+      tbody.appendChild(fragment);
+      el('bb-count').textContent=`${visible.length} circuit${visible.length>1?'s':''} affiché${visible.length>1?'s':''} — ${type==='all'?'tous les circuits':type==='bonus'?'circuits bonus':'série '+type}`;
+      el('bb-a').setAttribute('aria-pressed', String(type==='A'));
+      el('bb-b').setAttribute('aria-pressed', String(type==='B'));
+      el('bb-bonus').setAttribute('aria-pressed', String(type==='bonus'));
+      el('bb-all').setAttribute('aria-pressed', String(type==='all'));
+    }
+    function preparePrint() {
+      const root=el('bb-print-document');root.replaceChildren();
+      const header=document.createElement('div');header.className='bb-print-header';
+      const logo=document.createElement('img');logo.className='bb-print-logo';logo.src='assets/img/BBlogo.jpg';logo.alt='Logo de la Bicyclette Bruzoise';
+       const title=document.createElement('h1');title.textContent=type==='A'||type==='B' ? `Descriptifs des circuits ${type}` : type==='bonus' ? 'Descriptifs des circuits bonus' : 'Descriptifs de tous les circuits';
+       header.append(logo,title);root.appendChild(header);
+      const summary=document.createElement('p');summary.className='bb-print-summary';summary.textContent=`${displayedRows.length} circuit(s) — sélection correspondant aux filtres affichés sur la page.`;root.appendChild(summary);
+      for(const r of displayedRows){
+        const section=document.createElement('section');section.className='bb-print-circuit';
+        const h=document.createElement('h2');const km=Number.isFinite(numeric(r.km))?`${numeric(r.km)} km`:'—';
+        const dp=Number.isFinite(numeric(r.dPlus))?`${numeric(r.dPlus)} m`:'—';
+        h.textContent=`Circuit ${r.ref} / ${r.direction||'—'} / ${km} / ${dp} D+`;
+        const route=document.createElement('p');route.textContent=r.itineraire||'Itinéraire non renseigné.';
+        section.append(h,route);root.appendChild(section);
+      }
+    }
+    el('bb-print').addEventListener('click',()=>{preparePrint();window.print();});
+    window.addEventListener('beforeprint',preparePrint);
+    el('bb-a').addEventListener('click' ,()=>{type='A';render();});
+    el('bb-b').addEventListener('click',()=>{type='B';render();});
+    el('bb-bonus').addEventListener('click',()=>{type='bonus';render();});
+    el('bb-all').addEventListener('click',()=>{type='all';render();});
+    for(const id of ['bb-direction'])el(id).addEventListener('change',render);
+    for(const id of ['bb-km-min','bb-km-max','bb-dp-min','bb-dp-max'])el(id).addEventListener('input',render);
+    el('bb-reference').addEventListener('input',render);
+    el('bb-reset').addEventListener('click',()=>{for(const id of ['bb-reference','bb-direction','bb-km-min','bb-km-max','bb-dp-min','bb-dp-max'])el(id).value='';render();});
+    render();
+  })();
+  </script>
+  
+  <script src="assets/js/private-access.js"></script>
+</body>
+
+</html>
